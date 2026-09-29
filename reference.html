@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quick Reference: UML, DFD, SRS &amp; LaTeX Cheat Sheet – Design Project I</title>
+<meta name="description" content="A searchable cheat sheet for CSE 308: proposal sections, feasibility formulas, LaTeX commands, the IEEE SRS outline, SDLC models, DFD rules, UML use case, sequence and class diagram notation, Nielsen heuristics, WCAG and Figma shortcuts.">
+<meta name="keywords" content="UML cheat sheet, class diagram notation, sequence diagram notation, DFD symbols, LaTeX cheat sheet, SRS outline, SDLC comparison, Nielsen heuristics, WCAG contrast">
+<meta name="author" content="Design Project I Notes">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#17694A" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A1512" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://ayan-1829.github.io/CSE-308-Design-Project-I/reference.html">
+<link rel="icon" type="image/svg+xml" href="img/logo-mark.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Design Project I (CSE 308)">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Quick Reference: UML, DFD, SRS &amp; LaTeX Cheat Sheet – Design Project I">
+<meta property="og:description" content="A searchable cheat sheet for CSE 308: proposal sections, feasibility formulas, LaTeX commands, the IEEE SRS outline, SDLC models, DFD rules, UML use case, sequence and class diagram notation, Nielsen heuristics, WCAG and Figma shortcuts.">
+<meta property="og:url" content="https://ayan-1829.github.io/CSE-308-Design-Project-I/reference.html">
+<meta property="og:image" content="https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quick Reference: UML, DFD, SRS &amp; LaTeX Cheat Sheet – Design Project I">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quick Reference: UML, DFD, SRS &amp; LaTeX Cheat Sheet – Design Project I">
+<meta name="twitter:description" content="A searchable cheat sheet for CSE 308: proposal sections, feasibility formulas, LaTeX commands, the IEEE SRS outline, SDLC models, DFD rules, UML use case, sequence and class diagram notation, Nielsen heuristics, WCAG and Figma shortcuts.">
+<meta name="twitter:image" content="https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/home.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Design Project I", "item": "https://ayan-1829.github.io/CSE-308-Design-Project-I/"}, {"@type": "ListItem", "position": 2, "name": "Quick Reference: UML, DFD, SRS & LaTeX Cheat Sheet", "item": "https://ayan-1829.github.io/CSE-308-Design-Project-I/reference.html"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="index-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="page-simple">
+<header class="site-header">
+<a class="brand" href="index.html" aria-label="Design Project I — home"><img src="img/logo.svg" alt="Design Project I" width="236" height="47"></a>
+<nav class="topnav" aria-label="Primary"><a href="index.html">All topics</a><a href="practice.html">Practice</a><a href="reference.html" aria-current="page">Quick reference</a><a href="projects.html">Lab reports</a><a href="resources.html">Resources</a><button type="button" class="btn sm" id="btn-theme" aria-pressed="false" aria-label="Toggle dark mode"><svg class="btn-ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"></path></svg><span>Dark mode</span></button></nav>
+</header>
+<main id="main">
+<h1>Quick reference</h1><p class="lead" style="margin:12px 0 16px">Notation, templates and formulas from the whole course on one searchable page.</p><div class="row" style="margin-bottom:18px"><label class="fld" style="flex:1">Search<input type="text" id="refq" placeholder="e.g. include, multiplicity, \cite, contrast" autocomplete="off" style="width:100%"></label></div><p id="refnone" class="muted" hidden>No section matches.</p><section class="refsec"><h3>Proposal sections</h3><ul><li>Title and team</li><li>Problem analysis and motivation</li><li>Objectives (SMART)</li><li>Literature review / related work</li><li>Methodology</li><li>Feasibility study (technical, economic, legal, operational, schedule)</li><li>Main phases and detailed work plan</li><li>Gantt chart</li><li>Budget</li><li>Risk analysis</li><li>Expected outcome, conclusion, references</li></ul></section><section class="refsec"><h3>Economic feasibility formulas</h3><div class="formula">payback period = development cost ÷ (annual benefit − annual running cost)<br>ROI = (total benefit − total cost) ÷ total cost × 100%<br>NPV = −initial cost + Σ<sub>t=1..n</sub> net benefit<sub>t</sub> ÷ (1 + r)<sup>t</sup><br>risk score = probability × impact (1–5 each)</div></section><section class="refsec"><h3>LaTeX: special characters</h3><div class="scrollx"><table class="doc"><thead><tr><th>Type</th><th>To print</th></tr></thead><tbody><tr><td>%</td><td>\%</td></tr><tr><td>$</td><td>\$</td></tr><tr><td>&amp;</td><td>\&amp;</td></tr><tr><td>#</td><td>\#</td></tr><tr><td>_</td><td>\_</td></tr><tr><td>{ }</td><td>\{ \}</td></tr><tr><td>~</td><td>\textasciitilde</td></tr><tr><td>^</td><td>\^{}</td></tr><tr><td>\</td><td>\textbackslash</td></tr><tr><td>“quotes”</td><td>``quotes''</td></tr></tbody></table></div></section><section class="refsec"><h3>LaTeX: document skeleton</h3><pre class="code tex">\documentclass[12pt]{article}
+\usepackage{amsmath, graphicx, biblatex}
+\addbibresource{refs.bib}
+\title{Title} \author{Team} \date{\today}
+\begin{document}
+\maketitle
+\begin{abstract} ... \end{abstract}
+\section{Introduction}\label{sec:intro}
+See Section~\ref{sec:intro} and~\cite{key}.
+\printbibliography
+\end{document}</pre></section><section class="refsec"><h3>LaTeX: maths</h3><div class="scrollx"><table class="doc"><thead><tr><th>Write</th><th>For</th></tr></thead><tbody><tr><td>$x^2$, $x_i$</td><td>super/subscript</td></tr><tr><td>\frac{a}{b}</td><td>fraction</td></tr><tr><td>\sqrt{x}</td><td>root</td></tr><tr><td>\sum_{i=1}^{n}</td><td>sum</td></tr><tr><td>\leq \geq \neq \pm \infty</td><td>≤ ≥ ≠ ± ∞</td></tr><tr><td>\begin{equation} … \end{equation}</td><td>numbered display</td></tr><tr><td>\begin{align*} a &amp;= b \\ &amp;= c \end{align*}</td><td>aligned lines (amsmath)</td></tr></tbody></table></div></section><section class="refsec"><h3>LaTeX: figure and table</h3><pre class="code tex">\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{file}
+  \caption{Caption.}\label{fig:key}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Caption.}\label{tab:key}
+  \begin{tabular}{|l|c|r|} \hline
+  A &amp; B &amp; C \\ \hline
+  \end{tabular}
+\end{table}</pre></section><section class="refsec"><h3>LaTeX: algorithm</h3><pre class="code tex">\begin{algorithm}
+\caption{Name}
+\begin{algorithmic}[1]
+\State $s \gets 0$
+\For{$i \gets 1$ to $n$} \State $s \gets s + i$ \EndFor
+\If{$s &gt; 10$} \State ... \Else \State ... \EndIf
+\While{cond} \State ... \EndWhile
+\Return $s$
+\end{algorithmic}
+\end{algorithm}</pre></section><section class="refsec"><h3>IEEE SRS outline</h3><ol><li>Introduction: purpose, conventions, audience, scope, references</li><li>Overall description: perspective, features, user classes, environment, constraints, documentation, assumptions</li><li>System features: description &amp; priority, stimulus/response, functional requirements</li><li>External interfaces: user, hardware, software, communications</li><li>Non-functional: performance, safety, security, quality attributes, business rules</li><li>Other requirements; appendices (glossary, models, TBD list)</li></ol></section><section class="refsec"><h3>Qualities of a good requirement</h3>Correct · unambiguous · complete · consistent · ranked for importance · verifiable · modifiable · traceable. Write “The system shall …”, one idea, with an ID and a number for every quality.</section><section class="refsec"><h3>SDLC models</h3><div class="scrollx"><table class="doc"><thead><tr><th>Model</th><th>Use when</th></tr></thead><tbody><tr><td>Waterfall</td><td>requirements fixed and well understood</td></tr><tr><td>V-model</td><td>fixed requirements and high reliability; a test per phase</td></tr><tr><td>Iterative</td><td>large system, core requirements known, changes expected</td></tr><tr><td>Spiral</td><td>large, costly, high-risk; risk analysis every loop</td></tr><tr><td>Agile</td><td>requirements change; customer available; short sprints</td></tr><tr><td>Prototyping</td><td>requirements unclear, especially the UI</td></tr></tbody></table></div></section><section class="refsec"><h3>DFD symbols and rules</h3><div class="scrollx"><table class="doc"><thead><tr><th>Symbol</th><th>Yourdon</th><th>Gane–Sarson</th></tr></thead><tbody><tr><td>Process</td><td>circle</td><td>rounded rectangle</td></tr><tr><td>Data store</td><td>two parallel lines</td><td>open-ended rectangle with ID</td></tr><tr><td>External entity</td><td>rectangle</td><td>rectangle</td></tr><tr><td>Data flow</td><td>labelled arrow</td><td>labelled arrow</td></tr></tbody></table></div><p class="small">Every flow starts or ends at a process. No entity→entity, entity→store, store→entity or store→store flows. Levels must balance. Level 0 has one process and no stores.</p></section><section class="refsec"><h3>Use case diagram</h3><div class="scrollx"><table class="doc"><thead><tr><th>Element</th><th>Notation</th></tr></thead><tbody><tr><td>Actor</td><td>stick figure outside the boundary</td></tr><tr><td>Use case</td><td>ellipse, verb + object</td></tr><tr><td>Association</td><td>solid line</td></tr><tr><td>«include»</td><td>dashed arrow, base → included (always)</td></tr><tr><td>«extend»</td><td>dashed arrow, extension → base (sometimes)</td></tr><tr><td>Generalization</td><td>solid line, hollow triangle to the parent</td></tr></tbody></table></div></section><section class="refsec"><h3>Sequence diagram messages</h3><div class="scrollx"><table class="doc"><thead><tr><th>Message</th><th>Line</th><th>Head</th></tr></thead><tbody><tr><td>Synchronous</td><td>solid</td><td>filled</td></tr><tr><td>Reply</td><td>dashed</td><td>open</td></tr><tr><td>Asynchronous</td><td>solid</td><td>open</td></tr><tr><td>Self</td><td>U-shape</td><td>filled</td></tr><tr><td>Create</td><td>dashed, «create»</td><td>open</td></tr><tr><td>Destroy</td><td>solid</td><td>ends in ✕</td></tr></tbody></table></div><p class="small">Fragments: <b>alt</b> (if/else), <b>opt</b> (if), <b>loop</b>, <b>par</b>, <b>ref</b>, <b>break</b>. Lifeline name: <code>instance : Class</code>.</p></section><section class="refsec"><h3>Class diagram notation</h3><div class="scrollx"><table class="doc"><thead><tr><th>Symbol</th><th>Meaning</th></tr></thead><tbody><tr><td>+ - # ~</td><td>public, private, protected, package</td></tr><tr><td>underline</td><td>static</td></tr><tr><td>italic</td><td>abstract</td></tr><tr><td>name : Type = value</td><td>attribute</td></tr><tr><td>op(p : T) : R</td><td>operation</td></tr><tr><td>1, 0..1, *, 1..*</td><td>multiplicity</td></tr></tbody></table></div><div class="scrollx"><table class="doc"><thead><tr><th>Relationship</th><th>Line</th><th>End</th></tr></thead><tbody><tr><td>Association</td><td>solid</td><td>none / open arrow</td></tr><tr><td>Dependency</td><td>dashed</td><td>open arrow</td></tr><tr><td>Aggregation</td><td>solid</td><td>hollow diamond at the whole</td></tr><tr><td>Composition</td><td>solid</td><td>filled diamond at the whole</td></tr><tr><td>Generalization</td><td>solid</td><td>hollow triangle at the parent</td></tr><tr><td>Realization</td><td>dashed</td><td>hollow triangle at the interface</td></tr></tbody></table></div></section><section class="refsec"><h3>Nielsen’s heuristics</h3><ol><li>Visibility of system status</li><li>Match between system and the real world</li><li>User control and freedom</li><li>Consistency and standards</li><li>Error prevention</li><li>Recognition rather than recall</li><li>Flexibility and efficiency of use</li><li>Aesthetic and minimalist design</li><li>Help users recognise, diagnose and recover from errors</li><li>Help and documentation</li></ol></section><section class="refsec"><h3>Accessibility numbers (WCAG 2.2)</h3><div class="scrollx"><table class="doc"><thead><tr><th>Check</th><th>Minimum</th></tr></thead><tbody><tr><td>Normal text contrast (AA)</td><td>4.5 : 1</td></tr><tr><td>Large text (≥ 24 px or ≥ 18.5 px bold)</td><td>3 : 1</td></tr><tr><td>Icons, borders, focus rings</td><td>3 : 1</td></tr><tr><td>Enhanced text contrast (AAA)</td><td>7 : 1</td></tr><tr><td>Target size (2.5.8, AA)</td><td>24 × 24 CSS px</td></tr></tbody></table></div></section><section class="refsec"><h3>Figma shortcuts</h3><div class="scrollx"><table class="doc"><thead><tr><th>Action</th><th>Shortcut</th></tr></thead><tbody><tr><td>Frame</td><td>F (or A)</td></tr><tr><td>Rectangle / ellipse / text</td><td>R / O / T</td></tr><tr><td>Create component</td><td>Ctrl/⌘ + Alt/⌥ + K</td></tr><tr><td>Auto layout</td><td>Shift + A</td></tr><tr><td>Group</td><td>Ctrl/⌘ + G</td></tr><tr><td>Present prototype</td><td>Ctrl/⌘ + Alt/⌥ + Enter</td></tr></tbody></table></div></section>
+</main>
+<footer class="site-foot small muted"><p>Design Project I (CSE 308) · interactive course notes, version 1. Independent study notes that follow the CSE 308 lab outline at Green University of Bangladesh; they are not an official university page. <a href="resources.html">Further learning</a> · <a href="reference.html">Quick reference</a></p></footer>
+</div>
+<script src="js/core.js"></script>
+<script src="js/latex.js"></script>
+<script>document.querySelectorAll("pre.code").forEach(function(p){TeX.render(p);});
+(function () {
+  var q = document.getElementById("refq"), none = document.getElementById("refnone");
+  var secs = Array.prototype.slice.call(document.querySelectorAll(".refsec"));
+  q.addEventListener("input", function () {
+    var t = q.value.trim().toLowerCase(), shown = 0;
+    secs.forEach(function (s) { var ok = !t || s.textContent.toLowerCase().indexOf(t) >= 0; s.hidden = !ok; if (ok) shown++; });
+    none.hidden = shown > 0;
+  });
+})();</script>
+</body>
+</html>
