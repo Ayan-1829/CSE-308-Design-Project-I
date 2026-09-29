@@ -21,6 +21,8 @@ js/figs.js            every figure (FIGS[id]) used by <figure class="fig" data-f
 js/latex.js           LaTeX/BibTeX highlighter and the in-browser LaTeX previewer
 js/demos.js           interactive tools (DEMOS[id]) used by <div data-demo="id">
 js/quiz.js, js/page.js, js/slides.js, js/annotate.js   quiz, mounting, slide engine, drawing layer
+js/analytics.js       shared cookieless analytics tracker (do not edit; same file in every project)
+js/course-events.js   course events for the Course analytics Sheet: slide titles, quizzes, tools, answers
 img/                  logo, favicons, social-share images (img/og/)
 robots.txt, sitemap.xml, site.webmanifest   SEO files. The site address is https://ayan-1829.github.io/CSE-308-Design-Project-I/
                       (search-and-replace it everywhere if you publish somewhere else).
