@@ -1,56 +1,73 @@
+<div align="center">
+
+<img src="img/logo.svg" alt="CSE 308 logo" height="76">
+
 # CSE 308 · Design Project I
 
-Interactive course notes for Design Project I: planning, LaTeX, IEEE SRS, SDLC, DFD, UML and Figma, with a worked project.
+**Interactive course notes for Design Project I: planning, LaTeX, IEEE SRS, SDLC, DFD, UML and Figma, with a worked project.**
 
-### 🌐 Live site: **[https://ayan-1829.github.io/CSE-308-Design-Project-I/](https://ayan-1829.github.io/CSE-308-Design-Project-I/)**
+<a href="https://ayan-1829.github.io/CSE-308-Design-Project-I/"><img alt="Live site: open" src="https://img.shields.io/badge/Live_site-open-1B6B4A?style=for-the-badge&logo=githubpages&logoColor=white"></a>
+<img alt="Topics: 10" src="https://img.shields.io/badge/Topics-10-555555?style=for-the-badge">
+<img alt="Slides: 256" src="https://img.shields.io/badge/Slides-256-555555?style=for-the-badge">
+<img alt="Build step: none" src="https://img.shields.io/badge/Build_step-none-555555?style=for-the-badge&logo=html5&logoColor=white">
 
-Also on the site: [Practice problems](https://ayan-1829.github.io/CSE-308-Design-Project-I/practice.html) · [Cheat sheet](https://ayan-1829.github.io/CSE-308-Design-Project-I/reference.html) · [Lab reports](https://ayan-1829.github.io/CSE-308-Design-Project-I/projects.html) · [Resources](https://ayan-1829.github.io/CSE-308-Design-Project-I/resources.html)
+### [🌐 Open the live site →](https://ayan-1829.github.io/CSE-308-Design-Project-I/)
 
-## What’s inside
+</div>
 
-- 9 lab decks plus a fully worked example project (CampusCare)
-- LaTeX playground with live preview, DFD and UML figures, and a sequence-diagram builder
-- Report templates, lab-report checklists saved in the browser and a quiz in every topic
-- Practice problems, a searchable cheat sheet and curated resources per topic
+<br>
 
-## Topics
+<p align="center"><img src="docs/screenshots/home.png" alt="Home page" width="49%"> <img src="docs/screenshots/slide.png" alt="An interactive slide" width="49%"></p>
 
-10 decks, 256 slides. Each link opens the live deck.
+<p align="center"><a href="https://ayan-1829.github.io/CSE-308-Design-Project-I/practice.html">Practice problems</a> · <a href="https://ayan-1829.github.io/CSE-308-Design-Project-I/reference.html">Cheat sheet</a> · <a href="https://ayan-1829.github.io/CSE-308-Design-Project-I/projects.html">Lab reports</a> · <a href="https://ayan-1829.github.io/CSE-308-Design-Project-I/resources.html">Resources</a></p>
+
+## ✨ Highlights
+
+<table>
+<tr><td width="50%" valign="top">🧭&nbsp; 9 lab decks plus a fully worked example project (CampusCare)</td><td width="50%" valign="top">🔍&nbsp; LaTeX playground with live preview, DFD and UML figures, and a sequence-diagram builder</td></tr>
+<tr><td width="50%" valign="top">🧩&nbsp; Report templates, lab-report checklists saved in the browser and a quiz in every topic</td><td width="50%" valign="top">📝&nbsp; Practice problems, a searchable cheat sheet and curated resources per topic</td></tr>
+</table>
+
+## 📚 Topics
+
+10 decks · 256 slides. Each title opens the live deck.
 
 | # | Topic | Slides |
-|---|---|---|
-| ★ | [Worked Project: CampusCare Appointment System](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/00-worked-project-campuscare.html) | 22 |
-| 1 | [Team Formation, Project Assignment & Planning](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/01-team-formation-and-project-planning.html) | 31 |
-| 2 | [Technical Report Writing with LaTeX](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/02-technical-report-writing-with-latex.html) | 32 |
-| 3 | [IEEE Software Requirements Specification (SRS)](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/03-ieee-software-requirements-specification.html) | 26 |
-| 4 | [SDLC Model Selection](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/04-sdlc-model-selection.html) | 24 |
-| 5 | [Data Flow Diagrams (DFD): Level 0 and Level 1](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/05-data-flow-diagrams-level-0-and-1.html) | 23 |
-| 6 | [UML Use Case Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/06-uml-use-case-diagrams.html) | 23 |
-| 7 | [UML Sequence & Communication Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/07-uml-sequence-and-communication-diagrams.html) | 23 |
-| 8 | [UML Class Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/08-uml-class-diagrams.html) | 26 |
-| 9 | [UI/UX Foundations & Figma Wireframing](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/09-ui-ux-foundations-and-figma-wireframing.html) | 26 |
+|:--:|---|:--:|
+| **★** | [Worked Project: CampusCare Appointment System](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/00-worked-project-campuscare.html) | 22 |
+| **1** | [Team Formation, Project Assignment & Planning](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/01-team-formation-and-project-planning.html) | 31 |
+| **2** | [Technical Report Writing with LaTeX](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/02-technical-report-writing-with-latex.html) | 32 |
+| **3** | [IEEE Software Requirements Specification (SRS)](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/03-ieee-software-requirements-specification.html) | 26 |
+| **4** | [SDLC Model Selection](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/04-sdlc-model-selection.html) | 24 |
+| **5** | [Data Flow Diagrams (DFD): Level 0 and Level 1](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/05-data-flow-diagrams-level-0-and-1.html) | 23 |
+| **6** | [UML Use Case Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/06-uml-use-case-diagrams.html) | 23 |
+| **7** | [UML Sequence & Communication Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/07-uml-sequence-and-communication-diagrams.html) | 23 |
+| **8** | [UML Class Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/08-uml-class-diagrams.html) | 26 |
+| **9** | [UI/UX Foundations & Figma Wireframing](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/09-ui-ux-foundations-and-figma-wireframing.html) | 26 |
 
-## Using the slides
+## ⌨️ Using the slides
 
 | Key | Action |
-|---|---|
-| <kbd>←</kbd> <kbd>→</kbd> / <kbd>Space</kbd> | previous / next slide |
-| <kbd>Home</kbd> / <kbd>End</kbd> | first / last slide |
-| <kbd>F</kbd> | full screen |
+|:--:|---|
+| <kbd>←</kbd> <kbd>→</kbd> · <kbd>Space</kbd> | previous / next slide |
+| <kbd>Home</kbd> · <kbd>End</kbd> | first / last slide |
+| <kbd>F</kbd> | full screen for teaching |
 | <kbd>M</kbd> | slide list |
-| ✏️ button | draw on the slide |
+| ✏️ | draw on any slide |
 
-The address bar shows `#s=N` for slide N, so you can link straight to any slide. Light and dark themes are built in.
+The address bar shows `#s=N`, so you can link straight to a slide. Light and dark themes follow your system, with a toggle in the header.
 
-## Run it locally
+## 🚀 Run it locally
 
-No build step or server is needed: download or clone the repository and open `index.html` in a browser.
+No build step, no server: clone the repository and open `index.html` in any modern browser.
 
 ```bash
 git clone https://github.com/Ayan-1829/CSE-308-Design-Project-I.git
+open CSE-308-Design-Project-I/index.html      # macOS · use start on Windows, xdg-open on Linux
 ```
 
-## Developer notes
+<details>
+<summary><b>🛠 Developer notes: folder layout and how the pages are built</b></summary>
 
 ```text
 Folder layout
@@ -81,15 +98,17 @@ Each slide is a <section class="slide" data-title="..."> inside a topic file; co
 text and save. The slide counter and slide list update automatically.
 ```
 
-## All courses
+</details>
 
-| Course | Live site | Repository |
-|---|---|---|
-| CSE 201 · Object Oriented Programming | [https://ayan-1829.github.io/CSE-201-Object-Oriented-Programming/](https://ayan-1829.github.io/CSE-201-Object-Oriented-Programming/) | [CSE-201-Object-Oriented-Programming](https://github.com/Ayan-1829/CSE-201-Object-Oriented-Programming) |
-| CSE 202 · Object Oriented Programming Lab | [https://ayan-1829.github.io/CSE-202-Object-Oriented-Programming-Lab/](https://ayan-1829.github.io/CSE-202-Object-Oriented-Programming-Lab/) | [CSE-202-Object-Oriented-Programming-Lab](https://github.com/Ayan-1829/CSE-202-Object-Oriented-Programming-Lab) |
-| CSE 203 · Digital Logic Design | [https://ayan-1829.github.io/CSE-203-Digital-Logic-Design/](https://ayan-1829.github.io/CSE-203-Digital-Logic-Design/) | [CSE-203-Digital-Logic-Design](https://github.com/Ayan-1829/CSE-203-Digital-Logic-Design) |
-| CSE 308 · Design Project I (this one) | [https://ayan-1829.github.io/CSE-308-Design-Project-I/](https://ayan-1829.github.io/CSE-308-Design-Project-I/) | [CSE-308-Design-Project-I](https://github.com/Ayan-1829/CSE-308-Design-Project-I) |
+## 🎓 All courses
+
+| | Course | Live site | Repository |
+|:--:|---|:--:|:--:|
+| <img src="https://raw.githubusercontent.com/Ayan-1829/CSE-201-Object-Oriented-Programming/main/img/logo-mark.svg" height="28"> | **CSE 201** · Object Oriented Programming | [Open](https://ayan-1829.github.io/CSE-201-Object-Oriented-Programming/) | [GitHub](https://github.com/Ayan-1829/CSE-201-Object-Oriented-Programming) |
+| <img src="https://raw.githubusercontent.com/Ayan-1829/CSE-202-Object-Oriented-Programming-Lab/main/img/logo-mark.svg" height="28"> | **CSE 202** · Object Oriented Programming Lab | [Open](https://ayan-1829.github.io/CSE-202-Object-Oriented-Programming-Lab/) | [GitHub](https://github.com/Ayan-1829/CSE-202-Object-Oriented-Programming-Lab) |
+| <img src="https://raw.githubusercontent.com/Ayan-1829/CSE-203-Digital-Logic-Design/main/img/logo-mark.svg" height="28"> | **CSE 203** · Digital Logic Design | [Open](https://ayan-1829.github.io/CSE-203-Digital-Logic-Design/) | [GitHub](https://github.com/Ayan-1829/CSE-203-Digital-Logic-Design) |
+| <img src="https://raw.githubusercontent.com/Ayan-1829/CSE-308-Design-Project-I/main/img/logo-mark.svg" height="28"> | **CSE 308** · Design Project I **(this one)** | [Open](https://ayan-1829.github.io/CSE-308-Design-Project-I/) | [GitHub](https://github.com/Ayan-1829/CSE-308-Design-Project-I) |
 
 ---
 
-© Ayan Sarkar · Green University of Bangladesh
+<p align="center">Made by <b>Ayan Sarkar</b> · Green University of Bangladesh</p>
