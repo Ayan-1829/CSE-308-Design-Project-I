@@ -475,7 +475,18 @@ const TeX = (() => {
     loadKatex((ok) => { if (ok) paint(); });
   }
 
-  return { render, compile, loadKatex, fmtBib, parseBib, mountOutputs, hlTexLine, escH };
+  /* A snippet copied from a slide (no \documentclass, no \begin{document}) becomes the body of an article
+     that loads the course packages. Its own \usepackage lines and unindented "..." lines become blank lines,
+     so line numbers stay the same; shift is how many lines the added preamble takes. */
+  const SNIPPET_PKGS = ['amsmath', 'graphicx', 'caption', 'subcaption', 'float', 'booktabs', 'algorithm', 'algpseudocode', 'listings', 'biblatex'];
+  function wrapSnippet(src) {
+    if (/\\documentclass|\\begin\{document\}/.test(src)) return { src, shift: 0, wrapped: false };
+    const pre = '\\documentclass{article}\n' + SNIPPET_PKGS.map((p) => '\\usepackage{' + p + '}\n').join('') + '\\begin{document}\n';
+    const body = src.split('\n').map((l) => (/^\s*\\usepackage/.test(l) || l.trimEnd() === '...' ? '' : l)).join('\n');
+    return { src: pre + body + '\n\\end{document}', shift: pre.split('\n').length - 1, wrapped: true };
+  }
+
+  return { render, compile, loadKatex, fmtBib, parseBib, mountOutputs, wrapSnippet, hlTexLine, escH };
 })();
 
 /* bibliography shared by the playground and the code-example outputs (stands in for citation.bib) */

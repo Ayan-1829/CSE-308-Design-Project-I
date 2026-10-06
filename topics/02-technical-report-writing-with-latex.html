@@ -89,20 +89,13 @@ Hello World! % your content goes here...
 <p class="kicker">Typesetting text</p><h2>Handling errors</h2><div class="cols "><div><p>When LaTeX cannot understand the source it stops with an <b>error</b> and a line number. For example, misspelling <code>\emph</code> as <code>\meph</code> gives <i>Undefined control sequence</i>.</p><h3>Advice on errors</h3><ol><li>Don’t panic — errors happen to everyone.</li><li>Fix them as soon as they appear: if what you just typed caused an error, start there.</li><li>If there are several errors, fix the <b>first</b> one; the cause may even be on a line above it.</li></ol></div><div><div class="scrollx"><table class="doc"><thead><tr><th>Message</th><th>Usual cause</th></tr></thead><tbody><tr><td>Undefined control sequence</td><td>misspelt command, or a package not loaded</td></tr><tr><td>Missing $ inserted</td><td><code>_</code>, <code>^</code> or a maths command used outside <code>$…$</code>; or a blank line inside maths</td></tr><tr><td>Misplaced alignment tab character &amp;</td><td>an <code>&amp;</code> in normal text: write <code>\&amp;</code></td></tr><tr><td>\begin{x} ended by \end{y}</td><td>environments closed in the wrong order</td></tr><tr><td>Environment align undefined</td><td><code>\usepackage{amsmath}</code> missing</td></tr><tr><td>Reference … undefined</td><td>a <code>\label</code> is missing or misspelt; or compile again</td></tr></tbody></table></div></div></div>
 </div></section>
 <section class="slide " data-title="Exercise 1: find and fix the errors" aria-label="Exercise 1: find and fix the errors" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Exercise</p><h2>Exercise 1: find and fix the errors</h2><div data-demo="tex-play" data-sample="exercise1"></div><details class="reveal"><summary>Show the fixed text</summary><div class="ans"><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">In March 2006, Congress raised that ceiling an additional \$0.79
+<p class="kicker">Exercise</p><h2>Exercise 1: find and fix the errors</h2><div data-demo="tex-play" data-sample="exercise1"></div><details class="reveal"><summary>Show the fixed text</summary><div class="ans"><p class="small">The whole corrected source: select all of it and paste it over the text in the box above.</p><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\documentclass{article}
+\begin{document}
+In March 2006, Congress raised that ceiling an additional \$0.79
 trillion to \$8.97 trillion, which is approximately 68\% of GDP. As of
 October 4, 2008, the ``Emergency Economic Stabilization Act of
-2008&#x27;&#x27; raised the current debt ceiling to \$11.3 trillion.</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{float}
-\usepackage{booktabs}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-\usepackage{listings}
-\usepackage{biblatex}
+2008&#x27;&#x27; raised the current debt ceiling to \$11.3 trillion.
+\end{document}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
 \begin{document}
 In March 2006, Congress raised that ceiling an additional \$0.79
 trillion to \$8.97 trillion, which is approximately 68\% of GDP. As of
@@ -181,24 +174,19 @@ where $a$, $b$ and $c$ are \ldots
 <p class="kicker">Interactive</p><h2>Try it: maths</h2><div data-demo="tex-play" data-sample="math"></div><p class="small muted">Change a formula and watch the page. Try deleting a <code>$</code> or the <code>\usepackage{amsmath}</code> line to see the errors LaTeX gives.</p>
 </div></section>
 <section class="slide " data-title="Exercise 2: typeset the central limit theorem" aria-label="Exercise 2: typeset the central limit theorem" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Exercise</p><h2>Exercise 2: typeset the central limit theorem</h2><div data-demo="tex-play" data-sample="exercise2"></div><details class="reveal"><summary>Show the answer</summary><div class="ans"><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically
+<p class="kicker">Exercise</p><h2>Exercise 2: typeset the central limit theorem</h2><div data-demo="tex-play" data-sample="exercise2"></div><details class="reveal"><summary>Show the answer</summary><div class="ans"><p class="small">The whole corrected source: select all of it and paste it over the text in the box above.</p><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically
 distributed random variables with $\operatorname{E}[X_i] = \mu$ and
 $\operatorname{Var}[X_i] = \sigma^2 &lt; \infty$, and let
 \begin{equation*}
 S_n = \frac{1}{n}\sum_{i=1}^{n} X_i
 \end{equation*}
 denote their mean. Then as $n$ approaches infinity, the random variables
-$\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $N(0, \sigma^2)$.</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+$\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $N(0, \sigma^2)$.
+\end{document}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
 \usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{float}
-\usepackage{booktabs}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-\usepackage{listings}
-\usepackage{biblatex}
 \begin{document}
 Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically
 distributed random variables with $\operatorname{E}[X_i] = \mu$ and

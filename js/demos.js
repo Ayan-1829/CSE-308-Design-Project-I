@@ -327,9 +327,12 @@ DEMOS['tex-play'] = (root) => {
   /* the visible text of a page, ignoring spacing and KaTeX's hidden MathML copy */
   const looks = (el) => { const c = el.cloneNode(true); c.querySelectorAll('.katex-mathml').forEach((x) => x.remove()); return c.textContent.replace(/\s+/g, ''); };
   function build() {
-    const r = TeX.compile(ta.value, { bib: TEX_BIB });
+    const w = TeX.wrapSnippet(ta.value);
+    const r = TeX.compile(w.src, { bib: TEX_BIB });
+    r.errors.forEach((e) => { e.line = Math.max(1, e.line - w.shift); });
     view.innerHTML = r.html || '<p class="tx-note">(empty page)</p>';
     clear(log);
+    if (w.wrapped && ta.value.trim()) log.append(h('div', { class: 'tl-warn' }, h('b', null, 'Note: '), 'no \\documentclass, so this was compiled as the body of an article that loads the course packages. In Overleaf, paste it between \\begin{document} and \\end{document}.'));
     if (!r.errors.length && !r.warnings.length) log.append(h('div', { class: 'tl-ok' }, '✓ Compiled with no errors.'));
     r.errors.forEach((e) => log.append(h('div', { class: 'tl-err' }, h('b', null, `! l.${e.line} `), e.msg)));
     r.warnings.forEach((w) => log.append(h('div', { class: 'tl-warn' }, h('b', null, 'Warning: '), w)));
