@@ -8,7 +8,7 @@
 
 <a href="https://ayan-1829.github.io/CSE-308-Design-Project-I/"><img alt="Live site: open" src="https://img.shields.io/badge/Live_site-open-1B6B4A?style=for-the-badge&logo=githubpages&logoColor=white"></a>
 <img alt="Topics: 10" src="https://img.shields.io/badge/Topics-10-555555?style=for-the-badge">
-<img alt="Slides: 256" src="https://img.shields.io/badge/Slides-256-555555?style=for-the-badge">
+<img alt="Slides: 258" src="https://img.shields.io/badge/Slides-258-555555?style=for-the-badge">
 <img alt="Build step: none" src="https://img.shields.io/badge/Build_step-none-555555?style=for-the-badge&logo=html5&logoColor=white">
 
 ### [🌐 Open the live site →](https://ayan-1829.github.io/CSE-308-Design-Project-I/)
@@ -30,13 +30,13 @@
 
 ## 📚 Topics
 
-10 decks · 256 slides. Each title opens the live deck.
+10 decks · 258 slides. Each title opens the live deck.
 
 | # | Topic | Slides |
 |:--:|---|:--:|
 | **★** | [Worked Project: CampusCare Appointment System](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/00-worked-project-campuscare.html) | 22 |
 | **1** | [Team Formation, Project Assignment & Planning](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/01-team-formation-and-project-planning.html) | 31 |
-| **2** | [Technical Report Writing with LaTeX](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/02-technical-report-writing-with-latex.html) | 32 |
+| **2** | [Technical Report Writing with LaTeX](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/02-technical-report-writing-with-latex.html) | 34 |
 | **3** | [IEEE Software Requirements Specification (SRS)](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/03-ieee-software-requirements-specification.html) | 26 |
 | **4** | [SDLC Model Selection](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/04-sdlc-model-selection.html) | 24 |
 | **5** | [Data Flow Diagrams (DFD): Level 0 and Level 1](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/05-data-flow-diagrams-level-0-and-1.html) | 23 |

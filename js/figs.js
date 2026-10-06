@@ -379,6 +379,17 @@ FIGS['realization'] = () => {
   const b = D.umlClass(380, 190, 250, { name: 'MobileWallet', attrs: ['- phone : String'], ops: ['+ pay(amount : double) : boolean', '+ refund(id : String) : void'] });
   return D.svg(640, 300, 'Realization: two classes implement one interface', [i.el, a.el, b.el, L([a.top(), [135, 160], [320, 160], i.bottom()], { end: 'tri', dash: true }), L([b.top(), [505, 160], [320, 160]], { dash: true })]);
 };
+FIGS['code-house-dept'] = () => {   // the UML that the House / Department Java code corresponds to
+  const house = D.umlClass(10, 20, 190, { name: 'House', ops: ['+ House()'] });
+  const room = D.umlClass(390, 13.5, 200, { name: 'Room', attrs: ['- name : String'], ops: ['+ Room(name : String)'] });
+  const dept = D.umlClass(10, 140, 190, { name: 'Department', ops: ['+ add(t : Teacher)'] });
+  const tch = D.umlClass(390, 140, 200, { name: 'Teacher', attrs: ['- name : String'] });
+  const k = [house.el, room.el, dept.el, tch.el,
+    L([house.right(), room.left()], { start: 'dia', label: 'rooms', dy: -10, at: .78 }), TX(382, house.cy + 15, '1..*', 'dg-m', 'end'), TX(214, house.cy + 15, '1', 'dg-m', 'start'),
+    L([dept.right(), tch.left()], { start: 'odia', label: 'teachers', dy: -10, at: .78 }), TX(382, dept.cy + 15, '*', 'dg-m', 'end'),
+    TX(295, 112, 'composition: House creates its Rooms', 'dg-s', 'middle'), TX(295, 226, 'aggregation: Teachers come from outside', 'dg-s', 'middle')];
+  return D.svg(600, 236, 'UML class diagram for the House and Department code', k);
+};
 FIGS['atm-class'] = () => {
   const bank = D.umlClass(30, 34, 170, { name: 'Bank', attrs: ['+ code : String', '+ address : String'], ops: ['+ manages()', '+ maintains()'], g: 'cx-bank' });
   const atm = D.umlClass(560, 34, 180, { name: 'ATM', attrs: ['+ location : String', '+ managedBy : String'], ops: ['+ identifies()', '+ transactions()'], g: 'cx-atm' });

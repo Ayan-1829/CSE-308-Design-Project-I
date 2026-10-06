@@ -695,6 +695,44 @@ input[type=color]{width:44px;height:36px;border:1px solid var(--ink-3);border-ra
 .tx-page hr.tx-page{border:0;border-top:2px dashed #bbb;margin:18px 0}
 table.tgrid-edit td{padding:2px}
 table.tgrid-edit input{width:120px}
+.tex-page .tx-h0{font-family:inherit;color:#111;font-size:1.5em;font-weight:700;margin:22px 0 10px;letter-spacing:0;display:block}
+.tx-h0::before{display:none!important}
+.tx-chap{display:block;font-size:.72em;font-weight:400;margin-bottom:2px}
+.tx-toc0{font-weight:700;margin-top:.3em}.tx-toc0 .tx-num{margin-right:.6em}
+
+/* exercise mode of the playground: the target page and the live page side by side */
+.tex-task{margin:10px 0 0;padding:10px 14px;border-radius:10px;background:var(--ac-soft);border-left:4px solid var(--ac);font-size:15.5px;line-height:1.5}
+.tex-src.ex-src{min-height:0}
+.tex-page .tx-disp+p{text-indent:0}
+.tex-lab{font:700 13px var(--f-head);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px;display:flex;align-items:center;gap:8px}
+.tex-lab i{font-style:normal;font-weight:600;text-transform:none;letter-spacing:0}
+.tex-lab.tgt{color:var(--ok)}
+.tex-split.tx-exm .tex-page{min-height:0;padding:20px 24px}
+.tex-split.tx-exm .tex-page.target{border:2px solid var(--ok)}
+.tex-split.tx-exm .tex-page.mine{border:2px dashed var(--bad)}
+.tex-split.tx-exm.matched .tex-page.mine{border:2px solid var(--ok)}
+.tex-match{margin-top:12px;padding:8px 12px;border-radius:8px;font:600 15px/1.45 var(--f-head)}
+.tex-match.no{background:var(--bad-soft);color:var(--bad)}
+.tex-match.ok{background:var(--ok-soft);color:var(--ok)}
+
+/* a code example and its output */
+.codeout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:start;margin:0 0 14px}
+.cols .codeout,.ans .codeout.stack{grid-template-columns:minmax(0,1fr);gap:8px}
+@media (max-width:860px){.codeout{grid-template-columns:minmax(0,1fr);gap:8px}}
+.codeout pre.code{margin:0}
+.scrollx+.codeout,p+.codeout{margin-top:14px}
+.co-h{font:700 12.5px var(--f-head);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);margin:0 0 5px}
+.co-h i{font-style:normal;font-weight:600;text-transform:none;letter-spacing:0}
+.tex-page.tex-out{min-height:0;padding:16px 22px;font-size:clamp(14.5px,1.1vw,17px)}
+.slide .tex-page.tex-out p,.slide .tex-page.tex-out li{font-size:1em;text-align:justify}
+.slide .tex-page.tex-out .tx-list li{text-align:left}
+.uml-out{background:#fff;border:1px solid var(--line);border-radius:6px;padding:12px;text-align:center;overflow-x:auto}
+.uml-out img{max-width:100%;height:auto}
+.slide p.co-note,.co-note{font-size:14px;color:var(--ink-2);margin:6px 0 0;text-align:left}
+.tx-list.tx-desc{list-style:none;padding-left:1.2em;text-indent:-1.2em}
+ol.tx-list ul.tx-list,ul.tx-list ul.tx-list{list-style-type:'–  '}
+.fig-out{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:8px}
+.fig-out .fig{margin:0}
 
 /* ===================== CSE 308: pages ===================== */
 .res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:10px 0 18px}

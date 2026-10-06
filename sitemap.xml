@@ -2,91 +2,91 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>1.0</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/home.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/practice.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.7</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/practice.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/reference.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.8</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/reference.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/projects.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.7</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/projects.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/resources.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.7</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/resources.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/01-team-formation-and-project-planning.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/01-team-formation-and-project-planning.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/02-technical-report-writing-with-latex.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/02-technical-report-writing-with-latex.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/03-ieee-software-requirements-specification.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/03-ieee-software-requirements-specification.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/04-sdlc-model-selection.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/04-sdlc-model-selection.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/05-data-flow-diagrams-level-0-and-1.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/05-data-flow-diagrams-level-0-and-1.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/06-uml-use-case-diagrams.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/06-uml-use-case-diagrams.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/07-uml-sequence-and-communication-diagrams.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/07-uml-sequence-and-communication-diagrams.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/08-uml-class-diagrams.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/08-uml-class-diagrams.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/09-ui-ux-foundations-and-figma-wireframing.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/09-ui-ux-foundations-and-figma-wireframing.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/00-worked-project-campuscare.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
     <image:image><image:loc>https://ayan-1829.github.io/CSE-308-Design-Project-I/img/og/00-worked-project-campuscare.png</image:loc></image:image>
   </url>

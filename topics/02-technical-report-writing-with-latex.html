@@ -65,16 +65,19 @@
 <p class="kicker">Before we start</p><h2>Why this matters</h2><div class="hook"><p class="q">Your final report will have 30 figures, 15 tables and 40 references. In a word processor, adding one figure in chapter 2 means renumbering everything after it by hand.</p><p>LaTeX numbers figures, tables, sections, equations and citations for you and keeps every cross-reference correct. It is also what IEEE, ACM and most universities expect for technical writing.</p><p>This topic covers Lab II (text, errors, maths, packages) and Lab III (structure, references, figures, tables, citations). The playground on the slides compiles as you type.</p></div>
 </div></section>
 <section class="slide " data-title="Topics in this chapter" aria-label="Topics in this chapter" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Outline · Labs II–III</p><h2>Topics in this chapter</h2><p class="muted">Select a topic to jump to the slide that explains it.</p><ol class="outline-list"><li><a href="#s=4">Getting started</a></li><li><a href="#s=8">Errors</a></li><li><a href="#s=10">Mathematics</a></li><li><a href="#s=14">Packages</a></li><li><a href="#s=15">Structured documents</a></li><li><a href="#s=18">Figures, tables and code</a></li><li><a href="#s=22">Citations</a></li><li><a href="#s=24">The technical report</a></li></ol>
+<p class="kicker">Outline · Labs II–III</p><h2>Topics in this chapter</h2><p class="muted">Select a topic to jump to the slide that explains it.</p><ol class="outline-list"><li><a href="#s=4">Getting started</a></li><li><a href="#s=8">Errors</a></li><li><a href="#s=10">Mathematics</a></li><li><a href="#s=15">Packages</a></li><li><a href="#s=16">Structured documents</a></li><li><a href="#s=19">Figures, tables and code</a></li><li><a href="#s=24">Citations</a></li><li><a href="#s=26">The technical report</a></li></ol>
 </div></section>
 <section class="slide " data-title="What LaTeX is" aria-label="What LaTeX is" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Concept 1 of 21</p><h2>What LaTeX is</h2><div class="cols fw"><div><p><b>LaTeX</b> (pronounced “lay-tek” or “lah-tek”) is a document preparation system used worldwide for scientific papers, theses, books and slides. You write <b>plain text with commands</b>; a compiler turns it into a beautifully typeset PDF.</p><ul><li>It <b>separates content from style</b>: change the document class or a package and the whole layout changes.</li><li>It numbers sections, figures, tables and equations <b>automatically</b> and keeps every cross-reference right.</li><li>It builds the <b>table of contents</b> and <b>bibliography</b> for you.</li><li>Journals and conferences (IEEE, ACM, Springer) publish LaTeX <b>templates</b>: you add only the content.</li></ul></div><div><figure class="fig" data-fig="latex-flow"><figcaption>You edit .tex (and .bib) files; the compiler produces the PDF plus helper files.</figcaption></figure><div class="callout"><b>Overleaf</b> is a free website that compiles LaTeX in the browser — nothing to install, and your whole team can edit the same report at once.</div></div></div>
+<p class="kicker">Concept 1 of 23</p><h2>What LaTeX is</h2><div class="cols fw"><div><p><b>LaTeX</b> (pronounced “lay-tek” or “lah-tek”) is a document preparation system used worldwide for scientific papers, theses, books and slides. You write <b>plain text with commands</b>; a compiler turns it into a beautifully typeset PDF.</p><ul><li>It <b>separates content from style</b>: change the document class or a package and the whole layout changes.</li><li>It numbers sections, figures, tables and equations <b>automatically</b> and keeps every cross-reference right.</li><li>It builds the <b>table of contents</b> and <b>bibliography</b> for you.</li><li>Journals and conferences (IEEE, ACM, Springer) publish LaTeX <b>templates</b>: you add only the content.</li></ul></div><div><figure class="fig" data-fig="latex-flow"><figcaption>You edit .tex (and .bib) files; the compiler produces the PDF plus helper files.</figcaption></figure><div class="callout"><b>Overleaf</b> is a free website that compiles LaTeX in the browser — nothing to install, and your whole team can edit the same report at once.</div></div></div>
 </div></section>
 <section class="slide " data-title="Your first document" aria-label="Your first document" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Getting started</p><h2>Your first document</h2><div class="cols "><div><pre class="code tex">\documentclass{article}
+<p class="kicker">Getting started</p><h2>Your first document</h2><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\documentclass{article}
 \begin{document}
 Hello World! % your content goes here...
-\end{document}</pre><ul><li>Commands start with a <b>backslash</b> <code>\</code>.</li><li>Every document starts with <code>\documentclass</code>; the <b>argument</b> in <code>{ }</code> says what kind: <code>article</code>, <code>report</code>, <code>book</code>, <code>beamer</code> (slides).</li><li><b>Optional arguments</b> go in <code>[ ]</code>: <code>\documentclass[12pt,twocolumn]{article}</code>.</li><li>A <code>%</code> starts a comment: LaTeX ignores the rest of the line.</li></ul></div><div><p>Everything before <code>\begin{document}</code> is the <b>preamble</b> (settings and packages). Everything between <code>\begin{document}</code> and <code>\end{document}</code> is the <b>body</b> that gets printed.</p><div class="scrollx"><table class="doc"><thead><tr><th>Class</th><th>Use it for</th></tr></thead><tbody><tr><td>article</td><td>lab reports, papers, short reports</td></tr><tr><td>report</td><td>long reports and theses with chapters</td></tr><tr><td>book</td><td>books</td></tr><tr><td>beamer</td><td>presentation slides</td></tr></tbody></table></div></div></div>
+\end{document}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\begin{document}
+Hello World! % your content goes here...
+\end{document}"></div><p class="co-note">The comment after <code>%</code> is not printed.</p></div></div><div class="cols "><div><ul><li>Commands start with a <b>backslash</b> <code>\</code>.</li><li>Every document starts with <code>\documentclass</code>; the <b>argument</b> in <code>{ }</code> says what kind: <code>article</code>, <code>report</code>, <code>book</code>, <code>beamer</code> (slides).</li><li><b>Optional arguments</b> go in <code>[ ]</code>: <code>\documentclass[12pt,twocolumn]{article}</code>.</li><li>A <code>%</code> starts a comment: LaTeX ignores the rest of the line.</li></ul></div><div><p>Everything before <code>\begin{document}</code> is the <b>preamble</b> (settings and packages). Everything between <code>\begin{document}</code> and <code>\end{document}</code> is the <b>body</b> that gets printed.</p><div class="scrollx"><table class="doc"><thead><tr><th>Class</th><th>Use it for</th></tr></thead><tbody><tr><td>article</td><td>lab reports, papers, short reports</td></tr><tr><td>report</td><td>long reports and theses with chapters</td></tr><tr><td>book</td><td>books</td></tr><tr><td>beamer</td><td>presentation slides</td></tr></tbody></table></div></div></div>
 </div></section>
 <section class="slide " data-title="Try it: typesetting text" aria-label="Try it: typesetting text" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Interactive</p><h2>Try it: typesetting text</h2><div data-demo="tex-play" data-sample="hello"></div><p class="small muted">Words are separated by one or more spaces; paragraphs by one or more blank lines. Extra spaces in the source are collapsed in the output.</p>
@@ -86,20 +89,53 @@ Hello World! % your content goes here...
 <p class="kicker">Typesetting text</p><h2>Handling errors</h2><div class="cols "><div><p>When LaTeX cannot understand the source it stops with an <b>error</b> and a line number. For example, misspelling <code>\emph</code> as <code>\meph</code> gives <i>Undefined control sequence</i>.</p><h3>Advice on errors</h3><ol><li>Don’t panic — errors happen to everyone.</li><li>Fix them as soon as they appear: if what you just typed caused an error, start there.</li><li>If there are several errors, fix the <b>first</b> one; the cause may even be on a line above it.</li></ol></div><div><div class="scrollx"><table class="doc"><thead><tr><th>Message</th><th>Usual cause</th></tr></thead><tbody><tr><td>Undefined control sequence</td><td>misspelt command, or a package not loaded</td></tr><tr><td>Missing $ inserted</td><td><code>_</code>, <code>^</code> or a maths command used outside <code>$…$</code>; or a blank line inside maths</td></tr><tr><td>Misplaced alignment tab character &amp;</td><td>an <code>&amp;</code> in normal text: write <code>\&amp;</code></td></tr><tr><td>\begin{x} ended by \end{y}</td><td>environments closed in the wrong order</td></tr><tr><td>Environment align undefined</td><td><code>\usepackage{amsmath}</code> missing</td></tr><tr><td>Reference … undefined</td><td>a <code>\label</code> is missing or misspelt; or compile again</td></tr></tbody></table></div></div></div>
 </div></section>
 <section class="slide " data-title="Exercise 1: find and fix the errors" aria-label="Exercise 1: find and fix the errors" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Exercise</p><h2>Exercise 1: find and fix the errors</h2><div data-demo="tex-play" data-sample="exercise1"></div><details class="reveal"><summary>Show the fixed text</summary><div class="ans"><pre class="code tex">In March 2006, Congress raised that ceiling an additional \$0.79
+<p class="kicker">Exercise</p><h2>Exercise 1: find and fix the errors</h2><div data-demo="tex-play" data-sample="exercise1"></div><details class="reveal"><summary>Show the fixed text</summary><div class="ans"><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">In March 2006, Congress raised that ceiling an additional \$0.79
 trillion to \$8.97 trillion, which is approximately 68\% of GDP. As of
 October 4, 2008, the ``Emergency Economic Stabilization Act of
-2008&#x27;&#x27; raised the current debt ceiling to \$11.3 trillion.</pre></div></details>
+2008&#x27;&#x27; raised the current debt ceiling to \$11.3 trillion.</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+In March 2006, Congress raised that ceiling an additional \$0.79
+trillion to \$8.97 trillion, which is approximately 68\% of GDP. As of
+October 4, 2008, the ``Emergency Economic Stabilization Act of
+2008&#x27;&#x27; raised the current debt ceiling to \$11.3 trillion.
+\end{document}"></div><p class="co-note"><code>\$</code> and <code>\%</code> print the characters; <code>``…''</code> gives curly quotes instead of straight <code>"</code>.</p></div></div></div></details>
 </div></section>
 <section class="slide " data-title="Mathematics: inline and displayed" aria-label="Mathematics: inline and displayed" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Concept 7 of 21</p><h2>Mathematics: inline and displayed</h2><div class="cols "><div><ul><li>Dollar signs mark maths <b>in the text</b>: <code>$c = a - b + 1$</code>. Always use them in pairs.</li><li>LaTeX handles spacing in maths itself — it ignores your spaces.</li><li>Big formulas go on their own line in an <code>equation</code> environment, which is <b>numbered</b>; <code>equation*</code> (from <b>amsmath</b>) is unnumbered.</li><li>Do not leave blank lines inside maths.</li></ul><div class="scrollx"><table class="doc"><thead><tr><th>You type</th><th>You get</th></tr></thead><tbody><tr><td><code>x^2</code>, <code>x_i</code></td><td>superscript, subscript</td></tr><tr><td><code>\frac{a}{b}</code></td><td>a fraction</td></tr><tr><td><code>\sqrt{b^2-4ac}</code></td><td>a square root</td></tr><tr><td><code>\sum_{k=1}^{n}</code></td><td>a sum with limits</td></tr><tr><td><code>\alpha, \pi, \infty</code></td><td>Greek letters, ∞</td></tr><tr><td><code>\leq, \geq, \neq, \pm</code></td><td>≤ ≥ ≠ ±</td></tr></tbody></table></div></div><div><pre class="code tex">The roots of a quadratic equation are given by
+<p class="kicker">Concept 7 of 23</p><h2>Mathematics: inline and displayed</h2><div class="cols "><div><ul><li>Dollar signs mark maths <b>in the text</b>: <code>$c = a - b + 1$</code>. Always use them in pairs.</li><li>LaTeX handles spacing in maths itself — it ignores your spaces.</li><li>Big formulas go on their own line in an <code>equation</code> environment, which is <b>numbered</b>; <code>equation*</code> (from <b>amsmath</b>) is unnumbered.</li><li>Do not leave blank lines inside maths.</li></ul><div class="scrollx"><table class="doc"><thead><tr><th>You type</th><th>You get</th></tr></thead><tbody><tr><td><code>x^2</code>, <code>x_i</code></td><td>superscript, subscript</td></tr><tr><td><code>\frac{a}{b}</code></td><td>a fraction</td></tr><tr><td><code>\sqrt{b^2-4ac}</code></td><td>a square root</td></tr><tr><td><code>\sum_{k=1}^{n}</code></td><td>a sum with limits</td></tr><tr><td><code>\alpha, \pi, \infty</code></td><td>Greek letters, ∞</td></tr><tr><td><code>\leq, \geq, \neq, \pm</code></td><td>≤ ≥ ≠ ±</td></tr></tbody></table></div></div><div><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">The roots of a quadratic equation are given by
 \begin{equation}
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 \end{equation}
-where $a$, $b$ and $c$ are \ldots</pre><div class="callout">Environments change how commands behave: <code>\sum</code> is small with side limits in text, and large with limits above and below in a displayed equation.</div></div></div>
+where $a$, $b$ and $c$ are \ldots</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+The roots of a quadratic equation are given by
+\begin{equation}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation}
+where $a$, $b$ and $c$ are \ldots
+\end{document}"></div></div></div><div class="callout">Environments change how commands behave: <code>\sum</code> is small with side limits in text, and large with limits above and below in a displayed equation.</div></div></div>
 </div></section>
 <section class="slide " data-title="amsmath: operators and aligned equations" aria-label="amsmath: operators and aligned equations" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Mathematics</p><h2>amsmath: operators and aligned equations</h2><div class="cols "><div><pre class="code tex">\usepackage{amsmath}   % in the preamble
+<p class="kicker">Mathematics</p><h2>amsmath: operators and aligned equations</h2><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\usepackage{amsmath}   % in the preamble
 
 \begin{equation*}
 \min_{x,y} (1-x)^2 + 100(y-x^2)^2
@@ -113,13 +149,69 @@ where $a$, $b$ and $c$ are \ldots</pre><div class="callout">Environments change 
 (x+1)^3 &amp;= (x+1)(x+1)(x+1) \\
         &amp;= (x+1)(x^2 + 2x + 1) \\
         &amp;= x^3 + 3x^2 + 3x + 1
-\end{align*}</pre></div><div><ul><li>LaTeX reads adjacent letters as variables multiplied together, so <code>min</code> would print in italics. amsmath defines upright operators such as <code>\min</code>, <code>\max</code>, <code>\log</code>.</li><li><code>\operatorname{Cov}</code> makes your own operator.</li><li>In <code>align*</code>, <code>&amp;</code> marks the alignment point (before the =) and <code>\\</code> starts a new line.</li><li><code>align</code> without the star numbers every line; add <code>\nonumber</code> to skip one.</li></ul></div></div>
+\end{align*}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+
+\begin{equation*}
+\min_{x,y} (1-x)^2 + 100(y-x^2)^2
+\end{equation*}
+
+\begin{equation*}
+\beta_i = \frac{\operatorname{Cov}(R_i, R_m)}{\operatorname{Var}(R_m)}
+\end{equation*}
+
+\begin{align*}
+(x+1)^3 &amp;= (x+1)(x+1)(x+1) \\
+        &amp;= (x+1)(x^2 + 2x + 1) \\
+        &amp;= x^3 + 3x^2 + 3x + 1
+\end{align*}
+\end{document}"></div><p class="co-note">The three lines line up at the <code>=</code> signs, where the <code>&amp;</code> is.</p></div></div><ul><li>LaTeX reads adjacent letters as variables multiplied together, so <code>min</code> would print in italics. amsmath defines upright operators such as <code>\min</code>, <code>\max</code>, <code>\log</code>.</li><li><code>\operatorname{Cov}</code> makes your own operator.</li><li>In <code>align*</code>, <code>&amp;</code> marks the alignment point (before the =) and <code>\\</code> starts a new line.</li><li><code>align</code> without the star numbers every line; add <code>\nonumber</code> to skip one.</li></ul>
 </div></section>
 <section class="slide " data-title="Try it: maths" aria-label="Try it: maths" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Interactive</p><h2>Try it: maths</h2><div data-demo="tex-play" data-sample="math" data-list="math,exercise2"></div><p class="small muted">Exercise 2 (the central limit theorem) is already typed in the second tab — compare it with the slide, then change it. The command for ∞ is <code>\infty</code>.</p>
+<p class="kicker">Interactive</p><h2>Try it: maths</h2><div data-demo="tex-play" data-sample="math"></div><p class="small muted">Change a formula and watch the page. Try deleting a <code>$</code> or the <code>\usepackage{amsmath}</code> line to see the errors LaTeX gives.</p>
+</div></section>
+<section class="slide " data-title="Exercise 2: typeset the central limit theorem" aria-label="Exercise 2: typeset the central limit theorem" tabindex="-1"><div class="slide-inner">
+<p class="kicker">Exercise</p><h2>Exercise 2: typeset the central limit theorem</h2><div data-demo="tex-play" data-sample="exercise2"></div><details class="reveal"><summary>Show the answer</summary><div class="ans"><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically
+distributed random variables with $\operatorname{E}[X_i] = \mu$ and
+$\operatorname{Var}[X_i] = \sigma^2 &lt; \infty$, and let
+\begin{equation*}
+S_n = \frac{1}{n}\sum_{i=1}^{n} X_i
+\end{equation*}
+denote their mean. Then as $n$ approaches infinity, the random variables
+$\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $N(0, \sigma^2)$.</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically
+distributed random variables with $\operatorname{E}[X_i] = \mu$ and
+$\operatorname{Var}[X_i] = \sigma^2 &lt; \infty$, and let
+\begin{equation*}
+S_n = \frac{1}{n}\sum_{i=1}^{n} X_i
+\end{equation*}
+denote their mean. Then as $n$ approaches infinity, the random variables
+$\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $N(0, \sigma^2)$.
+\end{document}"></div></div></div></div></details>
 </div></section>
 <section class="slide " data-title="Environments and lists" aria-label="Environments and lists" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Structure</p><h2>Environments and lists</h2><div class="cols "><div><pre class="code tex">\begin{itemize}   % bullet points
+<p class="kicker">Structure</p><h2>Environments and lists</h2><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\begin{itemize}   % bullet points
   \item Biscuits
   \item Tea
 \end{itemize}
@@ -134,17 +226,57 @@ where $a$, $b$ and $c$ are \ldots</pre><div class="callout">Environments change 
 
 \begin{description}
   \item[SRS] Software Requirements Specification
-\end{description}</pre></div><div><ul><li><code>\begin{name}</code> … <code>\end{name}</code> creates an <b>environment</b>: a context that changes how its content is typeset.</li><li><code>itemize</code> gives bullets, <code>enumerate</code> numbers, <code>description</code> bold labels.</li><li>Every <code>\begin</code> needs a matching <code>\end</code>, closed in reverse order.</li><li>You could even write <code>$…$</code> as <code>\begin{math}…\end{math}</code>.</li></ul></div></div>
+\end{description}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+\begin{itemize}   % bullet points
+  \item Biscuits
+  \item Tea
+\end{itemize}
+
+\begin{enumerate}  % numbers
+  \item Biscuits
+  \item Tea
+    \begin{itemize}
+      \item green      % lists can nest
+    \end{itemize}
+\end{enumerate}
+
+\begin{description}
+  \item[SRS] Software Requirements Specification
+\end{description}
+\end{document}"></div><p class="co-note">Three lists: bullets, numbers with a nested bullet list inside item 2, and a description list with a bold label.</p></div></div><ul><li><code>\begin{name}</code> … <code>\end{name}</code> creates an <b>environment</b>: a context that changes how its content is typeset.</li><li><code>itemize</code> gives bullets, <code>enumerate</code> numbers, <code>description</code> bold labels.</li><li>Every <code>\begin</code> needs a matching <code>\end</code>, closed in reverse order.</li><li>You could even write <code>$…$</code> as <code>\begin{math}…\end{math}</code>.</li></ul>
 </div></section>
 <section class="slide " data-title="Packages" aria-label="Packages" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Concept 11 of 21</p><h2>Packages</h2><p>All the commands so far are built into LaTeX. <b>Packages</b> are libraries of extra commands; load each one with <code>\usepackage</code> in the preamble.</p><div class="scrollx"><table class="doc"><thead><tr><th>Package</th><th>Gives you</th><th>Package</th><th>Gives you</th></tr></thead><tbody><tr><td><code>amsmath</code></td><td>equation*, align, \eqref, operators</td><td><code>graphicx</code></td><td>\includegraphics for images</td></tr><tr><td><code>hyperref</code></td><td>clickable links and references</td><td><code>biblatex</code></td><td>citations and bibliography</td></tr><tr><td><code>booktabs</code></td><td>professional table rules</td><td><code>caption</code>, <code>subcaption</code></td><td>caption styling, subfigures</td></tr><tr><td><code>algorithm</code>, <code>algpseudocode</code></td><td>numbered pseudocode</td><td><code>listings</code></td><td>source code with highlighting</td></tr><tr><td><code>geometry</code></td><td>page margins</td><td><code>xcolor</code></td><td>coloured text</td></tr><tr><td><code>float</code></td><td>[H] “put the figure exactly here”</td><td><code>tabularx</code></td><td>tables that fill the line width</td></tr></tbody></table></div><pre class="code tex">\documentclass{article}
+<p class="kicker">Concept 12 of 23</p><h2>Packages</h2><p>All the commands so far are built into LaTeX. <b>Packages</b> are libraries of extra commands; load each one with <code>\usepackage</code> in the preamble.</p><div class="scrollx"><table class="doc"><thead><tr><th>Package</th><th>Gives you</th><th>Package</th><th>Gives you</th></tr></thead><tbody><tr><td><code>amsmath</code></td><td>equation*, align, \eqref, operators</td><td><code>graphicx</code></td><td>\includegraphics for images</td></tr><tr><td><code>hyperref</code></td><td>clickable links and references</td><td><code>biblatex</code></td><td>citations and bibliography</td></tr><tr><td><code>booktabs</code></td><td>professional table rules</td><td><code>caption</code>, <code>subcaption</code></td><td>caption styling, subfigures</td></tr><tr><td><code>algorithm</code>, <code>algpseudocode</code></td><td>numbered pseudocode</td><td><code>listings</code></td><td>source code with highlighting</td></tr><tr><td><code>geometry</code></td><td>page margins</td><td><code>xcolor</code></td><td>coloured text</td></tr><tr><td><code>float</code></td><td>[H] “put the figure exactly here”</td><td><code>tabularx</code></td><td>tables that fill the line width</td></tr></tbody></table></div><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\documentclass{article}
 \usepackage{amsmath}   % preamble
 \begin{document}
 % now we can use commands from amsmath here...
-\end{document}</pre>
+\begin{align*}
+a^2 + b^2 &amp;= c^2 \\
+\max(a, b) &amp;\leq c
+\end{align*}
+\end{document}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}   % preamble
+\begin{document}
+% now we can use commands from amsmath here...
+\begin{align*}
+a^2 + b^2 &amp;= c^2 \\
+\max(a, b) &amp;\leq c
+\end{align*}
+\end{document}"></div><p class="co-note">Delete line 2 and the previewer reports <i>Environment align* undefined</i>: <code>align*</code> comes from amsmath.</p></div></div>
 </div></section>
 <section class="slide " data-title="Title, abstract and sections" aria-label="Title, abstract and sections" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Concept 12 of 21</p><h2>Title, abstract and sections</h2><div class="cols "><div><pre class="code tex">\documentclass{article}
+<p class="kicker">Concept 13 of 23</p><h2>Title, abstract and sections</h2><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\documentclass{article}
 \title{The Title}
 \author{A. Author}
 \date{\today}
@@ -163,10 +295,29 @@ We investigate \ldots
 \subsection{Data Collection}
 \section{Results}
 \section{Conclusion}
-\end{document}</pre></div><div><ul><li>Tell LaTeX the <code>\title</code>, <code>\author</code> and <code>\date</code> in the preamble; <code>\maketitle</code> prints them.</li><li>The <code>abstract</code> environment makes an abstract.</li><li><code>\section</code>, <code>\subsection</code>, <code>\subsubsection</code> are numbered automatically (1, 1.1, 1.1.1).</li><li><code>\section*</code> gives an <b>unnumbered</b> heading that is left out of the table of contents.</li><li>In the <code>report</code> class, <code>\chapter</code> sits above <code>\section</code>.</li><li><code>\tableofcontents</code> needs <b>two compiles</b> to fill in.</li></ul></div></div>
+\end{document}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\title{The Title}
+\author{A. Author}
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+Abstract goes here...
+\end{abstract}
+\tableofcontents
+
+\section{Introduction}
+The problem of \ldots
+\section{Method}
+We investigate \ldots
+\subsection{Sample Preparation}
+\subsection{Data Collection}
+\section{Results}
+\section{Conclusion}
+\end{document}"></div><p class="co-note">Every heading is numbered for you, and the contents list is built from them (after the second compile).</p></div></div><ul><li>Tell LaTeX the <code>\title</code>, <code>\author</code> and <code>\date</code> in the preamble; <code>\maketitle</code> prints them.</li><li>The <code>abstract</code> environment makes an abstract.</li><li><code>\section</code>, <code>\subsection</code>, <code>\subsubsection</code> are numbered automatically (1, 1.1, 1.1.1).</li><li><code>\section*</code> gives an <b>unnumbered</b> heading that is left out of the table of contents.</li><li>In the <code>report</code> class, <code>\chapter</code> sits above <code>\section</code>.</li><li><code>\tableofcontents</code> needs <b>two compiles</b> to fill in.</li></ul>
 </div></section>
 <section class="slide " data-title="Labels and cross-references" aria-label="Labels and cross-references" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Structured documents</p><h2>Labels and cross-references</h2><div class="cols "><div><pre class="code tex">\usepackage{amsmath}   % for \eqref
+<p class="kicker">Structured documents</p><h2>Labels and cross-references</h2><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\usepackage{amsmath}   % for \eqref
 ...
 \section{Introduction}
 \label{sec:intro}
@@ -178,13 +329,36 @@ In Section~\ref{sec:method}, we \ldots
 \label{eq:euler}
 e^{i\pi} + 1 = 0
 \end{equation}
-By \eqref{eq:euler}, we have \ldots</pre></div><div><ul><li>Put <code>\label{key}</code> right after the thing you number (section, equation, caption).</li><li>Refer to it with <code>\ref{key}</code>; <code>\eqref{key}</code> adds brackets for equations.</li><li>Never type numbers yourself: if you add a section, every reference updates.</li><li>Use prefixes so keys are readable: <code>sec:</code>, <code>fig:</code>, <code>tab:</code>, <code>eq:</code>.</li><li>Write <code>Section~\ref{…}</code>: the <code>~</code> stops the line breaking between the word and the number.</li><li>LaTeX needs <b>two runs</b>: the first records labels, the second prints them. Until then you see <b>??</b>.</li></ul></div></div>
+By \eqref{eq:euler}, we have \ldots</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+\section{Introduction}
+\label{sec:intro}
+In Section~\ref{sec:method}, we \ldots
+
+\section{Method}
+\label{sec:method}
+\begin{equation}
+\label{eq:euler}
+e^{i\pi} + 1 = 0
+\end{equation}
+By \eqref{eq:euler}, we have \ldots
+\end{document}"></div><p class="co-note"><code>\ref{sec:method}</code> became 2 and <code>\eqref{eq:euler}</code> became (1); the <code>~</code> keeps “Section” and “2” on one line.</p></div></div><ul><li>Put <code>\label{key}</code> right after the thing you number (section, equation, caption).</li><li>Refer to it with <code>\ref{key}</code>; <code>\eqref{key}</code> adds brackets for equations.</li><li>Never type numbers yourself: if you add a section, every reference updates.</li><li>Use prefixes so keys are readable: <code>sec:</code>, <code>fig:</code>, <code>tab:</code>, <code>eq:</code>.</li><li>Write <code>Section~\ref{…}</code>: the <code>~</code> stops the line breaking between the word and the number.</li><li>LaTeX needs <b>two runs</b>: the first records labels, the second prints them. Until then you see <b>??</b>.</li></ul>
 </div></section>
 <section class="slide " data-title="Try it: a small report" aria-label="Try it: a small report" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Interactive</p><h2>Try it: a small report</h2><div data-demo="tex-play" data-sample="report"></div><p class="small muted">Change the order of the sections and watch the numbers and the reference update. Delete a <code>\label</code> to see “??” and the warning.</p>
 </div></section>
 <section class="slide " data-title="Figures and floats" aria-label="Figures and floats" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Concept 15 of 21</p><h2>Figures and floats</h2><div class="cols "><div><pre class="code tex">\usepackage{graphicx}   % preamble
+<p class="kicker">Concept 16 of 23</p><h2>Figures and floats</h2><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\usepackage{graphicx}   % preamble
 ...
 Figure~\ref{fig:model} shows \ldots
 
@@ -193,10 +367,30 @@ Figure~\ref{fig:model} shows \ldots
   \includegraphics[width=0.5\textwidth]{model}
   \caption{The iterative model.}
   \label{fig:model}
-\end{figure}</pre></div><div><ul><li><code>\includegraphics</code> (from <b>graphicx</b>) inserts JPEG, PNG or PDF images. Options: <code>width=0.5\textwidth</code> (half the text width), <code>angle=270</code>, <code>scale=0.8</code>.</li><li>Wrapping it in <code>figure</code> makes a <b>float</b>: LaTeX decides where it fits best.</li><li>Placement hints: <code>h</code> here, <code>t</code> top, <code>b</code> bottom, <code>p</code> own page; <code>[H]</code> (package float) forces “exactly here”.</li><li><code>\label</code> must come <b>after</b> <code>\caption</code>, or the reference points to the section instead.</li><li>Tables go in a <code>table</code> float, usually with the caption <b>above</b>.</li></ul></div></div>
+\end{figure}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+Figure~\ref{fig:model} shows \ldots
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{model}
+  \caption{The iterative model.}
+  \label{fig:model}
+\end{figure}
+\end{document}"></div><p class="co-note">The striped box stands for your image file <code>model.png</code>. The caption is numbered and the reference says Figure 1.</p></div></div><ul><li><code>\includegraphics</code> (from <b>graphicx</b>) inserts JPEG, PNG or PDF images. Options: <code>width=0.5\textwidth</code> (half the text width), <code>angle=270</code>, <code>scale=0.8</code>.</li><li>Wrapping it in <code>figure</code> makes a <b>float</b>: LaTeX decides where it fits best.</li><li>Placement hints: <code>h</code> here, <code>t</code> top, <code>b</code> bottom, <code>p</code> own page; <code>[H]</code> (package float) forces “exactly here”.</li><li><code>\label</code> must come <b>after</b> <code>\caption</code>, or the reference points to the section instead.</li><li>Tables go in a <code>table</code> float, usually with the caption <b>above</b>.</li></ul>
 </div></section>
 <section class="slide " data-title="Subfigures" aria-label="Subfigures" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Figures, tables and code</p><h2>Subfigures</h2><div class="cols "><div><p>Load <code>caption</code> and <code>subcaption</code>, then place several <code>subfigure</code> environments inside one <code>figure</code>. <code>\hfill</code> spreads them across the line.</p><pre class="code tex">\begin{figure}
+<p class="kicker">Figures, tables and code</p><h2>Subfigures</h2><p>Load <code>caption</code> and <code>subcaption</code>, then place several <code>subfigure</code> environments inside one <code>figure</code>. <code>\hfill</code> spreads them across the line.</p><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\begin{figure}
   \centering
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
@@ -213,18 +407,66 @@ Figure~\ref{fig:model} shows \ldots
   \end{subfigure}
   \caption{Three simple graphs}
   \label{fig:three graphs}
-\end{figure}</pre></div><div><div data-demo="tex-play" data-sample="figtab"></div></div></div>
+\end{figure}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.3\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{graph1}
+    \caption{$y=x$}
+    \label{fig:y equals x}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.3\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{graph2}
+    \caption{$y=3\sin x$}
+    \label{fig:three sin x}
+  \end{subfigure}
+  \caption{Three simple graphs}
+  \label{fig:three graphs}
+\end{figure}
+\end{document}"></div><p class="co-note">Each subfigure gets its own letter, (a) and (b), under one shared figure number.</p></div></div>
 </div></section>
 <section class="slide " data-title="Tables" aria-label="Tables" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Figures, tables and code</p><h2>Tables</h2><div class="cols "><div><pre class="code tex">\begin{tabular}{|l|r|r|} \hline
+<p class="kicker">Figures, tables and code</p><h2>Tables</h2><div class="cols "><div><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\begin{tabular}{|l|r|r|} \hline
 Item   &amp; Qty &amp; Unit \$ \\ \hline
 Widget &amp; 1   &amp; 199.99  \\
 Gadget &amp; 2   &amp; 399.99  \\
 Cable  &amp; 3   &amp; 19.99   \\ \hline
-\end{tabular}</pre><ul><li>The argument gives the column alignment: <b>l</b>eft, <b>c</b>entre, <b>r</b>ight; <code>p{3cm}</code> wraps text.</li><li><code>|</code> draws vertical lines; <code>\hline</code> draws a horizontal line.</li><li><code>&amp;</code> separates columns and <code>\\</code> ends a row — like <code>align*</code>.</li><li>For reports, the <b>booktabs</b> style (<code>\toprule</code>, <code>\midrule</code>, <code>\bottomrule</code>, no vertical lines) looks more professional.</li></ul></div><div><div data-demo="tex-table"></div></div></div>
+\end{tabular}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+\begin{tabular}{|l|r|r|} \hline
+Item   &amp; Qty &amp; Unit \$ \\ \hline
+Widget &amp; 1   &amp; 199.99  \\
+Gadget &amp; 2   &amp; 399.99  \\
+Cable  &amp; 3   &amp; 19.99   \\ \hline
+\end{tabular}
+\end{document}"></div></div></div><ul><li>The argument gives the column alignment: <b>l</b>eft, <b>c</b>entre, <b>r</b>ight; <code>p{3cm}</code> wraps text.</li><li><code>|</code> draws vertical lines; <code>\hline</code> draws a horizontal line.</li><li><code>&amp;</code> separates columns and <code>\\</code> ends a row — like <code>align*</code>.</li><li>For reports, the <b>booktabs</b> style (<code>\toprule</code>, <code>\midrule</code>, <code>\bottomrule</code>, no vertical lines) looks more professional.</li></ul></div><div><div data-demo="tex-table"></div></div></div>
 </div></section>
 <section class="slide " data-title="Algorithms and code listings" aria-label="Algorithms and code listings" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Figures, tables and code</p><h2>Algorithms and code listings</h2><div class="cols "><div><pre class="code tex">\usepackage{algorithm}
+<p class="kicker">Figures, tables and code</p><h2>Algorithms and code listings</h2><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\usepackage{algorithm}
 \usepackage{algpseudocode}
 ...
 \begin{algorithm}
@@ -239,54 +481,169 @@ Cable  &amp; 3   &amp; 19.99   \\ \hline
     \EndIf
 \EndIf
 \end{algorithmic}
-\end{algorithm}</pre><p class="small">Command names are title-cased: <code>\State</code>, <code>\While</code>, <code>\EndWhile</code>, <code>\For</code>, <code>\Return</code>. The <code>algorithm</code> float adds a caption and number.</p></div><div><div data-demo="tex-play" data-sample="algo"></div><pre class="code tex">\usepackage{listings}
+\end{algorithm}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+\begin{algorithm}
+\caption{Withdraw cash}
+\begin{algorithmic}[1]   % [1] = number every line
+\State $i \gets 10$
+\If{$i \geq 5$}
+    \State $i \gets i - 1$
+\Else
+    \If{$i \leq 3$}
+        \State $i \gets i + 2$
+    \EndIf
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+\end{document}"></div><p class="co-note"><code>\If</code>, <code>\Else</code> and <code>\EndIf</code> print the bold keywords and indent the lines for you.</p></div></div><p class="small">Command names are title-cased: <code>\State</code>, <code>\While</code>, <code>\EndWhile</code>, <code>\For</code>, <code>\Return</code>. The <code>algorithm</code> float adds a caption and number. For real source code, use the <b>listings</b> package instead:</p><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\usepackage{listings}
 \begin{lstlisting}[language=Python]
 def incmatrix(genl1, genl2):
     m = len(genl1)
     ...
-\end{lstlisting}</pre></div></div>
+\end{lstlisting}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+\begin{lstlisting}[language=Python]
+def incmatrix(genl1, genl2):
+    m = len(genl1)
+    ...
+\end{lstlisting}
+\end{document}"></div><p class="co-note">The code is printed exactly as typed, in a typewriter font (Overleaf also colours the Python keywords).</p></div></div>
+</div></section>
+<section class="slide " data-title="Try it: figures, tables and algorithms" aria-label="Try it: figures, tables and algorithms" tabindex="-1"><div class="slide-inner">
+<p class="kicker">Interactive</p><h2>Try it: figures, tables and algorithms</h2><div data-demo="tex-play" data-sample="figtab" data-list="figtab,algo"></div><p class="small muted">Swap the two subfigures, add a row to the table or a <code>\State</code> to the algorithm, and watch the numbers and layout follow.</p>
 </div></section>
 <section class="slide " data-title="Citations with BibTeX and biblatex" aria-label="Citations with BibTeX and biblatex" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Concept 19 of 21</p><h2>Citations with BibTeX and biblatex</h2><div class="cols "><div><ol><li>Create a reference file with the <b>.bib</b> extension (Overleaf: New file → <code>citation.bib</code>).</li><li>Find the paper, journal or book in <b>Google Scholar</b>.</li><li>Click <b>Cite → BibTeX</b> to get the entry.</li><li>Paste the entry into the .bib file.</li><li>In the preamble: <code>\usepackage{biblatex}</code> and <code>\addbibresource{citation.bib}</code>.</li><li>In the text: <code>\cite{key}</code>; where the list should go: <code>\printbibliography</code>.</li><li>Compile (Overleaf runs biber and LaTeX again for you).</li></ol><pre class="code bib">@article{guyot2002high,
+<p class="kicker">Concept 21 of 23</p><h2>Citations with BibTeX and biblatex</h2><div class="cols "><div><ol><li>Create a reference file with the <b>.bib</b> extension (Overleaf: New file → <code>citation.bib</code>).</li><li>Find the paper, journal or book in <b>Google Scholar</b>.</li><li>Click <b>Cite → BibTeX</b> to get the entry.</li><li>Paste the entry into the .bib file.</li><li>In the preamble: <code>\usepackage{biblatex}</code> and <code>\addbibresource{citation.bib}</code>.</li><li>In the text: <code>\cite{key}</code>; where the list should go: <code>\printbibliography</code>.</li><li>Compile (Overleaf runs biber and LaTeX again for you).</li></ol><div class="codeout"><div><div class="co-h">citation.bib</div><pre class="code bib">@article{guyot2002high,
   title={High solid content latexes},
   author={Guyot, A and Chu, F and Schneider, M and Graillat, C and McKenna, TF},
   journal={Progress in Polymer Science},
   volume={27}, number={8}, pages={1573--1615},
   year={2002}, publisher={Elsevier}
-}</pre></div><div><div data-demo="tex-play" data-sample="cite"></div><div class="callout">Only the entries you actually <code>\cite</code> appear in the list. Use one style consistently (IEEE is common in computing: <code>\usepackage[style=ieee]{biblatex}</code>).</div></div></div>
+}</pre></div><div><div class="co-h">Output <i>· in the reference list</i></div><div class="tex-page tex-out" data-bib="@article{guyot2002high,
+  title={High solid content latexes},
+  author={Guyot, A and Chu, F and Schneider, M and Graillat, C and McKenna, TF},
+  journal={Progress in Polymer Science},
+  volume={27}, number={8}, pages={1573--1615},
+  year={2002}, publisher={Elsevier}
+}"></div><p class="co-note">The entry appears like this in the list once it is cited with <code>\cite{guyot2002high}</code>.</p></div></div></div><div><div data-demo="tex-play" data-sample="cite"></div><div class="callout">Only the entries you actually <code>\cite</code> appear in the list. Use one style consistently (IEEE is common in computing: <code>\usepackage[style=ieee]{biblatex}</code>).</div></div></div>
 </div></section>
 <section class="slide " data-title="Build a BibTeX entry" aria-label="Build a BibTeX entry" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Interactive</p><h2>Build a BibTeX entry</h2><div data-demo="bibtex"></div>
 </div></section>
 <section class="slide " data-title="Writing the technical report" aria-label="Writing the technical report" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Concept 21 of 21</p><h2>Writing the technical report</h2><div class="cols "><div><div class="scrollx"><table class="doc"><thead><tr><th>Section</th><th>Contents</th></tr></thead><tbody><tr><td>Title page</td><td>course, project title, team members and IDs, date</td></tr><tr><td>Abstract</td><td>150–250 words: problem, approach, result</td></tr><tr><td>Introduction</td><td>problem, motivation, objectives</td></tr><tr><td>Background / related work</td><td>existing systems with citations</td></tr><tr><td>Methodology &amp; design</td><td>SRS, SDLC choice, DFD, UML, UI</td></tr><tr><td>Implementation / output</td><td>screens, results, figures with captions</td></tr><tr><td>Discussion &amp; conclusion</td><td>what worked, limits, future work</td></tr><tr><td>References</td><td>generated from the .bib file</td></tr></tbody></table></div></div><div><ul><li>Every figure and table has a numbered caption and is referred to in the text <i>before</i> it appears.</li><li>Write in plain, precise sentences; prefer active voice (“The system stores…”).</li><li>Keep one file per chapter and join them with <code>\input{intro}</code> — easier for a team.</li><li>Keep images in a <code>figures/</code> folder; export diagrams as PDF or PNG at good resolution.</li><li><b>Academic integrity:</b> cite every source; copied text or diagrams can cost full marks.</li></ul></div></div>
+<p class="kicker">Concept 23 of 23</p><h2>Writing the technical report</h2><div class="cols "><div><div class="scrollx"><table class="doc"><thead><tr><th>Section</th><th>Contents</th></tr></thead><tbody><tr><td>Title page</td><td>course, project title, team members and IDs, date</td></tr><tr><td>Abstract</td><td>150–250 words: problem, approach, result</td></tr><tr><td>Introduction</td><td>problem, motivation, objectives</td></tr><tr><td>Background / related work</td><td>existing systems with citations</td></tr><tr><td>Methodology &amp; design</td><td>SRS, SDLC choice, DFD, UML, UI</td></tr><tr><td>Implementation / output</td><td>screens, results, figures with captions</td></tr><tr><td>Discussion &amp; conclusion</td><td>what worked, limits, future work</td></tr><tr><td>References</td><td>generated from the .bib file</td></tr></tbody></table></div></div><div><ul><li>Every figure and table has a numbered caption and is referred to in the text <i>before</i> it appears.</li><li>Write in plain, precise sentences; prefer active voice (“The system stores…”).</li><li>Keep one file per chapter and join them with <code>\input{intro}</code> — easier for a team.</li><li>Keep images in a <code>figures/</code> folder; export diagrams as PDF or PNG at good resolution.</li><li><b>Academic integrity:</b> cite every source; copied text or diagrams can cost full marks.</li></ul></div></div>
 </div></section>
 <section class="slide " data-title="Worked example 1" aria-label="Worked example 1" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Worked example 1 of 3</p><h2>Worked example 1</h2><div class="ex"><div class="qq">Write the LaTeX for: “The profit was 25% higher & the cost fell by $2,000 (see Table 3).” where Table 3 has the label <code>tab:cost</code>.</div><details class="reveal"><summary>Show the solution</summary><div class="ans"><pre class="code tex">The profit was 25\% higher \&amp; the cost fell by \$2,000
-(see Table~\ref{tab:cost}).</pre>Escape <code>%</code>, <code>&amp;</code> and <code>$</code>; never type the table number yourself.</div></details></div>
+<p class="kicker">Worked example 1 of 3</p><h2>Worked example 1</h2><div class="ex"><div class="qq">Write the LaTeX for: “The profit was 25% higher & the cost fell by $2,000 (see Table 3).” where Table 3 has the label <code>tab:cost</code>.</div><details class="reveal"><summary>Show the solution</summary><div class="ans"><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">The profit was 25\% higher \&amp; the cost fell by \$2,000
+(see Table~\ref{tab:cost}).</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+The profit was 25\% higher \&amp; the cost fell by \$2,000
+(see Table~\ref{tab:cost}).
+\end{document}" data-labels="tab:cost=3"></div><p class="co-note">Assuming the table labelled <code>tab:cost</code> is the third table in the report.</p></div></div>Escape <code>%</code>, <code>&amp;</code> and <code>$</code>; never type the table number yourself.</div></details></div>
 </div></section>
 <section class="slide " data-title="Worked example 2" aria-label="Worked example 2" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Worked example 2 of 3</p><h2>Worked example 2</h2><div class="ex"><div class="qq">Typeset the quadratic formula as a numbered equation and refer to it in the next sentence.</div><details class="reveal"><summary>Show the solution</summary><div class="ans"><pre class="code tex">\begin{equation}
+<p class="kicker">Worked example 2 of 3</p><h2>Worked example 2</h2><div class="ex"><div class="qq">Typeset the quadratic formula as a numbered equation and refer to it in the next sentence.</div><details class="reveal"><summary>Show the solution</summary><div class="ans"><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\begin{equation}
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 \label{eq:quadratic}
 \end{equation}
-Equation~\eqref{eq:quadratic} gives both roots.</pre><code>\eqref</code> needs <code>\usepackage{amsmath}</code>.</div></details></div>
+Equation~\eqref{eq:quadratic} gives both roots.</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+\begin{equation}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\label{eq:quadratic}
+\end{equation}
+Equation~\eqref{eq:quadratic} gives both roots.
+\end{document}"></div></div></div><code>\eqref</code> needs <code>\usepackage{amsmath}</code>.</div></details></div>
 </div></section>
 <section class="slide " data-title="Worked example 3" aria-label="Worked example 3" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Worked example 3 of 3</p><h2>Worked example 3</h2><div class="ex"><div class="qq">A figure appears as “Figure 1.1” in a reference but it is the only figure in the report. What went wrong?</div><details class="reveal"><summary>Show the solution</summary><div class="ans">The <code>\label</code> was placed <b>before</b> <code>\caption</code> (or outside the figure), so it captured the current <i>section</i> number (1.1). Move <code>\label{fig:…}</code> directly after <code>\caption{…}</code>.</div></details></div>
 </div></section>
 <section class="slide " data-title="Practice (1 of 2)" aria-label="Practice (1 of 2)" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Practice</p><h2>Practice (1 of 2)</h2><p class="muted">Try each one on paper first, then check your answer.</p><div class="ex"><div class="qq">1. What is the difference between <code>\section{Results}</code> and <code>\section*{Results}</code>?</div><details class="reveal"><summary>Show the answer</summary><div class="ans">The starred version is not numbered and does not appear in the table of contents.</div></details></div><div class="ex"><div class="qq">2. Which package is missing if LaTeX reports “Undefined control sequence \includegraphics”?</div><details class="reveal"><summary>Show the answer</summary><div class="ans"><code>graphicx</code>: add <code>\usepackage{graphicx}</code> to the preamble.</div></details></div><div class="ex"><div class="qq">3. Write a 3-column table (left, centre, right) with a line above and below the header row.</div><details class="reveal"><summary>Show the answer</summary><div class="ans"><pre class="code tex">\begin{tabular}{lcr}
+<p class="kicker">Practice</p><h2>Practice (1 of 2)</h2><p class="muted">Try each one on paper first, then check your answer.</p><div class="ex"><div class="qq">1. What is the difference between <code>\section{Results}</code> and <code>\section*{Results}</code>?</div><details class="reveal"><summary>Show the answer</summary><div class="ans">The starred version is not numbered and does not appear in the table of contents.</div></details></div><div class="ex"><div class="qq">2. Which package is missing if LaTeX reports “Undefined control sequence \includegraphics”?</div><details class="reveal"><summary>Show the answer</summary><div class="ans"><code>graphicx</code>: add <code>\usepackage{graphicx}</code> to the preamble.</div></details></div><div class="ex"><div class="qq">3. Write a 3-column table (left, centre, right) with a line above and below the header row.</div><details class="reveal"><summary>Show the answer</summary><div class="ans"><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\begin{tabular}{lcr}
 \hline
 Name &amp; Qty &amp; Price \\
 \hline
 Pen &amp; 2 &amp; 20 \\
-\end{tabular}</pre></div></details></div>
+\end{tabular}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+\begin{tabular}{lcr}
+\hline
+Name &amp; Qty &amp; Price \\
+\hline
+Pen &amp; 2 &amp; 20 \\
+\end{tabular}
+\end{document}"></div></div></div></div></details></div>
 </div></section>
 <section class="slide " data-title="Practice (2 of 2)" aria-label="Practice (2 of 2)" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Practice</p><h2>Practice (2 of 2)</h2><p class="muted">Try each one on paper first, then check your answer.</p><div class="ex"><div class="qq">4. Why do you sometimes see “??” in the PDF instead of a number?</div><details class="reveal"><summary>Show the answer</summary><div class="ans">A <code>\ref</code> points to a label LaTeX does not know yet. Either the label is missing or misspelt, or the document needs to be compiled a second time.</div></details></div><div class="ex"><div class="qq">5. Write the BibTeX key and \cite command for an entry that starts with <code>@inproceedings{rahman2023atm,</code>.</div><details class="reveal"><summary>Show the answer</summary><div class="ans"><code>\cite{rahman2023atm}</code> — the key is the text between <code>{</code> and the first comma.</div></details></div><div class="ex"><div class="qq">6. Typeset $S_n = \frac{1}{n}\sum_{i=1}^{n} X_i$ as an unnumbered displayed equation.</div><details class="reveal"><summary>Show the answer</summary><div class="ans"><pre class="code tex">\begin{equation*}
+<p class="kicker">Practice</p><h2>Practice (2 of 2)</h2><p class="muted">Try each one on paper first, then check your answer.</p><div class="ex"><div class="qq">4. Why do you sometimes see “??” in the PDF instead of a number?</div><details class="reveal"><summary>Show the answer</summary><div class="ans">A <code>\ref</code> points to a label LaTeX does not know yet. Either the label is missing or misspelt, or the document needs to be compiled a second time.</div></details></div><div class="ex"><div class="qq">5. Write the BibTeX key and \cite command for an entry that starts with <code>@inproceedings{rahman2023atm,</code>.</div><details class="reveal"><summary>Show the answer</summary><div class="ans"><code>\cite{rahman2023atm}</code> — the key is the text between <code>{</code> and the first comma.</div></details></div><div class="ex"><div class="qq">6. Typeset $S_n = \frac{1}{n}\sum_{i=1}^{n} X_i$ as an unnumbered displayed equation.</div><details class="reveal"><summary>Show the answer</summary><div class="ans"><div class="codeout"><div><div class="co-h">LaTeX source</div><pre class="code tex">\begin{equation*}
 S_n = \frac{1}{n}\sum_{i=1}^{n} X_i
-\end{equation*}</pre>Requires amsmath; or use <code>\[ … \]</code> without any package.</div></details></div>
+\end{equation*}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+\begin{equation*}
+S_n = \frac{1}{n}\sum_{i=1}^{n} X_i
+\end{equation*}
+\end{document}"></div></div></div>Requires amsmath; or use <code>\[ … \]</code> without any package.</div></details></div>
 </div></section>
 <section class="slide " data-title="Quiz" aria-label="Quiz" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Check yourself</p><h2>Quiz</h2><div><div class="quiz-host" data-quiz-key="2"></div><script type="application/json" class="quiz-json">[{"q": "Which character starts a comment in LaTeX?", "o": ["#", "//", "%", "$"], "a": 2, "w": "Everything after % on that line is ignored."}, {"q": "How do you print a dollar sign?", "o": ["$", "\\$", "$$", "\\dollar"], "a": 1, "w": "$ starts maths mode, so it must be escaped as \\$."}, {"q": "Where must <code>\\label<\/code> go inside a figure?", "o": ["Before \\includegraphics", "After \\caption", "Before \\begin{figure}", "Anywhere"], "a": 1, "w": "The label records the most recent number; after \\caption, that is the figure number."}, {"q": "In <code>\\begin{tabular}{|l|c|}<\/code>, what does <code>c<\/code> mean?", "o": ["coloured column", "centred column", "caption", "column break"], "a": 1, "w": "l, c and r are left, centred and right alignment."}, {"q": "Which command prints the list of cited references with biblatex?", "o": ["\\bibliography", "\\printbibliography", "\\references", "\\cite"], "a": 1, "w": "\\printbibliography, after \\addbibresource{file.bib} in the preamble."}, {"q": "What does <code>&amp;<\/code> do inside <code>align*<\/code>?", "o": ["Prints an ampersand", "Marks the alignment point", "Starts a new line", "Nothing"], "a": 1, "w": "Rows line up at the &; \\\\ starts a new row."}]</script></div>
@@ -300,12 +657,13 @@ S_n = \frac{1}{n}\sum_{i=1}^{n} X_i
 </main>
 <footer class="deck-foot">
   <button type="button" class="btn" id="prev">Previous</button>
-  <span class="counter" id="counter">1 / 32</span>
+  <span class="counter" id="counter">1 / 34</span>
   <button type="button" class="btn pri" id="next">Next</button>
 </footer>
 <aside id="slide-menu" hidden aria-label="Slide list"><div class="menu-head"><h3>Slides in this topic</h3><button type="button" id="btn-menu-close" class="menu-close" aria-label="Close slide list">&#10005;</button></div></aside>
 <noscript><p style="padding:20px">This lesson needs JavaScript for the slides and the interactive examples.</p></noscript>
 <script src="../js/core.js"></script>
+<script src="../js/art.js"></script>
 <script src="../js/diagram.js"></script>
 <script src="../js/figs.js"></script>
 <script src="../js/latex.js"></script>
@@ -320,6 +678,5 @@ S_n = \frac{1}{n}\sum_{i=1}^{n} X_i
         data-endpoint="https://analytics-proxy.ayansarkar1829.workers.dev"
         data-project="CSE-308 Design Project"></script>
 <script src="../js/course-events.js"></script>
-<script src="../js/art.js"></script>
 </body>
 </html>

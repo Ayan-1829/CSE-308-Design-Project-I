@@ -77,7 +77,7 @@
 <p class="kicker">Step 1 · Proposal and plan</p><h2>Step 1 · Feasibility, plan, budget and risks</h2><div class="cols "><div><div class="scrollx"><table class="doc"><thead><tr><th>Feasibility</th><th>Finding</th></tr></thead><tbody><tr><td>Technical</td><td>A web app with a database and an SMS API; the team has used both in earlier courses.</td></tr><tr><td>Economic</td><td>Estimated cost 80,300 Tk (below); saves the receptionist about 2 hours a day.</td></tr><tr><td>Operational</td><td>Doctors agreed in interviews; the receptionist wants training.</td></tr><tr><td>Schedule</td><td>Fits 11 weeks if built in three increments.</td></tr></tbody></table></div><div class="scrollx"><table class="doc"><thead><tr><th>Budget item (estimates)</th><th>Tk</th></tr></thead><tbody><tr><td>Hosting and domain, 1 year</td><td>12,000</td></tr><tr><td>SMS reminders (assumed rate), 1 year</td><td>6,000</td></tr><tr><td>2 tablets for doctors</td><td>50,000</td></tr><tr><td>Training the receptionist</td><td>5,000</td></tr><tr><td>Contingency (10%)</td><td>7,300</td></tr><tr><td><b>Total</b></td><td><b>80,300</b></td></tr></tbody></table></div></div><div><h4>Gantt chart (weeks)</h4><div class="scrollx"><table class="tt"><thead><tr><th>Task</th><th>Weeks</th><th>Owner</th></tr></thead><tbody><tr><td>Proposal &amp; plan</td><td>1–2</td><td>Nafisa</td></tr><tr><td>SRS</td><td>2–3</td><td>Nafisa</td></tr><tr><td>DFD &amp; use cases</td><td>3–4</td><td>Arif</td></tr><tr><td>Sequence &amp; class diagrams</td><td>4–6</td><td>Tania</td></tr><tr><td>Wireframes &amp; prototype</td><td>5–6</td><td>Tania</td></tr><tr><td>Increment 1: accounts, booking</td><td>6–7</td><td>Rakib</td></tr><tr><td>Increment 2: schedules, queue</td><td>8</td><td>Rakib</td></tr><tr><td>Increment 3: reminders, notes</td><td>9</td><td>Rakib</td></tr><tr><td>Testing with users</td><td>9–10</td><td>all</td></tr><tr><td>Report &amp; delivery</td><td>10–11</td><td>all</td></tr></tbody></table></div><div class="scrollx"><table class="doc"><thead><tr><th>Top risk</th><th>P × I</th><th>Response</th></tr></thead><tbody><tr><td>SMS API costs or access</td><td>3 × 4 = 12</td><td>Fall back to e-mail reminders</td></tr><tr><td>Doctors unavailable for feedback</td><td>3 × 3 = 9</td><td>Book two review slots now</td></tr><tr><td>Scope creep (lab results, pharmacy)</td><td>4 × 3 = 12</td><td>Freeze the SRS; log requests for v2</td></tr></tbody></table></div></div></div>
 </div></section>
 <section class="slide " data-title="Step 2 · The report in LaTeX" aria-label="Step 2 · The report in LaTeX" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Step 2 · LaTeX report</p><h2>Step 2 · The report in LaTeX</h2><div class="cols "><div><p>Rakib creates an Overleaf project from the course template. Each chapter is one file, so all four members can write at the same time without conflicts.</p><pre class="code tex">\documentclass[12pt]{report}
+<p class="kicker">Step 2 · LaTeX report</p><h2>Step 2 · The report in LaTeX</h2><div class="cols "><div><p>Rakib creates an Overleaf project from the course template. Each chapter is one file, so all four members can write at the same time without conflicts.</p><div class="codeout stack"><div><div class="co-h">LaTeX source</div><pre class="code tex">\documentclass[12pt]{report}
 \usepackage{amsmath, graphicx, booktabs, float}
 \usepackage[style=ieee]{biblatex}
 \addbibresource{references.bib}
@@ -92,14 +92,54 @@
 \input{ch4-design}     % Arif, Tania
 \input{ch5-ui}         % Tania
 \printbibliography
-\end{document}</pre></div><div><p>Every diagram on the following slides is exported as PDF from draw.io or Figma and inserted as a numbered figure:</p><pre class="code tex">\begin{figure}[H]
+\end{document}</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass[12pt]{report}
+\usepackage{amsmath, graphicx, booktabs, float}
+\usepackage[style=ieee]{biblatex}
+\addbibresource{references.bib}
+\title{CampusCare: Medical-Centre Appointment System}
+\author{Team Pulse, CSE 308}
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter{Project Proposal and Plan}
+\emph{(text of ch1-proposal.tex)}
+\chapter{Software Requirements Specification}
+\emph{(text of ch2-srs.tex)}
+\chapter{SDLC Model}
+\emph{(text of ch3-sdlc.tex)}
+\chapter{System Design}
+\emph{(text of ch4-design.tex, which cites~\cite{demarco1978})}
+\chapter{User Interface}
+\emph{(text of ch5-ui.tex)}
+\printbibliography
+\end{document}"></div><p class="co-note">Each <code>\input</code> file starts with its own <code>\chapter</code>; their text is shortened here. The contents and the reference list are generated.</p></div></div></div><div><p>Every diagram on the following slides is exported as PDF from draw.io or Figma and inserted as a numbered figure:</p><div class="codeout stack"><div><div class="co-h">LaTeX source</div><pre class="code tex">\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{dfd-level1}
   \caption{Level 1 DFD of CampusCare.}
   \label{fig:dfd1}
 \end{figure}
 As Figure~\ref{fig:dfd1} shows, process 2.0 reads
-the free slots from store D2~\cite{demarco1978}.</pre></div></div>
+the free slots from store D2~\cite{demarco1978}.</pre></div><div><div class="co-h">Output <i>· what the PDF shows</i></div><div class="tex-page tex-out" data-src="\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{biblatex}
+\begin{document}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{dfd-level1}
+  \caption{Level 1 DFD of CampusCare.}
+  \label{fig:dfd1}
+\end{figure}
+As Figure~\ref{fig:dfd1} shows, process 2.0 reads
+the free slots from store D2~\cite{demarco1978}.
+\end{document}"></div><p class="co-note">In the full report the number would be 4.2 (chapter 4, second figure); the reference number comes from <code>references.bib</code>.</p></div></div></div></div>
 </div></section>
 <section class="slide " data-title="Step 3 · SRS: user classes and one feature" aria-label="Step 3 · SRS: user classes and one feature" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Step 3 · SRS</p><h2>Step 3 · SRS: user classes and one feature</h2><div class="cols "><div><div class="scrollx"><table class="doc"><thead><tr><th>User class</th><th>Needs</th></tr></thead><tbody><tr><td>Patient (student or staff)</td><td>book, cancel, reschedule, view appointments</td></tr><tr><td>Doctor</td><td>see the day’s queue, record visit notes</td></tr><tr><td>Receptionist</td><td>publish and change doctor schedules</td></tr><tr><td>SMS gateway (external system)</td><td>receives reminder messages</td></tr></tbody></table></div><p class="small"><b>Scope:</b> booking and reminders for the university medical centre. Out of scope: lab results, pharmacy stock, billing.</p></div><div><div class="panel"><h4>3.2 Book appointment — priority High</h4><p class="small"><b>Stimulus/response:</b> patient picks doctor and date → system shows free slots → patient picks one → system confirms with a reference number.</p><ul class="small"><li><b>FR-2.1</b> The system shall show only slots that are free at the moment the list is displayed.</li><li><b>FR-2.2</b> The system shall not allow a patient to hold more than one future appointment with the same doctor.</li><li><b>FR-2.3</b> If the chosen slot is taken before confirmation, the system shall say so and offer the waiting list.</li><li><b>FR-2.4</b> The system shall give every confirmed appointment a unique reference such as CC-2291.</li></ul></div></div></div>
@@ -155,6 +195,7 @@ the free slots from store D2~\cite{demarco1978}.</pre></div></div>
 <aside id="slide-menu" hidden aria-label="Slide list"><div class="menu-head"><h3>Slides in this topic</h3><button type="button" id="btn-menu-close" class="menu-close" aria-label="Close slide list">&#10005;</button></div></aside>
 <noscript><p style="padding:20px">This lesson needs JavaScript for the slides and the interactive examples.</p></noscript>
 <script src="../js/core.js"></script>
+<script src="../js/art.js"></script>
 <script src="../js/diagram.js"></script>
 <script src="../js/figs.js"></script>
 <script src="../js/latex.js"></script>
@@ -169,6 +210,5 @@ the free slots from store D2~\cite{demarco1978}.</pre></div></div>
         data-endpoint="https://analytics-proxy.ayansarkar1829.workers.dev"
         data-project="CSE-308 Design Project"></script>
 <script src="../js/course-events.js"></script>
-<script src="../js/art.js"></script>
 </body>
 </html>

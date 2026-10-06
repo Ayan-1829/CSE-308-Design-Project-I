@@ -185,15 +185,13 @@ where $a$, $b$ and $c$ are the coefficients; see \eqref{eq:quad}.
   exercise2: String.raw`\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
-% Exercise 2: typeset the central limit theorem
+% Exercise 2: make the maths match the target (hint: $...$ and \infty)
 Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically
-distributed random variables with $\operatorname{E}[X_i] = \mu$ and
-$\operatorname{Var}[X_i] = \sigma^2 < \infty$, and let
-\begin{equation*}
+distributed random variables with \operatorname{E}[X_i] = \mu and
+$\operatorname{Var}[X_i] = \sigma^2 < infinity$, and let
 S_n = \frac{1}{n}\sum_{i=1}^{n} X_i
-\end{equation*}
 denote their mean. Then as $n$ approaches infinity, the random variables
-$\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $N(0, \sigma^2)$.
+\sqrt{n}(S_n - \mu) converge in distribution to a normal $N(0, \sigma^2)$.
 \end{document}`,
   report: String.raw`\documentclass[12pt]{article}
 \usepackage{amsmath}
@@ -290,9 +288,32 @@ Requirements should follow the IEEE recommended practice~\cite{ieee830}.
 \printbibliography
 \end{document}`
 };
-const TEX_BIB = {
-  batiz2008: { author: 'Batiz-Lazo, Bernardo and Reid, Robert', title: 'Evidence from the patent record on the development of cash dispensing technology', booktitle: 'IEEE History of Telecommunications Conference', year: '2008', pages: '110--114' },
-  ieee830: { author: 'IEEE', title: 'IEEE Recommended Practice for Software Requirements Specifications', publisher: 'IEEE Std 830-1998', year: '1998' }
+/* exercises: the corrected source is compiled as the target page shown beside the student's own output */
+const TEX_TARGETS = {
+  exercise1: [   // an array, not String.raw: the LaTeX quotes `` would end a template literal
+    '\\documentclass{article}',
+    '\\begin{document}',
+    'In March 2006, Congress raised that ceiling an additional \\$0.79',
+    'trillion to \\$8.97 trillion, which is approximately 68\\% of GDP. As of',
+    "October 4, 2008, the ``Emergency Economic Stabilization Act of",
+    "2008'' raised the current debt ceiling to \\$11.3 trillion.",
+    '\\end{document}'].join('\n'),
+  exercise2: String.raw`\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically
+distributed random variables with $\operatorname{E}[X_i] = \mu$ and
+$\operatorname{Var}[X_i] = \sigma^2 < \infty$, and let
+\begin{equation*}
+S_n = \frac{1}{n}\sum_{i=1}^{n} X_i
+\end{equation*}
+denote their mean. Then as $n$ approaches infinity, the random variables
+$\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $N(0, \sigma^2)$.
+\end{document}`
+};
+const TEX_TASKS = {
+  exercise1: 'The source has mistakes with special characters. Edit it until <b>Your output</b> (right) looks exactly like the <b>Target</b> (left). Start with the first error in the log.',
+  exercise2: 'Some of the maths is written as plain text. Edit the source until <b>Your output</b> (right) looks exactly like the <b>Target</b> (left): put maths inside <code>$…$</code>, give the big formula its own <code>equation*</code>, and write ∞ as <code>\\infty</code>.'
 };
 DEMOS['tex-play'] = (root) => {
   const pick = root.getAttribute('data-sample') || 'hello';
@@ -300,7 +321,11 @@ DEMOS['tex-play'] = (root) => {
   const show = (root.getAttribute('data-list') || pick).split(',');
   const ta = h('textarea', { class: 'tex-src', spellcheck: 'false', 'aria-label': 'LaTeX source' });
   const view = h('div', { class: 'tex-page' }), log = h('div', { class: 'tex-log' }), status = h('span', { class: 'small muted' });
-  let timer = 0;
+  const target = h('div', { class: 'tex-page target', 'aria-label': 'Target output' }), match = h('div', { class: 'tex-match', 'aria-live': 'polite' }), task = h('p', { class: 'tex-task' });
+  const area = h('div');
+  let timer = 0, cur = pick;
+  /* the visible text of a page, ignoring spacing and KaTeX's hidden MathML copy */
+  const looks = (el) => { const c = el.cloneNode(true); c.querySelectorAll('.katex-mathml').forEach((x) => x.remove()); return c.textContent.replace(/\s+/g, ''); };
   function build() {
     const r = TeX.compile(ta.value, { bib: TEX_BIB });
     view.innerHTML = r.html || '<p class="tx-note">(empty page)</p>';
@@ -308,19 +333,47 @@ DEMOS['tex-play'] = (root) => {
     if (!r.errors.length && !r.warnings.length) log.append(h('div', { class: 'tl-ok' }, '✓ Compiled with no errors.'));
     r.errors.forEach((e) => log.append(h('div', { class: 'tl-err' }, h('b', null, `! l.${e.line} `), e.msg)));
     r.warnings.forEach((w) => log.append(h('div', { class: 'tl-warn' }, h('b', null, 'Warning: '), w)));
+    if (!TEX_TARGETS[cur]) return;
+    target.innerHTML = TeX.compile(TEX_TARGETS[cur], { bib: TEX_BIB }).html;
+    const ok = !r.errors.length && looks(view) === looks(target);
+    area.querySelector('.tex-split').classList.toggle('matched', ok);
+    match.className = 'tex-match ' + (ok ? 'ok' : 'no');
+    match.textContent = ok ? '✓ Your output matches the target. Well done!'
+      : r.errors.length ? `✗ Not matching yet: ${r.errors.length} error${r.errors.length > 1 ? 's' : ''} in the log. Fix the first one, then compare the two pages again.`
+        : '✗ It compiles, but your output still differs from the target. Compare the two pages word by word.';
   }
-  const load = (k) => { ta.value = TEX_SAMPLES[k]; build(); };
+  function layout() {
+    clear(area);
+    if (TEX_TARGETS[cur]) {
+      task.innerHTML = TEX_TASKS[cur];
+      ta.classList.add('ex-src');
+      view.classList.add('mine');
+      ta.style.height = (TEX_SAMPLES[cur].split('\n').length * 1.55 + 1.4) + 'em';
+      area.append(task, h('div', { class: 'gap' }, ta, log), match,
+        h('div', { class: 'tex-split tx-exm' },
+          h('div', null, h('div', { class: 'tex-lab tgt' }, 'Target ', h('i', null, '· what it should look like')), target),
+          h('div', null, h('div', { class: 'tex-lab' }, 'Your output ', h('i', null, '· updates as you type')), view)));
+    } else {
+      ta.classList.remove('ex-src');
+      view.classList.remove('mine');
+      ta.style.height = '';
+      area.append(h('div', { class: 'tex-split' }, h('div', null, ta, log), view));
+    }
+  }
+  const load = (k) => { cur = k; ta.value = TEX_SAMPLES[k]; layout(); build(); };
   ta.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(build, 250); });
   ta.addEventListener('keydown', (e) => { if (e.key === 'Tab') { e.preventDefault(); const s = ta.selectionStart; ta.setRangeText('  ', s, ta.selectionEnd, 'end'); build(); } });
-  const bar = h('div', { class: 'row tight' }, show.length > 1 ? seg(show.map((k) => ({ v: k, l: names[k] })), pick, load).el : null, h('button', { type: 'button', class: 'btn sm', onclick: () => load(ta.value && TEX_SAMPLES[pick] ? pick : pick) }, 'Reset'), status);
+  const bar = h('div', { class: 'row tight' }, show.length > 1 ? seg(show.map((k) => ({ v: k, l: names[k] })), pick, load).el : null, h('button', { type: 'button', class: 'btn sm', onclick: () => load(cur) }, 'Reset'), status);
   load(pick);
   TeX.loadKatex((ok) => { status.textContent = ok ? 'Maths: KaTeX' : 'Maths shown as source (offline)'; build(); });
-  root.append(demoBox('LaTeX playground', 'Edit the source on the left; the page on the right updates as you type. Errors appear in the log with the line number and LaTeX’s own wording. This previewer knows the commands in this course, not all of LaTeX — use Overleaf for real reports.',
-    bar, h('div', { class: 'tex-split' }, h('div', null, ta, log), view)));
+  root.append(demoBox('LaTeX playground', TEX_TARGETS[pick] ? 'An exercise: the page on the left is the target, the page on the right is what your source produces. Errors appear in the log with the line number and LaTeX’s own wording.'
+    : 'Edit the source on the left; the page on the right updates as you type. Errors appear in the log with the line number and LaTeX’s own wording. This previewer knows the commands in this course, not all of LaTeX — use Overleaf for real reports.',
+  bar, area));
 };
 
 DEMOS['tex-escape'] = (root) => {
   const inp = h('textarea', { rows: 3, 'aria-label': 'Plain text', class: 'full' }), out = h('pre', { class: 'code tex nonum' }), notes = h('ul', { class: 'small' });
+  const page = h('div', { class: 'tex-page tex-out' });
   const MAP = { '\\': '\\textbackslash{}', '%': '\\%', '$': '\\$', '&': '\\&', '#': '\\#', '_': '\\_', '{': '\\{', '}': '\\}', '~': '\\textasciitilde{}', '^': '\\textasciicircum{}' };
   const WHY = { '%': 'starts a comment', '$': 'starts maths mode', '&': 'separates table columns', '#': 'marks macro parameters', '_': 'makes a subscript in maths', '{': 'opens a group', '}': 'closes a group', '\\': 'starts a command', '~': 'is a non-breaking space', '^': 'makes a superscript in maths', '"': "gives a straight quote; use ``…'' for curly quotes" };
   function go() {
@@ -328,13 +381,14 @@ DEMOS['tex-escape'] = (root) => {
     let r = s.replace(/[\\%$&#_{}~^]/g, (c) => { seen[c] = (seen[c] || 0) + 1; return MAP[c]; });
     r = r.replace(/"([^"]*)"/g, (m, x) => { seen['"'] = (seen['"'] || 0) + 1; return '``' + x + "''"; });
     out.textContent = r; TeX.render(out);
+    page.innerHTML = TeX.compile('\\documentclass{article}\n\\begin{document}\n' + r + '\n\\end{document}').html || '<p class="tx-note">(empty page)</p>';
     clear(notes);
     Object.keys(seen).forEach((c) => notes.append(h('li', null, h('code', null, c), ` × ${seen[c]} — ${WHY[c]}, so it was written as `, h('code', null, c === '"' ? "``…''" : MAP[c]))));
     if (!Object.keys(seen).length) notes.append(h('li', null, 'Nothing to escape.'));
   }
   inp.value = 'Profit rose 68% to $8.97 trillion for R&D in file_v2 #1 "final"';
   inp.addEventListener('input', go); go();
-  root.append(demoBox('Special-character escaper', 'Type ordinary text; the tool shows how to write it safely in LaTeX and explains each change.', inp, out, notes));
+  root.append(demoBox('Special-character escaper', 'Type ordinary text; the tool shows how to write it safely in LaTeX and explains each change.', inp, h('div', { class: 'co-h' }, 'LaTeX source'), out, h('div', { class: 'co-h' }, 'Output'), page, notes));
 };
 
 DEMOS['tex-table'] = (root) => {

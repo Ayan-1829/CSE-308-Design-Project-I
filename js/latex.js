@@ -60,7 +60,7 @@ const TeX = (() => {
   }
 
   /* ---------------- the previewer ---------------- */
-  const SECT = { section: 1, subsection: 2, subsubsection: 3 };
+  const SECT = { chapter: 0, section: 1, subsection: 2, subsubsection: 3 };
   const NEEDS = {
     includegraphics: 'graphicx', eqref: 'amsmath', text: 'amsmath', url: 'url|hyperref', href: 'hyperref', addbibresource: 'biblatex', printbibliography: 'biblatex',
     align: 'amsmath', 'align*': 'amsmath', 'equation*': 'amsmath', gather: 'amsmath', 'gather*': 'amsmath', algorithmic: 'algpseudocode', algorithm: 'algorithm',
@@ -82,7 +82,7 @@ const TeX = (() => {
     let labels = {}, sectionsSeen = [];
 
     function run(final) {
-      const ctx = { errors: [], warnings: [], newLabels: {}, cur: '', sec: [0, 0, 0], eq: 0, fig: 0, tab: 0, alg: 0, fn: [], cites: [], citeNum: {}, bibitems: [], secs: [], pkgs: {}, meta: {}, final };
+      const ctx = { errors: [], warnings: [], newLabels: {}, cur: '', sec: [0, 0, 0, 0], eq: 0, fig: 0, tab: 0, alg: 0, fn: [], cites: [], citeNum: {}, bibitems: [], secs: [], pkgs: {}, meta: {}, final };
       const err = (pos, msg) => { if (ctx.errors.length < 30 && !ctx.errors.some((e) => e.msg === msg && e.line === lineOf(pos))) ctx.errors.push({ line: lineOf(pos), msg }); };
       const warn = (msg) => { if (!ctx.warnings.includes(msg)) ctx.warnings.push(msg); };
       const has = (need) => need.split('|').some((p) => ctx.pkgs[p]);
@@ -163,6 +163,8 @@ const TeX = (() => {
               case 'today': out += today(); break;
               case 'ldots': case 'dots': out += '…'; break;
               case 'textbackslash': out += '\\'; break;
+              case 'textasciitilde': out += '~'; if (s[i] === '{' && s[i + 1] === '}') i += 2; break;
+              case 'textasciicircum': out += '^'; if (s[i] === '{' && s[i + 1] === '}') i += 2; break;
               case 'newline': case 'linebreak': out += '<br>'; break;
               case 'noindent': case 'par': case 'centering': case 'raggedright': case 'small': case 'large': case 'Large': case 'footnotesize': case 'normalsize': case 'bfseries': case 'itshape': case 'hfill': case 'quad': case 'qquad': case 'medskip': case 'bigskip': case 'smallskip': case 'protect': case 'nonumber': sp(); break;
               case 'vspace': case 'hspace': arg(); break;
@@ -234,7 +236,7 @@ const TeX = (() => {
             let tag = null;
             if (name === 'equation') { ctx.eq++; tag = String(ctx.eq); ctx.cur = tag; }
             const b = body.replace(/\\label\{([^}]*)\}/g, (m0, k) => { ctx.newLabels[k] = tag || '??'; return ''; });
-            if (/\n\s*\n/.test(b)) err(at, 'Missing $ inserted.  (Blank lines are not allowed inside maths.)');
+            if (/\n\s*\n/.test(body)) err(at, 'Missing $ inserted.  (Blank lines are not allowed inside maths.)');
             return '<div class="tx-disp">' + math(b.trim(), true, tag) + '</div>';
           }
           case 'align': case 'align*': case 'gather': case 'gather*': {
@@ -364,14 +366,15 @@ const TeX = (() => {
               i = ae; continue;
             }
             if (name === 'end') { const [env, j2] = group(s, i + 4); err(base + at, 'LaTeX Error: \\end{' + env + '} without a matching \\begin{' + env + '}.'); i = j2; continue; }
-            if (SECT[name]) {
+            if (name in SECT) {
               flush();
               const [t, j2] = group(s, i + m[0].length);
               const lvl = SECT[name];
               let num = '';
-              if (!star) { ctx.sec[lvl - 1]++; for (let q = lvl; q < 3; q++) ctx.sec[q] = 0; num = ctx.sec.slice(0, lvl).join('.'); ctx.cur = num; }
+              if (!lvl && !ctx.chapters) { err(base + at, 'Undefined control sequence \\chapter.  (Chapters exist in the report and book classes, not in article.)'); i = j2; continue; }
+              if (!star) { ctx.sec[lvl]++; for (let q = lvl + 1; q < 4; q++) ctx.sec[q] = 0; num = ctx.sec.slice(ctx.chapters ? 0 : 1, lvl + 1).join('.'); ctx.cur = num; }
               ctx.secs.push({ lvl, num, t: inline(t || '', base + i) });
-              out += '<h' + (lvl + 3) + ' class="tx-h' + lvl + '">' + (num ? '<span class="tx-num">' + num + '</span>' : '') + inline(t || '', base + i) + '</h' + (lvl + 3) + '>';
+              out += '<h' + (lvl + 3) + ' class="tx-h' + lvl + '">' + (lvl ? '' : '<span class="tx-chap">Chapter ' + num + '</span>') + (num && lvl ? '<span class="tx-num">' + num + '</span>' : '') + inline(t || '', base + i) + '</h' + (lvl + 3) + '>';
               i = j2; continue;
             }
             if (name === 'maketitle') {
@@ -394,6 +397,7 @@ const TeX = (() => {
               out += '<div class="tx-bib"><h4 class="tx-h1">References</h4>' + (keys.length ? '<ol>' + keys.map((k) => '<li>' + fmtBib(bibdb[k]) + '</li>').join('') + '</ol>' : '<p class="tx-note">Nothing is cited yet, so the list is empty.</p>') + '</div>';
               i += m[0].length; if (name === 'bibliography') i = group(s, i)[1]; continue;
             }
+            if (name === 'input' || name === 'include') { flush(); const [f, j2] = group(s, i + m[0].length); out += '<p class="tx-note">[the contents of ' + escH((f || '').replace(/\.tex$/, '')) + '.tex appear here]</p>'; i = j2; continue; }
             if (name === 'newpage' || name === 'clearpage') { flush(); out += '<hr class="tx-page">'; i += m[0].length; continue; }
             if (name === 'item') { flush(); err(base + at, 'LaTeX Error: Lonely \\item--perhaps a missing list environment.'); i += 5; continue; }
             if (name === 'documentclass' || name === 'usepackage') { err(base + at, 'LaTeX Error: Can be used only in preamble.'); i += m[0].length; const [, j3] = opt(s, i); const [, j4] = group(s, j3); i = j4; continue; }
@@ -409,6 +413,7 @@ const TeX = (() => {
       /* ----- preamble ----- */
       const bd = text.indexOf('\\begin{document}');
       const dc = /\\documentclass(\[[^\]]*\])?\{([^}]*)\}/.exec(text);
+      ctx.chapters = !!dc && /^(report|book)$/.test(dc[2].trim());
       if (!dc) err(0, 'LaTeX Error: Missing \\documentclass.  (Every document starts with \\documentclass{article}.)');
       if (bd < 0) { err(text.length, 'LaTeX Error: Missing \\begin{document}.'); }
       const pre = bd < 0 ? '' : text.slice(0, bd);
@@ -433,7 +438,7 @@ const TeX = (() => {
     }
 
     const first = run(false);
-    labels = first.ctx.newLabels; sectionsSeen = first.ctx.secs;
+    labels = Object.assign({}, opts.labels, first.ctx.newLabels); sectionsSeen = first.ctx.secs;
     const second = run(true);
     return { html: second.html, errors: second.ctx.errors.sort((a, b) => a.line - b.line), warnings: second.ctx.warnings, meta: second.ctx.meta };
   }
@@ -444,5 +449,39 @@ const TeX = (() => {
     return escH(au) + ', “' + escH(e.title || '') + ',” ' + (e.journal ? '<i>' + escH(e.journal) + '</i>' : e.booktitle ? 'in <i>' + escH(e.booktitle) + '</i>' : e.publisher ? escH(e.publisher) : '') + (e.volume ? ', vol. ' + escH(e.volume) : '') + (e.number ? ', no. ' + escH(e.number) : '') + (e.pages ? ', pp. ' + escH(e.pages.replace('--', '–')) : '') + (e.year ? ', ' + escH(e.year) : '') + '.';
   }
 
-  return { render, compile, loadKatex, fmtBib, hlTexLine, escH };
+  /* ---------------- typeset output of a code example ---------------- */
+  /* <div class="tex-out" data-src="full document"> (or data-bib="one BibTeX entry") is filled with the compiled page;
+     data-labels="tab:cost=3,…" stands in for labels defined elsewhere in a longer report. */
+  function parseBib(src) {
+    const m = /@(\w+)\s*\{\s*([^,]*),/.exec(src); if (!m) return null;
+    const e = { type: m[1].toLowerCase(), key: m[2].trim() };
+    const re = /(\w+)\s*=\s*\{((?:[^{}]|\{[^{}]*\})*)\}/g; let f;
+    while ((f = re.exec(src))) e[f[1].toLowerCase()] = f[2].replace(/[{}]/g, '');
+    return e;
+  }
+  function mountOutputs(root) {
+    const els = Array.from((root || document).querySelectorAll('.tex-out[data-src], .tex-out[data-bib]'));
+    if (!els.length) return;
+    const paint = () => els.forEach((el) => {
+      const bib = el.getAttribute('data-bib');
+      if (bib != null) { el.innerHTML = '<div class="tx-bib"><h4 class="tx-h1">References</h4><ol><li>' + fmtBib(parseBib(bib)) + '</li></ol></div>'; return; }
+      const labels = {};
+      (el.getAttribute('data-labels') || '').split(',').filter(Boolean).forEach((x) => { const q = x.split('='); labels[q[0].trim()] = (q[1] || '').trim(); });
+      const r = compile(el.getAttribute('data-src'), { bib: TEX_BIB, labels });
+      el.innerHTML = r.html || '<p class="tx-note">(an empty page)</p>';
+      if (r.errors.length && window.console) console.warn('tex-out', r.errors);
+    });
+    paint();
+    loadKatex((ok) => { if (ok) paint(); });
+  }
+
+  return { render, compile, loadKatex, fmtBib, parseBib, mountOutputs, hlTexLine, escH };
 })();
+
+/* bibliography shared by the playground and the code-example outputs (stands in for citation.bib) */
+const TEX_BIB = {
+  batiz2008: { author: 'Batiz-Lazo, Bernardo and Reid, Robert', title: 'Evidence from the patent record on the development of cash dispensing technology', booktitle: 'IEEE History of Telecommunications Conference', year: '2008', pages: '110--114' },
+  ieee830: { author: 'IEEE', title: 'IEEE Recommended Practice for Software Requirements Specifications', publisher: 'IEEE Std 830-1998', year: '1998' },
+  demarco1978: { author: 'DeMarco, Tom', title: 'Structured Analysis and System Specification', publisher: 'Yourdon Press', year: '1978' },
+  guyot2002high: { author: 'Guyot, A and Chu, F and Schneider, M and Graillat, C and McKenna, TF', title: 'High solid content latexes', journal: 'Progress in Polymer Science', volume: '27', number: '8', pages: '1573--1615', year: '2002' }
+};

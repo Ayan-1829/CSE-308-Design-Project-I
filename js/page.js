@@ -3,6 +3,7 @@ function mountPage(root) {
   root = root || document;
   const fail = (ph, what, e) => { ph.append(h('p', { class: 'bad' }, `This ${what} could not start: ${e.message}`)); if (window.console) console.error(e); };
   root.querySelectorAll('pre.code:not([data-hl])').forEach((pre) => { try { TeX.render(pre); } catch (e) { /* leave plain text */ } });
+  try { TeX.mountOutputs(root); } catch (e) { /* outputs stay empty */ }
   root.querySelectorAll('figure.fig[data-fig]').forEach((fig) => {
     const id = fig.getAttribute('data-fig');
     try { fig.insertBefore(h('div', { class: 'fig-box' }, FIGS[id]()), fig.querySelector('figcaption')); } catch (e) { fail(fig, 'figure', e); }

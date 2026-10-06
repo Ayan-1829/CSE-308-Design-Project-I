@@ -95,7 +95,7 @@
 <p class="kicker">Communication diagrams</p><h2>Sequence or communication?</h2><div class="scrollx"><table class="doc"><thead><tr><th></th><th>Sequence diagram</th><th>Communication diagram</th></tr></thead><tbody><tr><td>Shows best</td><td>the order of messages over time</td><td>the structure of links between objects</td></tr><tr><td>Order</td><td>top to bottom — easy to read</td><td>by sequence numbers — harder to follow</td></tr><tr><td>Alternatives and loops</td><td>combined fragments (alt, opt, loop)</td><td>guards and * in labels</td></tr><tr><td>Space</td><td>wide with many objects, long with many messages</td><td>compact</td></tr><tr><td>Use it for</td><td>explaining a scenario step by step</td><td>checking which classes need associations</td></tr></tbody></table></div><div class="callout">Both show the same information and most tools convert one into the other. Your lab asks for both: draw the sequence diagram first, then derive the communication diagram from it.</div>
 </div></section>
 <section class="slide " data-title="Drawing tools" aria-label="Drawing tools" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Tools</p><h2>Drawing tools</h2><div class="cols "><div><p>In <b>Visual Paradigm</b> (online or desktop): create a Sequence Diagram, add an Actor and Lifelines from the toolbar, then drag from a lifeline’s resource icon to create a message to another lifeline. Right-click a message to change its type; select several messages and choose <i>Create combined fragment</i> for alt, opt or loop.</p><p>StarUML, Lucidchart and draw.io work the same way. <b>PlantUML</b> lets you type it:</p></div><div><pre class="code plain">@startuml
+<p class="kicker">Tools</p><h2>Drawing tools</h2><p>In <b>Visual Paradigm</b> (online or desktop): create a Sequence Diagram, add an Actor and Lifelines from the toolbar, then drag from a lifeline’s resource icon to create a message to another lifeline. Right-click a message to change its type; select several messages and choose <i>Create combined fragment</i> for alt, opt or loop.</p><p>StarUML, Lucidchart and draw.io work the same way. <b>PlantUML</b> lets you type it, and draws the diagram for you:</p><div class="codeout"><div><div class="co-h">PlantUML source</div><pre class="code plain">@startuml
 actor Customer
 participant &quot;:ATM&quot; as ATM
 participant &quot;:BankServer&quot; as Bank
@@ -110,7 +110,7 @@ alt amount &lt;= balance
 else insufficient funds
   ATM -&gt; Customer : showError()
 end
-@enduml</pre></div></div>
+@enduml</pre></div><div><div class="co-h">Output <i>· the diagram PlantUML draws</i></div><div class="uml-out"><img src="../img/uml/seq-atm-withdraw.svg" alt="Sequence diagram drawn by PlantUML: Customer, ATM and BankServer exchanging insertCard, requestPIN, enterPIN and verifyPIN, then an alt fragment for approved or insufficient funds" loading="lazy"></div></div></div>
 </div></section>
 <section class="slide " data-title="Common mistakes" aria-label="Common mistakes" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Concept 11 of 12</p><h2>Common mistakes</h2><div class="scrollx"><table class="doc"><thead><tr><th>Mistake</th><th>Fix</th></tr></thead><tbody><tr><td>The actor talks straight to the database or entity objects</td><td>go through a boundary and control object</td></tr><tr><td>Messages written as sentences (“the ATM checks the PIN”)</td><td>write operation calls: <code>verifyPIN(card, pin)</code></td></tr><tr><td>No reply for a value that is used later</td><td>add a dashed reply arrow</td></tr><tr><td>Two diagrams for success and failure</td><td>one diagram with an <code>alt</code> fragment</td></tr><tr><td>Lifeline names like “ATM system”</td><td>name objects and classes: <code>:ATM</code></td></tr><tr><td>Messages that do not exist as operations in the class diagram</td><td>add the operation, or rename the message</td></tr><tr><td>Showing a whole system in one diagram</td><td>one diagram per use case scenario</td></tr></tbody></table></div>
@@ -151,6 +151,7 @@ end
 <aside id="slide-menu" hidden aria-label="Slide list"><div class="menu-head"><h3>Slides in this topic</h3><button type="button" id="btn-menu-close" class="menu-close" aria-label="Close slide list">&#10005;</button></div></aside>
 <noscript><p style="padding:20px">This lesson needs JavaScript for the slides and the interactive examples.</p></noscript>
 <script src="../js/core.js"></script>
+<script src="../js/art.js"></script>
 <script src="../js/diagram.js"></script>
 <script src="../js/figs.js"></script>
 <script src="../js/latex.js"></script>
@@ -165,6 +166,5 @@ end
         data-endpoint="https://analytics-proxy.ayansarkar1829.workers.dev"
         data-project="CSE-308 Design Project"></script>
 <script src="../js/course-events.js"></script>
-<script src="../js/art.js"></script>
 </body>
 </html>

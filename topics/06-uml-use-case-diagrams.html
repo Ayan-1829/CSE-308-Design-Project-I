@@ -95,7 +95,7 @@
 <p class="kicker">Concept 9 of 12</p><h2>Finding actors and use cases</h2><div class="cols "><div><p>Ask these questions of the SRS and the users:</p><ol><li>Who uses the system to get their work done? (primary actors)</li><li>Who installs, maintains or administers it?</li><li>Which other systems does it talk to? (secondary actors)</li><li>For each actor: what goals do they have? Each goal that gives them a result of value is a use case.</li><li>What must happen at a certain time? (time as an actor)</li></ol></div><div><div class="callout"><b>The “coffee-break” test:</b> a use case is a goal after which the user could happily take a break. “Withdraw cash” passes; “Enter PIN” does not — it is a step inside a use case.</div></div></div>
 </div></section>
 <section class="slide " data-title="Drawing it step by step" aria-label="Drawing it step by step" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Building your diagram</p><h2>Drawing it step by step</h2><div class="cols "><div><ol><li>Draw the <b>system boundary</b> and name it.</li><li>Place primary actors on the left, secondary actors on the right.</li><li>Add use cases inside the box, named verb + object, in a sensible order.</li><li>Connect each actor to its use cases with associations.</li><li>Look for steps shared by several use cases → <b>«include»</b>.</li><li>Look for optional or exceptional behaviour → <b>«extend»</b> (name the extension point).</li><li>Use generalization only for true “is a kind of” relations.</li><li>Give use cases IDs (UC-01…) and write a description for each.</li></ol></div><div><p class="small">In <b>Visual Paradigm</b>: Diagram Navigator → Use Case Diagram → New; pick System, Actor and Use Case from the toolbar; drag from a shape’s resource icon to create connected use cases, «include» and «extend»; use Package to group use cases; set ID formats under Tools → Options → Diagramming.</p><pre class="code plain nonum">@startuml
+<p class="kicker">Building your diagram</p><h2>Drawing it step by step</h2><div class="cols "><div><ol><li>Draw the <b>system boundary</b> and name it.</li><li>Place primary actors on the left, secondary actors on the right.</li><li>Add use cases inside the box, named verb + object, in a sensible order.</li><li>Connect each actor to its use cases with associations.</li><li>Look for steps shared by several use cases → <b>«include»</b>.</li><li>Look for optional or exceptional behaviour → <b>«extend»</b> (name the extension point).</li><li>Use generalization only for true “is a kind of” relations.</li><li>Give use cases IDs (UC-01…) and write a description for each.</li></ol><p class="small">In <b>Visual Paradigm</b>: Diagram Navigator → Use Case Diagram → New; pick System, Actor and Use Case from the toolbar; drag from a shape’s resource icon to create connected use cases, «include» and «extend»; use Package to group use cases; set ID formats under Tools → Options → Diagramming.</p></div><div><div class="codeout stack"><div><div class="co-h">PlantUML source</div><pre class="code plain">@startuml
 left to right direction
 actor Customer
 actor &quot;Bank server&quot; as Bank
@@ -108,7 +108,7 @@ Customer -- W
 W -- Bank
 W ..&gt; A : &lt;&lt;include&gt;&gt;
 P ..&gt; W : &lt;&lt;extend&gt;&gt;
-@enduml</pre><p class="small muted">The same idea written in PlantUML, a text-to-diagram tool.</p></div></div>
+@enduml</pre></div><div><div class="co-h">Output <i>· the diagram PlantUML draws</i></div><div class="uml-out"><img src="../img/uml/uc-atm-withdraw.svg" alt="Use case diagram drawn by PlantUML: Customer and Bank server linked to Withdraw cash inside the ATM system, which includes Authenticate and is extended by Print receipt" loading="lazy"></div></div></div><p class="small muted">The same idea written in PlantUML, a text-to-diagram tool: you type the text on top and it draws the diagram below.</p></div></div>
 </div></section>
 <section class="slide " data-title="Common mistakes" aria-label="Common mistakes" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Concept 11 of 12</p><h2>Common mistakes</h2><div class="scrollx"><table class="doc"><thead><tr><th>Mistake</th><th>Why it is wrong</th><th>Fix</th></tr></thead><tbody><tr><td>Steps as use cases (“Enter PIN”, “Click OK”)</td><td>too small; no goal</td><td>merge into the goal (“Withdraw cash”)</td></tr><tr><td>Arrows between use cases showing order</td><td>use case diagrams do not show sequence</td><td>use a sequence or activity diagram</td></tr><tr><td>«include» arrow drawn towards the base</td><td>direction reversed</td><td>base → included</td></tr><tr><td>Database or UI drawn as an actor</td><td>they are inside the system</td><td>remove them</td></tr><tr><td>Actors inside the boundary</td><td>actors are outside by definition</td><td>move them out</td></tr><tr><td>Dozens of includes</td><td>functional decomposition, not goals</td><td>keep includes for genuinely shared behaviour</td></tr><tr><td>No descriptions</td><td>the diagram alone is ambiguous</td><td>write a description per use case</td></tr></tbody></table></div>
@@ -149,6 +149,7 @@ P ..&gt; W : &lt;&lt;extend&gt;&gt;
 <aside id="slide-menu" hidden aria-label="Slide list"><div class="menu-head"><h3>Slides in this topic</h3><button type="button" id="btn-menu-close" class="menu-close" aria-label="Close slide list">&#10005;</button></div></aside>
 <noscript><p style="padding:20px">This lesson needs JavaScript for the slides and the interactive examples.</p></noscript>
 <script src="../js/core.js"></script>
+<script src="../js/art.js"></script>
 <script src="../js/diagram.js"></script>
 <script src="../js/figs.js"></script>
 <script src="../js/latex.js"></script>
@@ -163,6 +164,5 @@ P ..&gt; W : &lt;&lt;extend&gt;&gt;
         data-endpoint="https://analytics-proxy.ayansarkar1829.workers.dev"
         data-project="CSE-308 Design Project"></script>
 <script src="../js/course-events.js"></script>
-<script src="../js/art.js"></script>
 </body>
 </html>
