@@ -8,7 +8,8 @@ const D = (() => {
     opt = opt || {};
     return sv('svg', {
       viewBox: `0 0 ${w} ${hh}`, class: 'dg' + (opt.cls ? ' ' + opt.cls : ''), role: 'img', 'aria-label': label,
-      style: { maxWidth: Math.round(w * (opt.scale || 1.22)) + 'px', minWidth: Math.round(w * (opt.min || 0.62)) + 'px' }
+      /* drawn up to 1.45x larger than first designed so 13-unit labels stay readable on a projector */
+      style: { maxWidth: Math.round(w * (opt.scale || 1.22) * 1.45) + 'px', minWidth: Math.round(w * (opt.min || 0.62) * 1.35) + 'px' }
     }, kids);
   }
 

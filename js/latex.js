@@ -31,8 +31,8 @@ const TeX = (() => {
   function render(pre) {
     const bib = pre.classList.contains('bib'), nonum = pre.classList.contains('nonum'), plain = pre.classList.contains('plain');
     const src = pre.textContent.replace(/^\n/, '').replace(/\s+$/, '');
-    const marks = (pre.getAttribute('data-mark') || '').split(',').map(Number);
-    pre.innerHTML = src.split('\n').map((l, i) => '<span class="cl' + (marks.includes(i + 1) ? ' mk' : '') + '">' + (nonum ? '' : '<span class="cn">' + (i + 1) + '</span>') + ((plain ? escH(l) : bib ? hlBibLine(l) : hlTexLine(l)) || ' ') + '</span>').join('');
+    const marks = (pre.getAttribute('data-mark') || '').split(',').map(Number), st = +pre.getAttribute('data-start') || 1;
+    pre.innerHTML = src.split('\n').map((l, i) => '<span class="cl' + (marks.includes(i + st) ? ' mk' : '') + '">' + (nonum ? '' : '<span class="cn">' + (i + st) + '</span>') + ((plain ? escH(l) : bib ? hlBibLine(l) : hlTexLine(l)) || ' ') + '</span>').join('');
     pre.setAttribute('data-hl', '1');
   }
 

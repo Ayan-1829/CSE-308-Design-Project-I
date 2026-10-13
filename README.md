@@ -8,7 +8,7 @@
 
 <a href="https://ayan-1829.github.io/CSE-308-Design-Project-I/"><img alt="Live site: open" src="https://img.shields.io/badge/Live_site-open-1B6B4A?style=for-the-badge&logo=githubpages&logoColor=white"></a>
 <img alt="Topics: 10" src="https://img.shields.io/badge/Topics-10-555555?style=for-the-badge">
-<img alt="Slides: 258" src="https://img.shields.io/badge/Slides-258-555555?style=for-the-badge">
+<img alt="Slides: 350" src="https://img.shields.io/badge/Slides-350-555555?style=for-the-badge">
 <img alt="Build step: none" src="https://img.shields.io/badge/Build_step-none-555555?style=for-the-badge&logo=html5&logoColor=white">
 
 ### [🌐 Open the live site →](https://ayan-1829.github.io/CSE-308-Design-Project-I/)
@@ -30,20 +30,20 @@
 
 ## 📚 Topics
 
-10 decks · 258 slides. Each title opens the live deck.
+10 decks · 350 slides. Each title opens the live deck.
 
 | # | Topic | Slides |
 |:--:|---|:--:|
-| **★** | [Worked Project: CampusCare Appointment System](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/00-worked-project-campuscare.html) | 22 |
-| **1** | [Team Formation, Project Assignment & Planning](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/01-team-formation-and-project-planning.html) | 31 |
-| **2** | [Technical Report Writing with LaTeX](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/02-technical-report-writing-with-latex.html) | 34 |
-| **3** | [IEEE Software Requirements Specification (SRS)](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/03-ieee-software-requirements-specification.html) | 26 |
-| **4** | [SDLC Model Selection](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/04-sdlc-model-selection.html) | 24 |
-| **5** | [Data Flow Diagrams (DFD): Level 0 and Level 1](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/05-data-flow-diagrams-level-0-and-1.html) | 23 |
-| **6** | [UML Use Case Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/06-uml-use-case-diagrams.html) | 23 |
-| **7** | [UML Sequence & Communication Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/07-uml-sequence-and-communication-diagrams.html) | 23 |
-| **8** | [UML Class Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/08-uml-class-diagrams.html) | 26 |
-| **9** | [UI/UX Foundations & Figma Wireframing](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/09-ui-ux-foundations-and-figma-wireframing.html) | 26 |
+| **★** | [Worked Project: CampusCare Appointment System](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/00-worked-project-campuscare.html) | 37 |
+| **1** | [Team Formation, Project Assignment & Planning](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/01-team-formation-and-project-planning.html) | 37 |
+| **2** | [Technical Report Writing with LaTeX](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/02-technical-report-writing-with-latex.html) | 59 |
+| **3** | [IEEE Software Requirements Specification (SRS)](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/03-ieee-software-requirements-specification.html) | 31 |
+| **4** | [SDLC Model Selection](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/04-sdlc-model-selection.html) | 32 |
+| **5** | [Data Flow Diagrams (DFD): Level 0 and Level 1](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/05-data-flow-diagrams-level-0-and-1.html) | 27 |
+| **6** | [UML Use Case Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/06-uml-use-case-diagrams.html) | 28 |
+| **7** | [UML Sequence & Communication Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/07-uml-sequence-and-communication-diagrams.html) | 30 |
+| **8** | [UML Class Diagrams](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/08-uml-class-diagrams.html) | 37 |
+| **9** | [UI/UX Foundations & Figma Wireframing](https://ayan-1829.github.io/CSE-308-Design-Project-I/topics/09-ui-ux-foundations-and-figma-wireframing.html) | 32 |
 
 ## ⌨️ Using the slides
 
