@@ -98,6 +98,27 @@ FIGS['nfr-tree'] = () => {
   return D.svg(780, 424, 'Types of non-functional requirement (after Sommerville)', k);
 };
 
+/* context diagram of the University Student Management System (topic 3 example and example-srs.html) */
+FIGS['usms-context'] = () => {
+  const ent = (x, y, w, t, tip) => D.tip(R(x, y, w, 50, t, { cls: 'dg-fill2', rx: 0 }), tip);
+  const k = [
+    D.tip(C(380, 196, 82, '0\nStudent\nManagement\nSystem', { cls: 'dg-fill1' }), 'The whole system as one process: everything inside the boundary is specified by this SRS.'),
+    ent(10, 171, 130, 'Student', 'Primary user: logs in, registers for courses, views results and pays tuition fees.'),
+    ent(60, 20, 140, 'Faculty member', 'Enters marks and grades for the sections they teach.'),
+    ent(560, 20, 190, 'Registrar office', 'Administrators: maintain courses, prerequisites and student records, and publish results.'),
+    ent(560, 322, 190, 'Payment gateway', 'External system that charges a card or mobile wallet and confirms the payment.'),
+    ent(40, 322, 170, 'Email / SMS service', 'External system that delivers notifications: password resets, enrollment and payment confirmations.'),
+    L([[140, 186], [298, 186]], { end: 'arrow', label: 'login, course choice, payment', dy: -12 }),
+    L([[298, 210], [140, 210]], { end: 'arrow', label: 'courses, results, receipts', dy: 14 }),
+    L([[200, 45], [250, 45], [326, 134]], { end: 'arrow', label: 'marks', at: .2, dy: -12 }),
+    L([[560, 45], [500, 45], [436, 134]], { end: 'arrow', label: 'courses, records, publish', at: .05, dx: -6, dy: -12, anchor: 'end' }),
+    L([[452, 236], [560, 336]], { end: 'arrow', label: 'payment request', dx: 6, anchor: 'start' }),
+    L([[560, 360], [436, 252]], { end: 'arrow', label: 'payment status', dx: -6, anchor: 'end' }),
+    L([[318, 248], [200, 322]], { end: 'arrow', label: 'notifications', dx: -6, anchor: 'end' })
+  ];
+  return D.svg(760, 384, 'Context diagram of the University Student Management System', k);
+};
+
 FIGS['req-levels'] = () => {
   const k = [
     R(10, 30, 200, 90, 'User requirement\n“The customer can\nwithdraw cash.”', { cls: 'dg-fill2' }),

@@ -953,3 +953,47 @@ body.deck-page .slide :where(.yn,.g-wk,.rm-lab,.tl-err,.tex-log){font-size:var(-
 .dg-tipbox.below::after{bottom:auto;top:-7px}
 .dg-tipbox:lang(bn){font-family:'Noto Sans Bengali',var(--f-accessible)}
 @media (prefers-reduced-motion:reduce){.dg-tipbox{transition:none}}
+/* ---- example SRS document (example-srs.html): a paper-like page, printable ---- */
+.doc-actions{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 18px}
+.srs-doc{max-width:980px;margin:0 auto 40px;background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,4vw,56px);box-shadow:0 10px 30px rgba(0,0,0,.08);counter-reset:fig}
+.srs-doc h2{font-size:clamp(24px,2.4vw,30px);margin:38px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--ac)}
+.srs-doc h3{font-size:clamp(19px,1.9vw,23px);margin:26px 0 10px}
+.srs-doc h4{font-size:18px;margin:20px 0 8px}
+.srs-doc p,.srs-doc li{font-size:17px;line-height:1.6}
+.srs-doc .doc-num{color:var(--accent-ink);margin-right:6px}
+.srs-doc table.doc{margin:8px 0 14px}
+.srs-doc table.doc td,.srs-doc table.doc th{font-size:15.5px;vertical-align:top}
+.srs-doc table.req td:first-child{white-space:nowrap}
+.srs-doc table.sign td{height:44px}
+.srs-doc .mono{font-family:var(--f-mono)}
+.doc-cover{text-align:center;padding:10px 0 26px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.doc-cover .doc-kind{font:700 15px var(--f-head);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 10px}
+.doc-cover h1{font-size:clamp(30px,4vw,46px);line-height:1.1;margin:0 0 10px}
+.doc-cover .doc-ver{font-size:18px;color:var(--ink-2);margin-bottom:18px}
+.doc-cover table.doc-meta{max-width:620px;margin:0 auto;text-align:left}
+.doc-cover table.doc-meta th{width:34%}
+.doc-note{margin:0 0 18px}
+.doc-toc{margin:10px 0 8px;padding:18px 22px;background:var(--sheet-2);border-radius:12px}
+.doc-toc h2{border:0;margin:0 0 8px;padding:0;font-size:22px}
+.doc-toc ol{margin:0;padding-left:22px}.doc-toc ol ol{padding-left:20px;margin:2px 0 8px}
+.doc-toc li{font-size:16px;line-height:1.55}
+.doc-req-detail{margin:18px 0 22px;padding:16px 18px;border:1.5px solid var(--ac);border-radius:12px;background:var(--ac-soft)}
+.doc-req-detail h4{margin-top:0}
+.doc-req-detail table.doc th{width:22%;white-space:nowrap}
+.doc-req-detail ol{margin:0;padding-left:20px}
+.srs-doc figure.fig{margin:14px 0}
+.doc-end{text-align:center;color:var(--ink-3);margin-top:34px}
+@media print{
+  .site-header,.site-foot,.no-print,.skip{display:none!important}
+  body,.page-simple{background:#fff!important;padding:0!important}
+  .srs-doc{border:0;box-shadow:none;padding:0;max-width:none;background:#fff}
+  .srs-doc h2{break-before:page;break-after:avoid}.srs-doc .doc-toc h2,.srs-doc #history h2,.srs-doc #approval h2{break-before:auto}
+  .doc-toc{break-before:page;break-inside:avoid}
+  .srs-doc h3,.srs-doc h4{break-after:avoid}
+  .srs-doc tr,.doc-req-detail,.srs-doc figure{break-inside:avoid}
+  .srs-doc a{color:inherit;text-decoration:none}
+  .scrollx{overflow:visible!important}
+}
+table.doc.kv td:first-child{white-space:nowrap;font-weight:650;color:var(--ink-2);overflow-wrap:normal}
+.srs-doc table.doc th{overflow-wrap:normal;white-space:nowrap}
+.srs-doc table.doc td{overflow-wrap:break-word}   /* columns size to whole words (no "Mediu m") */
