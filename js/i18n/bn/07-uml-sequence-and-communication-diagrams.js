@@ -66,7 +66,7 @@ I18N_BN_ADD({
 "Use fragments instead of drawing two separate diagrams for success and failure. One <code>alt</code> keeps both paths together.": "সফল ও ব্যর্থতার জন্য দুটি আলাদা diagram আঁকার বদলে fragment ব্যবহার করুন। একটি <code>alt</code> দুটি পথই একসাথে রাখে।",
 "The ATM withdrawal as a sequence diagram": "ATM থেকে উত্তোলন একটি sequence diagram হিসেবে",
 "Customer, ATM, bank server and account cooperate to withdraw cash. The alt fragment holds the success and “insufficient funds” paths.": "নগদ তুলতে Customer, ATM, bank server ও account সহযোগিতা করে। alt fragment সফল ও “অপর্যাপ্ত ব্যালেন্স” পথ ধরে রাখে।",
-"A cleaner version of the manual’s Figure VIII.4. The manual repeats the verify–withdraw messages as 10.4–10.6 after an error; an <code>alt</code> (or a <code>loop</code> for retries) expresses this more clearly.": "Manual-এর Figure VIII.4-এর একটি পরিচ্ছন্ন version। Manual একটি error-এর পরে verify–withdraw message-গুলো 10.4–10.6 হিসেবে পুনরাবৃত্তি করে; একটি <code>alt</code> (বা পুনঃচেষ্টার জন্য একটি <code>loop</code>) এটি আরও স্পষ্টভাবে প্রকাশ করে।",
+"Some versions repeat the verify–withdraw messages as 10.4–10.6 after an error; an <code>alt</code> (or a <code>loop</code> for retries) expresses this more clearly.": "কিছু version একটি error-এর পরে verify–withdraw message-গুলো 10.4–10.6 হিসেবে পুনরাবৃত্তি করে; একটি <code>alt</code> (বা পুনঃচেষ্টার জন্য একটি <code>loop</code>) এটি আরও স্পষ্টভাবে প্রকাশ করে।",
 "Step through the messages": "Message-গুলো ধাপে ধাপে দেখুন",
 "Step through the withdrawal": "উত্তোলন ধাপে ধাপে দেখুন",
 "Move one message at a time. Time runs downward; the highlighted arrow is the current message.": "একবারে একটি message এগোন। সময় নিচের দিকে চলে; হাইলাইট করা তীরটি বর্তমান message।",

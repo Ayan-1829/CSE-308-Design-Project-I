@@ -93,7 +93,7 @@ DEMOS['budget'] = (root) => {
     body.querySelectorAll('tr.cat').forEach((tr) => { const c = tr.firstChild.textContent, sub = rows.filter((x) => x.c === c); tr.children[1].textContent = bdt(sub.reduce((a, x) => a + x.e, 0)); tr.children[2].textContent = bdt(sub.reduce((a, x) => a + x.n, 0)); });
   }
   draw();
-  root.append(demoBox('Budget table: existing vs new system', 'The figures from the lab manual’s ATM budget (Table I.1). Change any cost to see category subtotals, totals and the saving update. Amounts use Bangladeshi grouping (lakh: 21,93,000).', body, sum));
+  root.append(demoBox('Budget table: existing vs new system', 'The ATM project’s budget. Change any cost to see category subtotals, totals and the saving update. Amounts use Bangladeshi grouping (lakh: 21,93,000).', body, sum));
 };
 
 DEMOS['econ'] = (root) => {
@@ -521,7 +521,7 @@ DEMOS['sdlc-matrix'] = (root) => {
       : `Best fit: ${winners[0]} with ${best} of ${crit.reduce((a, c) => a + c.p, 0)} points.`));
   }
   draw();
-  root.append(demoBox('Weighted SDLC selection matrix', 'Each criterion has a priority (weight). A model earns that weight wherever it says “Yes”. Click Yes/No to toggle and edit the priorities. Pre-filled with the ticks from the lab manual’s Table V.1.', wrap, res));
+  root.append(demoBox('Weighted SDLC selection matrix', 'Each criterion has a priority (weight). A model earns that weight wherever it says “Yes”. Click Yes/No to toggle and edit the priorities. Pre-filled with the ATM example.', wrap, res));
 };
 
 DEMOS['sdlc-advisor'] = (root) => {

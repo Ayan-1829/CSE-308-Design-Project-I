@@ -240,7 +240,7 @@ I18N_BN_ADD({
 "Requires amsmath; or use <code>\\[ … \\]</code> without any package.": "amsmath দরকার; অথবা কোনো package ছাড়া <code>\\[ … \\]</code> ব্যবহার করুন।",
 "Which character starts a comment in LaTeX?": "LaTeX-এ কোন অক্ষর একটি comment শুরু করে?",
 "Learn LaTeX in 30 minutes (Overleaf) ↗": "30 মিনিটে LaTeX শিখুন (Overleaf) ↗",
-"The tutorial the lab manual links to: first document, text, maths, structure, figures and tables.": "Lab manual যে tutorial-এর link দেয়: প্রথম document, লেখা, গণিত, কাঠামো, figure ও table।",
+"A short official tutorial: first document, text, maths, structure, figures and tables.": "একটি সংক্ষিপ্ত অফিসিয়াল tutorial: প্রথম document, লেখা, গণিত, কাঠামো, figure ও table।",
 "Overleaf: Mathematical expressions ↗": "Overleaf: গাণিতিক রাশি ↗",
 "Inline and display maths, with a list of common symbols.": "Inline ও display গণিত, প্রচলিত চিহ্নের তালিকাসহ।",
 "Overleaf: Tables ↗": "Overleaf: Table ↗",

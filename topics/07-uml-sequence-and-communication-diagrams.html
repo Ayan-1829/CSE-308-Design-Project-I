@@ -85,13 +85,10 @@
 <section class="slide " data-title="Guards and combined fragments" aria-label="Guards and combined fragments" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Elements</p><h2>Guards and combined fragments</h2><p>A <b>guard</b> is a condition in square brackets, e.g. <code>[balance &gt; 0]</code>: the message is sent only if it is true. A <b>combined fragment</b> is a box around part of the diagram with an operator in the top-left corner:</p><div class="scrollx"><table class="doc"><thead><tr><th>Operator</th><th>Meaning</th><th>Like</th></tr></thead><tbody><tr><td><b>alt</b></td><td>alternatives: exactly one operand runs, chosen by guards; operands separated by a dashed line</td><td>if / else</td></tr><tr><td><b>opt</b></td><td>the content runs only if the guard is true</td><td>if</td></tr><tr><td><b>loop</b></td><td>repeat while the guard holds</td><td>for / while</td></tr><tr><td><b>par</b></td><td>operands run in parallel</td><td>threads</td></tr><tr><td><b>ref</b></td><td>refers to another sequence diagram</td><td>a function call</td></tr><tr><td><b>break</b></td><td>leave the enclosing fragment</td><td>break</td></tr></tbody></table></div><div class="callout">Use fragments instead of drawing two separate diagrams for success and failure. One <code>alt</code> keeps both paths together.</div>
 </div></section>
-<section class="slide " data-title="The ATM withdrawal as a sequence diagram" aria-label="The ATM withdrawal as a sequence diagram" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Concept 5 of 12</p><h2>The ATM withdrawal as a sequence diagram</h2><figure class="fig" data-fig="seq-atm"><figcaption>Customer, ATM, bank server and account cooperate to withdraw cash. The alt fragment holds the success and “insufficient funds” paths.</figcaption></figure>
+<section class="slide " data-title="The ATM withdrawal as a sequence diagram" aria-label="The ATM withdrawal as a sequence diagram" tabindex="-1"><div style="zoom:0.93;" class="slide-inner">
+<p class="kicker">Concept 5 of 12</p><h2>The ATM withdrawal as a sequence diagram</h2><figure class="fig" data-fig="seq-atm"><figcaption>Customer, ATM, bank server and account cooperate to withdraw cash. The alt fragment holds the success and “insufficient funds” paths.</figcaption></figure><p class="small muted">Some versions repeat the verify–withdraw messages as 10.4–10.6 after an error; an <code>alt</code> (or a <code>loop</code> for retries) expresses this more clearly.</p>
 </div></section>
-<section class="slide " data-title="The ATM withdrawal as a sequence diagram (cont.)" aria-label="The ATM withdrawal as a sequence diagram (cont.)" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Concept 5 of 12</p><h2>The ATM withdrawal as a sequence diagram (cont.)</h2><p class="small muted">A cleaner version of the manual’s Figure VIII.4. The manual repeats the verify–withdraw messages as 10.4–10.6 after an error; an <code>alt</code> (or a <code>loop</code> for retries) expresses this more clearly.</p>
-</div></section>
-<section class="slide " data-title="Step through the messages" aria-label="Step through the messages" tabindex="-1"><div class="slide-inner">
+<section class="slide " data-title="Step through the messages" aria-label="Step through the messages" tabindex="-1"><div style="zoom:0.90;" class="slide-inner">
 <p class="kicker">Interactive</p><h2>Step through the messages</h2><div data-demo="seq-step"></div>
 </div></section>
 <section class="slide " data-title="From a use case to a sequence diagram" aria-label="From a use case to a sequence diagram" tabindex="-1"><div class="slide-inner">
@@ -109,11 +106,8 @@
 <section class="slide " data-title="Drawing tools" aria-label="Drawing tools" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Tools</p><h2>Drawing tools</h2><p>In <b>Visual Paradigm</b> (online or desktop): create a Sequence Diagram, add an Actor and Lifelines from the toolbar, then drag from a lifeline’s resource icon to create a message to another lifeline. Right-click a message to change its type; select several messages and choose <i>Create combined fragment</i> for alt, opt or loop.</p>
 </div></section>
-<section class="slide " data-title="Drawing tools (cont.)" aria-label="Drawing tools (cont.)" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Tools</p><h2>Drawing tools (cont.)</h2><p>StarUML, Lucidchart and draw.io work the same way. <b>PlantUML</b> lets you type it, and draws the diagram for you:</p>
-</div></section>
-<section class="slide " data-title="Drawing tools (cont.)" aria-label="Drawing tools (cont.)" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Tools</p><h2>Drawing tools (cont.)</h2><div class="codeout"><div><div class="co-h">PlantUML source</div><pre class="code plain">@startuml
+<section class="slide " data-title="Drawing tools (cont.)" aria-label="Drawing tools (cont.)" tabindex="-1"><div style="zoom:0.91;" class="slide-inner">
+<p class="kicker">Tools</p><h2>Drawing tools (cont.)</h2><p>StarUML, Lucidchart and draw.io work the same way. <b>PlantUML</b> lets you type it, and draws the diagram for you:</p><div class="codeout"><div><div class="co-h">PlantUML source</div><pre class="code plain">@startuml
 actor Customer
 participant &quot;:ATM&quot; as ATM
 participant &quot;:BankServer&quot; as Bank
@@ -166,7 +160,7 @@ end
 </main>
 <footer class="deck-foot">
   <button type="button" class="btn" id="prev">Previous</button>
-  <span class="counter" id="counter">1 / 30</span>
+  <span class="counter" id="counter">1 / 28</span>
   <button type="button" class="btn pri" id="next">Next</button>
 </footer>
 <aside id="slide-menu" hidden aria-label="Slide list"><div class="menu-head"><h3>Slides in this topic</h3><button type="button" id="btn-menu-close" class="menu-close" aria-label="Close slide list">&#10005;</button></div></aside>
