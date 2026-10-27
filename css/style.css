@@ -939,3 +939,17 @@ body.deck-page .slide :where(.yn,.g-wk,.rm-lab,.tl-err,.tex-log){font-size:var(-
 /* ===== end projector layout ===== */
 .slide .demo svg.dg{max-height:min(44vh,460px)}
 .slide-inner>.co-h{margin-top:14px}
+/* ---- hover text on diagram elements (D.tip in diagram.js; shown after 1.5 s) ---- */
+.dg-tip{cursor:help;outline:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.dg-tip rect,.dg-tip circle,.dg-tip ellipse{transition:stroke .15s,stroke-width .15s}
+.dg-tip:hover rect,.dg-tip:hover circle,.dg-tip:hover ellipse,
+.dg-tip:focus-visible rect,.dg-tip:focus-visible circle,.dg-tip:focus-visible ellipse{stroke:var(--accent);stroke-width:2.6}
+.dg-tipbox{position:fixed;z-index:200;left:0;top:0;max-width:min(400px,calc(100vw - 20px));padding:12px 16px;border-radius:12px;
+  background:var(--ink);color:var(--paper);font:500 18px/1.45 var(--f-accessible);box-shadow:0 12px 32px rgba(0,0,0,.35);
+  pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .18s,transform .18s;visibility:hidden}
+.dg-tipbox.on{opacity:1;transform:none;visibility:visible}
+.dg-tipbox.below{transform:translateY(-6px)}.dg-tipbox.below.on{transform:none}
+.dg-tipbox::after{content:"";position:absolute;left:var(--tip-x,50%);bottom:-7px;width:14px;height:14px;margin-left:-7px;background:inherit;transform:rotate(45deg);border-radius:2px}
+.dg-tipbox.below::after{bottom:auto;top:-7px}
+.dg-tipbox:lang(bn){font-family:'Noto Sans Bengali',var(--f-accessible)}
+@media (prefers-reduced-motion:reduce){.dg-tipbox{transition:none}}

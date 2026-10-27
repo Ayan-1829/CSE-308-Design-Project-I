@@ -22,12 +22,16 @@ FIGS['atm-states'] = () => {
 };
 
 FIGS['team-roles'] = () => {
-  const k = [R(250, 14, 180, 46, 'Project manager\n(team leader)', { cls: 'dg-fill2' })];
-  const roles = [['Analyst', 'requirements, SRS'], ['Designer', 'DFD, UML, UI'], ['Developer', 'code, database'], ['Tester / QA', 'test cases'], ['Documenter', 'LaTeX report']];
-  roles.forEach(([r, d], i) => {
+  const k = [D.tip(R(250, 14, 180, 46, 'Project manager\n(team leader)', { cls: 'dg-fill2' }), 'Plans the work, runs the meetings and tracks the Gantt chart and deadlines. Accountable for the project as a whole.')];
+  const roles = [['Analyst', 'requirements, SRS', 'Talks to the users, collects the requirements and writes the SRS.'],
+    ['Designer', 'DFD, UML, UI', 'Turns the requirements into models: DFDs, UML diagrams and UI wireframes.'],
+    ['Developer', 'code, database', 'Writes the code and builds the database from the design.'],
+    ['Tester / QA', 'test cases', 'Writes test cases from the requirements and checks that every feature meets them.'],
+    ['Documenter', 'LaTeX report', 'Keeps the LaTeX report complete and consistent: chapters, figures, references and formatting.']];
+  roles.forEach(([r, d, tp], i) => {
     const x = 10 + i * 134;
     k.push(L([[340, 60], [340, 84], [x + 60, 84], [x + 60, 104]], { end: 'arrow', cls: 'dg-thin' }));
-    k.push(R(x, 104, 120, 60, r + '\n' + d, { cls: 'dg-fill1', tcls: 'dg-t2' }));
+    k.push(D.tip(R(x, 104, 120, 60, r + '\n' + d, { cls: 'dg-fill1', tcls: 'dg-t2' }), tp));
   });
   return D.svg(680, 176, 'A typical student project team: one leader and five roles', k);
 };
@@ -47,28 +51,51 @@ FIGS['latex-flow'] = () => {
 
 /* ---------- Topic 3: SRS ---------- */
 FIGS['nfr-tree'] = () => {
-  const k = [], box = (x, y, w, t, c) => R(x, y, w, 40, t, { cls: c || 'dg-fill3', tcls: 'dg-t2' });
-  k.push(box(290, 8, 160, 'Non-functional\nrequirements', 'dg-fill2'));
-  const mids = [[70, 'Product'], [300, 'Process /\norganisational'], [560, 'External']];
-  mids.forEach(([x, t]) => { k.push(L([[370, 48], [370, 62], [x + 70, 62], [x + 70, 76]], { cls: 'dg-thin' })); k.push(box(x, 76, 140, t, 'dg-fill1')); });
-  const leaves = [
-    [0, ['Usability', 'Efficiency', 'Reliability', 'Portability']],
-    [1, ['Delivery', 'Implementation', 'Standards']],
-    [2, ['Interoperability', 'Ethical', 'Legislative']]
+  /* one spine per parent, a short stub to each child; sub-categories are indented under their parent */
+  const k = [], ln = (pts) => k.push(L(pts, { cls: 'dg-thin' }));
+  const node = (x, y, w, h, t, cls, tcls, tip) => k.push(D.tip(R(x, y, w, h, t, { cls, tcls }), tip));
+  node(290, 8, 160, 44, 'Non-functional\nrequirements', 'dg-fill2', 'dg-t2', 'Requirements on how well the system works, or limits on it — its qualities — rather than what it does.');
+  const groups = [
+    [70, 'Product', 'Requirements on how the delivered software behaves when it runs: ease of use, speed, memory, failures and platforms.', [
+      ['Usability', 'How easy the system is to learn and use. E.g. a new user withdraws cash in under 60 seconds without help.'],
+      ['Efficiency', 'How well the system uses resources. It splits into time (performance) and memory (space).', [
+        ['Performance', 'Response time and throughput. E.g. the balance is shown within 2 seconds for 95% of requests.'],
+        ['Space', 'How much memory or storage the system may use. E.g. the app needs less than 50 MB on the phone.']]],
+      ['Reliability', 'How rarely the system fails and how well it recovers. E.g. available 99.5% of each month.'],
+      ['Portability', 'How easily the software moves to another platform. E.g. it runs on Windows, macOS and Ubuntu.']]],
+    [300, 'Process /\norganisational', 'Requirements from the customer’s or the developer’s organisation: how the system is built and delivered.', [
+      ['Delivery', 'When and how the product must be delivered. E.g. a working release by week 10.'],
+      ['Implementation', 'The languages, tools or platforms that must be used. E.g. the system shall be written in Java 17.'],
+      ['Standards', 'Process or document standards to follow. E.g. the SRS follows IEEE 830.']]],
+    [560, 'External', 'Requirements from outside the system and its development: other systems, ethics and the law.', [
+      ['Interoperability', 'How the system must work with other systems. E.g. it exchanges messages with the bank server in ISO 8583 format.'],
+      ['Ethical', 'Keeps the system acceptable to its users and the public. E.g. customer data is never used for marketing without consent.'],
+      ['Legislative', 'Requirements that come from the law, so the system operates legally. They split into privacy and safety.', [
+        ['Privacy', 'Personal data is protected as the law requires. E.g. a PIN is never stored or logged in clear text.'],
+        ['Safety', 'The system must not cause harm or loss. E.g. no account is debited if the cash is not dispensed.']]]]]
   ];
-  leaves.forEach(([mi, arr]) => {
-    const mx = mids[mi][0];
-    arr.forEach((t, i) => {
-      const y = 140 + i * 50, x = mx + 22;
-      k.push(L([[mx + 10, 116], [mx + 10, y + 20], [x, y + 20]], { cls: 'dg-thin' }));
-      k.push(box(x, y, 120, t));
+  ln([[370, 52], [370, 66]]); ln([[140, 80], [140, 66], [630, 66], [630, 80]]);
+  groups.forEach(([mx, title, tip, kids]) => {
+    node(mx, 80, 140, 44, title, 'dg-fill1', 'dg-t2', tip);
+    const sx = mx + 14, cx = mx + 30, mids = [];
+    let y = 142;
+    kids.forEach(([t, tp, subs]) => {
+      node(cx, y, 124, 38, t, 'dg-fill3', 'dg-t2', tp);
+      mids.push(y + 19);
+      const top = y + 38;
+      y += 48;
+      if (subs) {
+        const ssx = cx + 14, smids = [];
+        subs.forEach(([st, stp]) => { node(cx + 30, y, 104, 32, st, 'dg-fill3', 'dg-s', stp); smids.push(y + 16); y += 42; });
+        ln([[ssx, top], [ssx, smids[smids.length - 1]]]);
+        smids.forEach((m) => ln([[ssx, m], [cx + 30, m]]));
+        y += 6;
+      }
     });
+    ln([[sx, 124], [sx, mids[mids.length - 1]]]);
+    mids.forEach((m) => ln([[sx, m], [cx, m]]));
   });
-  k.push(L([[222, 180], [240, 180], [240, 322]], { cls: 'dg-thin' }), R(160, 322, 90, 34, 'Performance', { cls: 'dg-fill3', tcls: 'dg-s' }), R(258, 322, 70, 34, 'Space', { cls: 'dg-fill3', tcls: 'dg-s' }));
-  k.push(L([[240, 322], [240, 312], [293, 312], [293, 322]], { cls: 'dg-thin' }), L([[205, 312], [205, 322]], { cls: 'dg-thin' }), L([[205, 312], [240, 312]], { cls: 'dg-thin' }));
-  k.push(L([[702, 280], [716, 280], [716, 322]], { cls: 'dg-thin' }), R(610, 322, 80, 34, 'Privacy', { cls: 'dg-fill3', tcls: 'dg-s' }), R(696, 322, 70, 34, 'Safety', { cls: 'dg-fill3', tcls: 'dg-s' }));
-  k.push(L([[650, 312], [731, 312]], { cls: 'dg-thin' }), L([[650, 312], [650, 322]], { cls: 'dg-thin' }), L([[731, 312], [731, 322]], { cls: 'dg-thin' }));
-  return D.svg(780, 366, 'Types of non-functional requirement (after Sommerville)', k);
+  return D.svg(780, 424, 'Types of non-functional requirement (after Sommerville)', k);
 };
 
 FIGS['req-levels'] = () => {
@@ -369,6 +396,9 @@ FIGS['gen-abstract'] = () => {
   const p = D.umlClass(210, 10, 190, { name: 'Person', abstract: true, attrs: ['- name : String', '- address : String'], ops: ['~+ printInfo() : void'] });
   const e = D.umlClass(60, 190, 190, { name: 'Employee', attrs: ['- salary : double'], ops: ['+ getSalary() : double', '+ printInfo() : void'] });
   const c = D.umlClass(360, 190, 190, { name: 'Customer', attrs: ['- balance : double'], ops: ['+ printBalance() : void', '+ printInfo() : void'] });
+  D.tip(p.el, 'Abstract class (name in italics): holds what every person shares. It cannot be instantiated, and its abstract printInfo() has no body.');
+  D.tip(e.el, 'Concrete subclass: inherits name and address from Person, adds a salary and implements printInfo().');
+  D.tip(c.el, 'Concrete subclass: inherits name and address from Person, adds a balance and implements printInfo().');
   const k = [p.el, e.el, c.el, L([e.top(), [155, 160], [305, 160], p.bottom()], { end: 'tri' }), L([c.top(), [455, 160], [305, 160]])];
   k.push(TX(410, 36, 'italic name =\nabstract class', 'dg-s dg-acct', 'start'), TX(410, 100, 'italic = abstract\nmethod', 'dg-s dg-acct', 'start'));
   return D.svg(600, 300, 'Generalization with an abstract class', k);
@@ -377,6 +407,9 @@ FIGS['realization'] = () => {
   const i = D.umlClass(195, 10, 250, { name: 'Payable', stereo: 'interface', ops: ['+ pay(amount : double) : boolean', '+ refund(id : String) : void'] });
   const a = D.umlClass(10, 190, 250, { name: 'DebitCard', attrs: ['- cardNo : String'], ops: ['+ pay(amount : double) : boolean', '+ refund(id : String) : void'] });
   const b = D.umlClass(380, 190, 250, { name: 'MobileWallet', attrs: ['- phone : String'], ops: ['+ pay(amount : double) : boolean', '+ refund(id : String) : void'] });
+  D.tip(i.el, 'An interface: a contract that lists operations without code. Every class that realizes it must implement pay() and refund().');
+  D.tip(a.el, 'Realizes Payable: implements pay() and refund() by charging a debit card.');
+  D.tip(b.el, 'Realizes Payable: implements the same two operations through a mobile wallet.');
   return D.svg(640, 300, 'Realization: two classes implement one interface', [i.el, a.el, b.el, L([a.top(), [135, 160], [320, 160], i.bottom()], { end: 'tri', dash: true }), L([b.top(), [505, 160], [320, 160]], { dash: true })]);
 };
 FIGS['code-house-dept'] = () => {   // the UML that the House / Department Java code corresponds to

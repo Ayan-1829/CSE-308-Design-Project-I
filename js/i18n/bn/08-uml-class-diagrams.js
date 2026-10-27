@@ -236,5 +236,11 @@ I18N_BN_ADD({
 "a dashed line and hollow triangle": "একটি ড্যাশ রেখা ও ফাঁপা ত্রিভুজ দিয়ে",
 "a filled diamond": "একটি ভরাট diamond দিয়ে",
 "a dashed open arrow": "একটি ড্যাশ খোলা তীর দিয়ে",
-"Realization: dashed line, hollow triangle at the interface.": "Realization: ড্যাশ রেখা, interface-এ ফাঁপা ত্রিভুজ।"
+"Realization: dashed line, hollow triangle at the interface.": "Realization: ড্যাশ রেখা, interface-এ ফাঁপা ত্রিভুজ।",
+"Abstract class (name in italics): holds what every person shares. It cannot be instantiated, and its abstract printInfo() has no body.": "Abstract class (নাম italic-এ): সব ব্যক্তির অভিন্ন বিষয়গুলো ধরে রাখে। এটি instantiate করা যায় না, এবং এর abstract printInfo()-এর কোনো body নেই।",
+"Concrete subclass: inherits name and address from Person, adds a salary and implements printInfo().": "Concrete subclass: Person থেকে name ও address inherit করে, একটি salary যোগ করে এবং printInfo() implement করে।",
+"Concrete subclass: inherits name and address from Person, adds a balance and implements printInfo().": "Concrete subclass: Person থেকে name ও address inherit করে, একটি balance যোগ করে এবং printInfo() implement করে।",
+"An interface: a contract that lists operations without code. Every class that realizes it must implement pay() and refund().": "একটি interface: code ছাড়া operation-এর তালিকা দেওয়া একটি চুক্তি। যে class এটি realize করে তাকে অবশ্যই pay() ও refund() implement করতে হবে।",
+"Realizes Payable: implements pay() and refund() by charging a debit card.": "Payable realize করে: debit card থেকে টাকা কেটে pay() ও refund() implement করে।",
+"Realizes Payable: implements the same two operations through a mobile wallet.": "Payable realize করে: একই দুটি operation একটি mobile wallet-এর মাধ্যমে implement করে।"
 });

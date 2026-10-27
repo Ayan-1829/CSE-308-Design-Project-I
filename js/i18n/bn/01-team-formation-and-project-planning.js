@@ -348,5 +348,11 @@ I18N_BN_ADD({
 "Use modern technology.": "আধুনিক প্রযুক্তি ব্যবহার করা।",
 "It is specific, measurable (2 s, 95%) and time-bound (week 9).": "এটি নির্দিষ্ট, পরিমাপযোগ্য (2 s, 95%) এবং সময়-নির্দিষ্ট (সপ্তাহ 9)।",
 "In a RACI matrix, the person who signs off a deliverable is…": "RACI matrix-এ যে ব্যক্তি একটি deliverable অনুমোদন করেন তিনি…",
-"Accountable: exactly one per deliverable.": "Accountable: প্রতি deliverable-এ ঠিক একজন।"
+"Accountable: exactly one per deliverable.": "Accountable: প্রতি deliverable-এ ঠিক একজন।",
+"Plans the work, runs the meetings and tracks the Gantt chart and deadlines. Accountable for the project as a whole.": "কাজের পরিকল্পনা করেন, মিটিং পরিচালনা করেন এবং Gantt chart ও deadline অনুসরণ করেন। পুরো project-এর জন্য accountable।",
+"Talks to the users, collects the requirements and writes the SRS.": "ব্যবহারকারীদের সাথে কথা বলেন, requirement সংগ্রহ করেন এবং SRS লেখেন।",
+"Turns the requirements into models: DFDs, UML diagrams and UI wireframes.": "Requirement-কে model-এ রূপ দেন: DFD, UML diagram ও UI wireframe।",
+"Writes the code and builds the database from the design.": "Design অনুযায়ী code লেখেন এবং database তৈরি করেন।",
+"Writes test cases from the requirements and checks that every feature meets them.": "Requirement থেকে test case লেখেন এবং যাচাই করেন যে প্রতিটি feature সেগুলো পূরণ করে।",
+"Keeps the LaTeX report complete and consistent: chapters, figures, references and formatting.": "LaTeX report সম্পূর্ণ ও সামঞ্জস্যপূর্ণ রাখেন: chapter, figure, reference ও formatting।"
 });

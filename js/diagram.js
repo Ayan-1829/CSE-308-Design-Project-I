@@ -160,7 +160,69 @@ const D = (() => {
     return box;
   }
 
-  return { svg, T, line, head, arcPts, edge, rect, circle, ellipse, store, store2, actor, startDot, endDot, umlClass, along, unit };
+  /* hover text: D.tip(shape, 'what this element means') — shown after a short pause (see TIPS below) */
+  function tip(el, text) {
+    el.setAttribute('data-tip', text);
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-label', text);
+    el.classList.add('dg-tip');
+    return el;
+  }
+
+  return { svg, T, line, head, arcPts, edge, rect, circle, ellipse, store, store2, actor, startDot, endDot, umlClass, along, unit, tip };
+})();
+
+/* ---------- hover text for diagram elements marked with D.tip ----------
+   Mouse: rest on an element for 1.5 s. Keyboard: Tab to it and wait. Touch: tap it and wait;
+   tap anywhere else to close. In Bengali mode the text comes from the page's translations. */
+(function TIPS() {
+  const DELAY = 1500;
+  let timer = 0, cur = null, box = null, viaTouch = false;
+  const html = (raw) => (window.I18N && window.I18N.tip ? window.I18N.tip(raw) : null);
+  function bubble() {
+    if (!box) { box = document.createElement('div'); box.className = 'dg-tipbox'; box.setAttribute('role', 'tooltip'); box.id = 'dg-tipbox'; document.body.appendChild(box); }
+    return box;
+  }
+  function show(el) {
+    if (!el.isConnected) return;
+    const b = bubble(), raw = el.getAttribute('data-tip'), h = html(raw);
+    if (h != null) b.innerHTML = h; else b.textContent = raw;
+    b.lang = document.documentElement.getAttribute('data-lang') === 'bn' ? 'bn' : 'en';
+    b.classList.remove('below'); b.style.left = '0px'; b.style.top = '0px'; b.classList.add('on');
+    const r = el.getBoundingClientRect(), bw = b.offsetWidth, bh = b.offsetHeight;
+    let top = r.top - bh - 12;
+    if (top < 8) { top = r.bottom + 12; b.classList.add('below'); }
+    const cx = r.left + r.width / 2, left = Math.max(10, Math.min(innerWidth - bw - 10, cx - bw / 2));
+    b.style.left = left + 'px'; b.style.top = top + 'px';
+    b.style.setProperty('--tip-x', Math.max(14, Math.min(bw - 14, cx - left)) + 'px');
+    el.setAttribute('aria-describedby', 'dg-tipbox');
+  }
+  function hide() {
+    clearTimeout(timer); timer = 0;
+    if (cur) cur.removeAttribute('aria-describedby');
+    cur = null; viaTouch = false;
+    if (box) box.classList.remove('on');
+  }
+  function arm(el, touch) {
+    if (el === cur) return;
+    hide(); cur = el; viaTouch = touch;
+    timer = setTimeout(() => { if (cur === el) show(el); }, DELAY);
+  }
+  document.addEventListener('pointerover', (e) => {
+    const el = e.target.closest && e.target.closest('[data-tip]');
+    if (el) arm(el, e.pointerType === 'touch');
+  });
+  document.addEventListener('pointerout', (e) => {
+    if (!cur || viaTouch || e.pointerType === 'touch') return;
+    if (!cur.contains(e.relatedTarget)) hide();
+  });
+  document.addEventListener('pointerdown', (e) => { if (cur && !cur.contains(e.target)) hide(); }, true);
+  document.addEventListener('focusin', (e) => { const el = e.target.closest && e.target.closest('[data-tip]'); if (el) arm(el, false); else hide(); });
+  document.addEventListener('focusout', (e) => { if (cur && !cur.contains(e.relatedTarget)) hide(); });
+  document.addEventListener('keydown', (e) => { if (e.key !== 'Tab') hide(); });
+  addEventListener('scroll', hide, true);
+  addEventListener('resize', hide);
+  addEventListener('hashchange', hide);
 })();
 
 /* ---------- sequence diagram builder ----------
