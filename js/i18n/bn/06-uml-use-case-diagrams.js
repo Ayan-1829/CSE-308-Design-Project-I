@@ -3,9 +3,6 @@ I18N_BN_ADD({
 "Topic 6 of 9 · Lab VII": "টপিক 9-এর 6 · Lab VII",
 "UML Use Case Diagrams": "UML Use Case Diagram",
 "Actors, use cases and system boundaries; association, include, extend and generalization; use case descriptions with main and alternative scenarios, using the ATM system.": "Actor, use case ও system boundary; association, include, extend ও generalization; ATM system ব্যবহার করে মূল ও বিকল্প scenario-সহ use case বর্ণনা।",
-"A bank manager does not care about classes or tables. She wants to know: what can a customer do at this machine?": "একজন ব্যাংক ম্যানেজার class বা table নিয়ে মাথা ঘামান না। তিনি জানতে চান: এই machine-এ একজন গ্রাহক কী করতে পারেন?",
-"A use case diagram answers that on one page. It turns the SRS into goals that users recognise and fixes the scope: what is inside the system and who is outside.": "একটি use case diagram এক পৃষ্ঠায় এর উত্তর দেয়। এটি SRS-কে ব্যবহারকারীদের চেনা লক্ষ্যে পরিণত করে এবং scope ঠিক করে: system-এর ভেতরে কী আর বাইরে কে।",
-"It is also the bridge to the next diagrams: every use case becomes one or more sequence diagrams.": "এটি পরের diagram-গুলোর সেতুও: প্রতিটি use case এক বা একাধিক sequence diagram হয়ে যায়।",
 "Outline · Lab VII": "রূপরেখা · Lab VII",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "Use cases": "Use case",
@@ -239,5 +236,8 @@ I18N_BN_ADD({
 "a primary actor": "একটি primary actor",
 "a secondary actor": "একটি secondary actor",
 "part of the system": "system-এর অংশ",
-"It supports the ATM’s use cases from outside the system.": "এটি system-এর বাইরে থেকে ATM-এর use case-গুলোকে সহায়তা করে।"
+"It supports the ATM’s use cases from outside the system.": "এটি system-এর বাইরে থেকে ATM-এর use case-গুলোকে সহায়তা করে।",
+"Show a bank manager your class diagram and she nods politely. Show her a stick figure labelled “Customer” next to “Withdraw cash”, and she starts making corrections.": "একজন bank manager-কে আপনার class diagram দেখান, তিনি ভদ্রভাবে মাথা নাড়বেন। তাঁকে “Withdraw cash”-এর পাশে “Customer” লেখা একটি কাঠি-মানুষ দেখান, তিনি সংশোধন শুরু করবেন।",
+"A use case diagram speaks the user’s language: what each actor can do, and where the system stops. It turns the SRS into goals people recognise and fixes the scope.": "একটি use case diagram ব্যবহারকারীর ভাষায় কথা বলে: প্রতিটি actor কী করতে পারে, আর system কোথায় শেষ। এটি SRS-কে মানুষের চেনা লক্ষ্যে বদলায় আর scope স্থির করে।",
+"It is also the bridge to the next diagrams: every use case becomes one or more sequence diagrams.": "এটি পরের diagram-গুলোর সেতুও: প্রতিটি use case এক বা একাধিক sequence diagram হয়ে ওঠে।"
 });

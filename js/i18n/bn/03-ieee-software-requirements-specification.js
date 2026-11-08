@@ -2,9 +2,6 @@
 I18N_BN_ADD({
 "Topic 3 of 9 · Lab IV · open-ended": "টপিক 9-এর 3 · Lab IV · open-ended",
 "Functional and non-functional requirements, what makes a requirement good, how requirements are gathered, and how to write an SRS with the IEEE template, priorities and traceability.": "Functional ও non-functional requirement, একটি requirement-কে কী ভালো করে, requirement কীভাবে সংগ্রহ করা হয়, এবং IEEE template, priority ও traceability দিয়ে কীভাবে SRS লিখতে হয়।",
-"Ask five students what “a fast, user-friendly library system” means and you will get five different systems.": "পাঁচজন শিক্ষার্থীকে জিজ্ঞেস করুন “একটি দ্রুত, ব্যবহারবান্ধব library system” মানে কী, আপনি পাঁচটি ভিন্ন system পাবেন।",
-"Requirements turn wishes into statements everyone reads the same way — and that a tester can check. Mistakes here are the most expensive kind: a missing requirement found after release can cost many times more to fix than one found on paper.": "Requirement ইচ্ছাকে এমন বিবৃতিতে পরিণত করে যা সবাই একইভাবে পড়ে — এবং যা একজন tester যাচাই করতে পারেন। এখানকার ভুলই সবচেয়ে ব্যয়বহুল: release-এর পরে পাওয়া একটি অনুপস্থিত requirement ঠিক করতে কাগজে পাওয়াটির চেয়ে বহুগুণ বেশি খরচ হতে পারে।",
-"This is an open-ended lab: you will write the SRS for your own system using the IEEE structure.": "এটি একটি open-ended lab: আপনি IEEE কাঠামো ব্যবহার করে আপনার নিজের system-এর SRS লিখবেন।",
 "Outline · Lab IV · open-ended": "রূপরেখা · Lab IV · open-ended",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "Requirements basics": "Requirement-এর মূল বিষয়",
@@ -389,5 +386,8 @@ I18N_BN_ADD({
 "Keeps the system acceptable to its users and the public. E.g. customer data is never used for marketing without consent.": "System-কে ব্যবহারকারী ও জনসাধারণের কাছে গ্রহণযোগ্য রাখে। যেমন সম্মতি ছাড়া গ্রাহকের data কখনো marketing-এ ব্যবহার করা হয় না।",
 "Requirements that come from the law, so the system operates legally. They split into privacy and safety.": "আইন থেকে আসা requirement, যাতে system বৈধভাবে চলে। এগুলো privacy ও safety-তে ভাগ হয়।",
 "Personal data is protected as the law requires. E.g. a PIN is never stored or logged in clear text.": "আইন অনুযায়ী ব্যক্তিগত data সুরক্ষিত থাকে। যেমন PIN কখনো সাধারণ লেখায় সংরক্ষিত বা log হয় না।",
-"The system must not cause harm or loss. E.g. no account is debited if the cash is not dispensed.": "System কোনো ক্ষতি বা লোকসান ঘটাবে না। যেমন নগদ না দিলে কোনো account থেকে টাকা কাটা হয় না।"
+"The system must not cause harm or loss. E.g. no account is debited if the cash is not dispensed.": "System কোনো ক্ষতি বা লোকসান ঘটাবে না। যেমন নগদ না দিলে কোনো account থেকে টাকা কাটা হয় না।",
+"A client asks for “a fast, user-friendly library system”. Five students build five completely different systems, and all five are sure they followed the brief.": "একজন client চান “একটি দ্রুত, ব্যবহারবান্ধব library system”। পাঁচজন ছাত্র পাঁচটি সম্পূর্ণ আলাদা system বানায়, আর পাঁচজনই নিশ্চিত যে তারা নির্দেশনা মেনেছে।",
+"Requirements turn wishes into sentences everyone reads the same way, and that a tester can check. A missing requirement found after release can cost many times more to fix than one found on paper.": "Requirement ইচ্ছাকে এমন বাক্যে বদলায়, যা সবাই একইভাবে পড়ে আর একজন tester যাচাই করতে পারে। release-এর পর ধরা পড়া একটি বাদ পড়া requirement ঠিক করতে কাগজে ধরা পড়ার চেয়ে বহুগুণ বেশি খরচ হতে পারে।",
+"In this lab you write the SRS for your own system, using the IEEE structure.": "এই ল্যাবে আপনি IEEE কাঠামো ব্যবহার করে নিজের system-এর SRS লিখবেন।"
 });

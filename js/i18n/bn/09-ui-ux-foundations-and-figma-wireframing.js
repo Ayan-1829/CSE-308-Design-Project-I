@@ -3,9 +3,6 @@ I18N_BN_ADD({
 "Topic 9 of 9 · Lab: UI/UX": "টপিক 9-এর 9 · Lab: UI/UX",
 "UI/UX Foundations &amp; Figma Wireframing": "UI/UX-এর ভিত্তি &amp; Figma Wireframing",
 "Usability, user-centred design, Nielsen’s heuristics, visual design and the laws of UX, accessibility with WCAG, fidelity levels, and designing and prototyping wireframes in Figma from your use cases.": "ব্যবহারযোগ্যতা, ব্যবহারকারী-কেন্দ্রিক design, Nielsen-এর heuristic, visual design ও UX-এর সূত্র, WCAG দিয়ে accessibility, fidelity-র স্তর, এবং আপনার use case থেকে Figma-য় wireframe design ও prototype তৈরি।",
-"An ATM that works perfectly but hides the Cancel button, uses grey text on grey buttons and says “ERR 0x1F” will still fail — users will walk away or call the bank.": "একটি ATM যা নিখুঁতভাবে কাজ করে কিন্তু Cancel বাটন লুকিয়ে রাখে, ধূসর বাটনে ধূসর লেখা ব্যবহার করে এবং “ERR 0x1F” বলে, তা তবুও ব্যর্থ হবে — ব্যবহারকারীরা চলে যাবেন বা ব্যাংকে ফোন করবেন।",
-"Your DFD, use case and class diagrams describe what the system does. UI/UX design decides whether real people can actually do it: quickly, without mistakes, and without frustration.": "আপনার DFD, use case ও class diagram বর্ণনা করে system কী করে। UI/UX design ঠিক করে বাস্তব মানুষ আসলে এটি করতে পারবেন কিনা: দ্রুত, ভুল ছাড়া, এবং বিরক্তি ছাড়া।",
-"In this topic you learn the principles behind good interfaces, then turn your use cases into wireframes and a clickable prototype in Figma.": "এই টপিকে আপনি ভালো interface-এর পেছনের নীতিগুলো শিখবেন, তারপর আপনার use case-গুলোকে Figma-য় wireframe ও একটি ক্লিকযোগ্য prototype-এ পরিণত করবেন।",
 "Outline · Lab: UI/UX": "রূপরেখা · Lab: UI/UX",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "Foundations": "ভিত্তি",
@@ -267,5 +264,8 @@ I18N_BN_ADD({
 "reduce the number of choices shown at once": "একসাথে দেখানো বিকল্পের সংখ্যা কমানো উচিত",
 "use more colours": "আরও রং ব্যবহার করা উচিত",
 "make text smaller": "লেখা ছোট করা উচিত",
-"Decision time grows with the number of choices.": "বিকল্পের সংখ্যার সাথে সিদ্ধান্তের সময় বাড়ে।"
+"Decision time grows with the number of choices.": "বিকল্পের সংখ্যার সাথে সিদ্ধান্তের সময় বাড়ে।",
+"An ATM works perfectly. It just hides Cancel in a corner, writes grey on grey and greets every mistake with “ERR 0x1F”. Customers walk away, and the bank calls it a failure.": "একটি ATM নিখুঁতভাবে কাজ করে। শুধু Cancel লুকিয়ে রাখে এক কোণে, ধূসরের ওপর ধূসর লেখে, আর প্রতিটি ভুলকে স্বাগত জানায় “ERR 0x1F” দিয়ে। গ্রাহকেরা চলে যান, আর bank এটিকে ব্যর্থতা বলে।",
+"Your diagrams describe what the system does. UI/UX design decides whether real people can do it — quickly, without mistakes and without wanting to throw their phone.": "আপনার diagram বলে system কী করে। UI/UX design ঠিক করে আসল মানুষ তা করতে পারবে কি না — দ্রুত, ভুল ছাড়া, আর ফোন ছুড়ে ফেলার ইচ্ছে ছাড়া।",
+"You will learn the principles behind good interfaces, then turn your use cases into Figma wireframes and a clickable prototype.": "আপনি ভালো interface-এর নীতিগুলো শিখবেন, তারপর use case-গুলোকে Figma wireframe আর একটি click করা যায় এমন prototype-এ রূপ দেবেন।"
 });

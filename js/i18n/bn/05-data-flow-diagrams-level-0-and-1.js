@@ -3,9 +3,6 @@ I18N_BN_ADD({
 "Topic 5 of 9 · Lab VI": "টপিক 9-এর 5 · Lab VI",
 "Data Flow Diagrams (DFD): Level 0 and Level 1": "Data Flow Diagram (DFD): Level 0 ও Level 1",
 "What a DFD shows, the four symbols in Gane–Sarson and Yourdon notation, the rules of valid data flows, and how to draw and balance Level 0 (context) and Level 1 diagrams, using the ATM system.": "একটি DFD কী দেখায়, Gane–Sarson ও Yourdon notation-এর চারটি চিহ্ন, বৈধ data flow-এর নিয়ম, এবং ATM system ব্যবহার করে Level 0 (context) ও Level 1 diagram কীভাবে আঁকতে ও balance করতে হয়।",
-"Before you design screens or classes, you need to know what data comes in, what happens to it, and where it is kept.": "Screen বা class design করার আগে আপনাকে জানতে হবে কী data আসে, তার কী হয়, এবং কোথায় রাখা হয়।",
-"A data flow diagram answers exactly that, in a picture a librarian or bank officer can check. Draw it wrong and every later diagram inherits the mistake.": "একটি data flow diagram ঠিক সেটারই উত্তর দেয়, এমন একটি ছবিতে যা একজন লাইব্রেরিয়ান বা ব্যাংক কর্মকর্তা যাচাই করতে পারেন। ভুল আঁকলে পরের প্রতিটি diagram সেই ভুল উত্তরাধিকারসূত্রে পায়।",
-"You will learn the four symbols, the handful of rules that make a DFD valid, and how to go from a one-bubble context diagram to a detailed Level 1.": "আপনি চারটি চিহ্ন, একটি DFD-কে বৈধ করে এমন কয়েকটি নিয়ম, এবং এক-বুদবুদের context diagram থেকে বিস্তারিত Level 1-এ কীভাবে যেতে হয় তা শিখবেন।",
 "Outline · Lab VI": "রূপরেখা · Lab VI",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "What a DFD is": "DFD কী",
@@ -191,5 +188,8 @@ I18N_BN_ADD({
 "Decimal numbering shows the parent: 3.1, 3.2, …": "দশমিক নম্বর parent দেখায়: 3.1, 3.2, …",
 "A good process name is…": "একটি ভালো process নাম হলো…",
 "Customer": "গ্রাহক",
-"Processes are named with a verb and an object.": "Process-এর নাম একটি ক্রিয়া ও একটি কর্ম দিয়ে দেওয়া হয়।"
+"Processes are named with a verb and an object.": "Process-এর নাম একটি ক্রিয়া ও একটি কর্ম দিয়ে দেওয়া হয়।",
+"A borrowed book enters the library system. Where does its record go, who changes it, and where does the late fine come from? If you can’t draw it, you can’t build it.": "ধার নেওয়া একটি বই library system-এ ঢোকে। এর record কোথায় যায়, কে তা বদলায়, আর দেরির জরিমানা আসে কোথা থেকে? আঁকতে না পারলে, বানাতেও পারবেন না।",
+"A data flow diagram shows what data comes in, what happens to it and where it is kept, in a picture a librarian can check. Draw it wrong and every later diagram inherits the mistake.": "একটি data flow diagram দেখায় কোন data আসে, তার কী হয় আর তা কোথায় রাখা হয়, এমন ছবিতে যা একজন librarian যাচাই করতে পারেন। ভুল আঁকলে পরের প্রতিটি diagram সেই ভুল উত্তরাধিকারসূত্রে পায়।",
+"You will learn the four symbols, the rules that make a DFD valid, and how to grow a context diagram into Level 1.": "আপনি চারটি প্রতীক, DFD বৈধ করার নিয়ম, আর কীভাবে একটি context diagram থেকে Level 1 গড়ে তোলা যায় তা শিখবেন।"
 });

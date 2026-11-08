@@ -3,9 +3,6 @@ I18N_BN_ADD({
 "Topic 4 of 9 · Lab V": "টপিক 9-এর 4 · Lab V",
 "SDLC Model Selection": "SDLC Model বাছাই",
 "The six stages of the software development life cycle, the waterfall, iterative, V, spiral, agile and prototyping models, and how to choose one with a weighted comparison matrix.": "Software development life cycle-এর ছয়টি পর্যায়; waterfall, iterative, V, spiral, agile ও prototyping model; এবং একটি weighted তুলনা matrix দিয়ে কীভাবে একটি বাছতে হয়।",
-"Two teams build the same library system. One plans everything up front and tests at the end; the other shows the librarian a working screen every two weeks. Which one is right?": "দুটি দল একই library system তৈরি করে। একটি সবকিছু আগে পরিকল্পনা করে ও শেষে পরীক্ষা করে; অন্যটি প্রতি দুই সপ্তাহে লাইব্রেরিয়ানকে একটি কার্যকর screen দেখায়। কোনটি সঠিক?",
-"It depends on the project: how clear the requirements are, how risky it is, and how often the customer can give feedback. Choosing the process is a design decision in its own right.": "এটি project-এর ওপর নির্ভর করে: requirement কতটা স্পষ্ট, এটি কতটা ঝুঁকিপূর্ণ, এবং গ্রাহক কত ঘন ঘন মতামত দিতে পারেন। প্রক্রিয়া বাছাই নিজেই একটি design সিদ্ধান্ত।",
-"In this topic you learn the main SDLC models and a systematic way to pick one — and to defend the choice in your report.": "এই টপিকে আপনি প্রধান SDLC model-গুলো এবং একটি বাছাইয়ের পদ্ধতিগত উপায় শিখবেন — এবং আপনার report-এ সিদ্ধান্তের পক্ষে যুক্তি দিতে শিখবেন।",
 "Outline · Lab V": "রূপরেখা · Lab V",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "The SDLC and its stages": "SDLC ও এর পর্যায়",
@@ -211,5 +208,8 @@ I18N_BN_ADD({
 "The V-shaped ticks (5, 3, 6, 5, 3) add up to…": "V-shaped টিকগুলোর (5, 3, 6, 5, 3) যোগফল…",
 "5 + 3 + 6 + 5 + 3 = 22, tying with Spiral.": "5 + 3 + 6 + 5 + 3 = 22, Spiral-এর সমান।",
 "Which model builds a quick model mainly to discover what users want?": "কোন model মূলত ব্যবহারকারীরা কী চান তা আবিষ্কারের জন্য একটি দ্রুত model তৈরি করে?",
-"Prototyping refines a model with users until the requirements are clear.": "Requirement স্পষ্ট না হওয়া পর্যন্ত prototyping ব্যবহারকারীদের সাথে একটি model পরিমার্জন করে।"
+"Prototyping refines a model with users until the requirements are clear.": "Requirement স্পষ্ট না হওয়া পর্যন্ত prototyping ব্যবহারকারীদের সাথে একটি model পরিমার্জন করে।",
+"Team A plans everything for two months and shows the librarian the system at the end. She says: “That’s not what I meant.” Team B had shown her a screen every two weeks.": "Team A দুই মাস ধরে সবকিছু পরিকল্পনা করে শেষে librarian-কে system দেখায়। তিনি বলেন: “আমি তো এটা বোঝাইনি।” Team B তাঁকে প্রতি দুই সপ্তাহে একটি স্ক্রিন দেখিয়েছিল।",
+"Neither team was lazy; they chose different processes. How clear the requirements are, how risky the project is and how often the client can give feedback decide which SDLC model fits.": "কোনো দলই অলস ছিল না; তারা আলাদা process বেছে নিয়েছিল। requirement কতটা স্পষ্ট, project কতটা ঝুঁকিপূর্ণ আর client কত ঘন ঘন feedback দিতে পারেন — এগুলো ঠিক করে কোন SDLC model মানানসই।",
+"You will learn the main models, a way to choose one, and how to defend the choice in your report.": "আপনি প্রধান model-গুলো, একটি বেছে নেওয়ার উপায় আর report-এ সেই পছন্দের পক্ষে যুক্তি দেওয়া শিখবেন।"
 });

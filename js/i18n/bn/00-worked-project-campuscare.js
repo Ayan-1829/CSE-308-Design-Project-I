@@ -2,9 +2,6 @@
 I18N_BN_ADD({
 "Worked project · all nine steps": "Worked project · নয়টি ধাপই",
 "One realistic project taken through every step of the course: proposal and plan, LaTeX report, IEEE SRS, SDLC choice, DFD Level 0 and 1, use cases, sequence and communication diagrams, class diagram and Figma wireframes.": "একটি বাস্তবসম্মত project কোর্সের প্রতিটি ধাপের মধ্য দিয়ে নেওয়া হয়েছে: proposal ও plan, LaTeX report, IEEE SRS, SDLC বাছাই, DFD Level 0 ও 1, use case, sequence ও communication diagram, class diagram এবং Figma wireframe।",
-"What does a finished design project actually look like — and how do the proposal, SRS and all the diagrams fit together?": "একটি সম্পূর্ণ design project আসলে দেখতে কেমন — আর proposal, SRS ও সব diagram কীভাবে একসাথে মেলে?",
-"This deck follows one team, from a problem at the university medical centre to wireframes tested with users. Every step uses the method from its topic and refers back to the requirements, so you can see how the pieces connect.": "এই deck একটি দলকে অনুসরণ করে, বিশ্ববিদ্যালয়ের মেডিকেল সেন্টারের একটি সমস্যা থেকে শুরু করে ব্যবহারকারীদের দিয়ে পরীক্ষিত wireframe পর্যন্ত। প্রতিটি ধাপ তার টপিকের পদ্ধতি ব্যবহার করে এবং requirement-এর দিকে ফিরে তাকায়, যাতে আপনি দেখতে পান অংশগুলো কীভাবে যুক্ত হয়।",
-"Open it at the start of the course for the big picture, and again at each lab to see that step done in full.": "পুরো চিত্র পেতে কোর্সের শুরুতে এটি খুলুন, আর প্রতিটি lab-এ আবার খুলে সেই ধাপটি সম্পূর্ণভাবে দেখুন।",
 "Outline · All labs": "রূপরেখা · সব lab",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "The project": "Project-টি",
@@ -230,5 +227,8 @@ I18N_BN_ADD({
 "Level 0 has it, and the levels must balance": "Level 0-তে এটি আছে, এবং level-গুলোকে balance করতে হবে",
 "doctors asked for it": "ডাক্তাররা এটি চেয়েছেন",
 "stores need it": "store-এর এটি দরকার",
-"Every flow crossing the Level-0 boundary must reappear in Level 1.": "Level-0 সীমানা পার হওয়া প্রতিটি flow Level 1-এ আবার আসতে হবে।"
+"Every flow crossing the Level-0 boundary must reappear in Level 1.": "Level-0 সীমানা পার হওয়া প্রতিটি flow Level 1-এ আবার আসতে হবে।",
+"Every lab hands you one piece of a puzzle: a proposal, an SRS, a DFD, a few UML diagrams. It is fair to ask what the finished picture looks like.": "প্রতিটি ল্যাব আপনার হাতে ধাঁধার একটি টুকরো দেয়: একটি proposal, একটি SRS, একটি DFD, কয়েকটি UML diagram। পুরো ছবিটা দেখতে কেমন, এ প্রশ্ন করাই যায়।",
+"This deck follows one team from a real headache — students queueing for an hour at the campus medical centre — all the way to wireframes tested with users. Each step uses that lab’s method and points back to the requirements.": "এই deck একটি দলকে অনুসরণ করে একটি বাস্তব মাথাব্যথা থেকে — campus medical centre-এ ছাত্রদের এক ঘণ্টার লাইন — ব্যবহারকারীদের দিয়ে পরীক্ষা করা wireframe পর্যন্ত। প্রতিটি ধাপ সেই ল্যাবের পদ্ধতি ব্যবহার করে আর requirement-এর দিকে ফিরে তাকায়।",
+"Open it at the start for the big picture, and again at each lab to see that step done in full.": "শুরুতে খুলুন বড় ছবিটা দেখতে, আর প্রতিটি ল্যাবে আবার খুলুন সেই ধাপটি পুরোপুরি করা দেখতে।"
 });

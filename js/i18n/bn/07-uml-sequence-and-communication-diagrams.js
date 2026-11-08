@@ -3,9 +3,6 @@ I18N_BN_ADD({
 "Topic 7 of 9 · Lab VIII": "টপিক 9-এর 7 · Lab VIII",
 "UML Sequence &amp; Communication Diagrams": "UML Sequence &amp; Communication Diagram",
 "Lifelines, activations and the eight message types; guards and combined fragments (alt, opt, loop); turning a use case into a sequence diagram; and the equivalent communication diagram.": "Lifeline, activation ও আট ধরনের message; guard ও combined fragment (alt, opt, loop); একটি use case-কে sequence diagram-এ রূপান্তর; এবং সমতুল্য communication diagram।",
-"Your use case says “the customer withdraws cash”. But who checks the PIN? Who knows the balance? Who dispenses the money — and in what order?": "আপনার use case বলে “গ্রাহক নগদ তোলেন”। কিন্তু PIN কে যাচাই করে? ব্যালেন্স কে জানে? টাকা কে দেয় — এবং কোন ক্রমে?",
-"Sequence diagrams answer those questions one message at a time, and every message you draw becomes an operation some class must provide. Communication diagrams show the same story as a network of objects.": "Sequence diagram এক এক করে message দিয়ে সেই প্রশ্নগুলোর উত্তর দেয়, এবং আপনার আঁকা প্রতিটি message একটি operation হয়ে যায় যা কোনো class-কে দিতে হবে। Communication diagram একই গল্প object-গুলোর একটি network হিসেবে দেখায়।",
-"Together they connect the user’s view (use cases) with the structure of the code (class diagrams).": "একসাথে এরা ব্যবহারকারীর দৃষ্টিভঙ্গি (use case) code-এর কাঠামোর (class diagram) সাথে যুক্ত করে।",
 "Outline · Lab VIII": "রূপরেখা · Lab VIII",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "Interaction diagrams": "Interaction diagram",
@@ -196,5 +193,8 @@ I18N_BN_ADD({
 "an activation (execution) bar": "একটি activation (execution) bar",
 "a guard": "একটি guard",
 "a fragment": "একটি fragment",
-"It shows when the object is busy handling a message.": "এটি দেখায় কখন object একটি message সামলাতে ব্যস্ত।"
+"It shows when the object is busy handling a message.": "এটি দেখায় কখন object একটি message সামলাতে ব্যস্ত।",
+"“The customer withdraws cash.” Simple — until someone asks: who checks the PIN, who knows the balance, and what happens if the machine runs out of notes halfway?": "“Customer টাকা তোলেন।” সহজ — যতক্ষণ না কেউ জিজ্ঞেস করে: PIN কে যাচাই করে, balance কে জানে, আর মাঝপথে মেশিনের নোট ফুরিয়ে গেলে কী হয়?",
+"Sequence diagrams answer that one message at a time, and every message becomes an operation some class must provide. Communication diagrams tell the same story as a network of objects.": "Sequence diagram একটি একটি বার্তা ধরে এর উত্তর দেয়, আর প্রতিটি বার্তা হয়ে যায় এমন একটি operation, যা কোনো class-কে দিতে হবে। Communication diagram একই গল্প বলে object-এর একটি নেটওয়ার্ক হিসেবে।",
+"Together they connect the user’s view (use cases) with the structure of the code (class diagrams).": "একসঙ্গে তারা ব্যবহারকারীর দৃষ্টিভঙ্গি (use case) আর কোডের কাঠামোকে (class diagram) জুড়ে দেয়।"
 });

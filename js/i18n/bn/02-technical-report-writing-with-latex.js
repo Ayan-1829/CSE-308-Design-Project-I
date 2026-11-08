@@ -3,9 +3,6 @@ I18N_BN_ADD({
 "Topic 2 of 9 · Labs II–III": "টপিক 9-এর 2 · Lab II–III",
 "Technical Report Writing with LaTeX": "LaTeX দিয়ে Technical Report লেখা",
 "Typesetting reports in LaTeX with Overleaf: text and special characters, errors, mathematics, lists, packages, sections, cross-references, figures, tables, algorithms and BibTeX citations.": "Overleaf-এ LaTeX দিয়ে report টাইপসেট করা: লেখা ও বিশেষ অক্ষর, error, গণিত, list, package, section, cross-reference, figure, table, algorithm ও BibTeX উদ্ধৃতি।",
-"Your final report will have 30 figures, 15 tables and 40 references. In a word processor, adding one figure in chapter 2 means renumbering everything after it by hand.": "আপনার চূড়ান্ত report-এ 30টি figure, 15টি table ও 40টি reference থাকবে। একটি word processor-এ chapter 2-এ একটি figure যোগ করা মানে এর পরের সবকিছু হাতে নতুন করে নম্বর দেওয়া।",
-"LaTeX numbers figures, tables, sections, equations and citations for you and keeps every cross-reference correct. It is also what IEEE, ACM and most universities expect for technical writing.": "LaTeX আপনার জন্য figure, table, section, সমীকরণ ও উদ্ধৃতির নম্বর দেয় এবং প্রতিটি cross-reference সঠিক রাখে। IEEE, ACM ও বেশিরভাগ বিশ্ববিদ্যালয় technical লেখার জন্য এটিই প্রত্যাশা করে।",
-"This topic covers Lab II (text, errors, maths, packages) and Lab III (structure, references, figures, tables, citations). The playground on the slides compiles as you type.": "এই টপিক Lab II (লেখা, error, গণিত, package) ও Lab III (কাঠামো, reference, figure, table, উদ্ধৃতি) কভার করে। স্লাইডের playground টাইপ করার সাথে সাথে compile করে।",
 "Outline · Labs II–III": "রূপরেখা · Lab II–III",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "Getting started": "শুরু করা",
@@ -288,5 +285,8 @@ I18N_BN_ADD({
 "Marks the alignment point": "সারিবদ্ধ করার বিন্দু চিহ্নিত করে",
 "Starts a new line": "নতুন লাইন শুরু করে",
 "Nothing": "কিছুই না",
-"Rows line up at the &amp;; \\\\ starts a new row.": "সারিগুলো &amp;-এ সারিবদ্ধ হয়; \\\\ নতুন সারি শুরু করে।"
+"Rows line up at the &amp;; \\\\ starts a new row.": "সারিগুলো &amp;-এ সারিবদ্ধ হয়; \\\\ নতুন সারি শুরু করে।",
+"Your report has 30 figures. At 2 a.m. you add one more in chapter 2, and now Figures 3 to 31 are all numbered wrong. In Word, you fix them by hand.": "আপনার report-এ 30টি figure। রাত 2টায় chapter 2-এ আরেকটি যোগ করলেন, আর এখন Figure 3 থেকে 31 পর্যন্ত সব নম্বর ভুল। Word-এ এগুলো হাতে ঠিক করতে হয়।",
+"In LaTeX you don’t: it numbers figures, tables, sections, equations and citations for you and keeps every cross-reference correct. It is also what IEEE, ACM and most universities expect.": "LaTeX-এ তা করতে হয় না: এটি figure, table, section, equation আর citation-এর নম্বর নিজেই দেয় আর প্রতিটি cross-reference ঠিক রাখে। IEEE, ACM আর বেশিরভাগ বিশ্ববিদ্যালয়ও এটাই চায়।",
+"This topic covers Lab II (text, maths, packages) and Lab III (structure, references, figures, tables, citations).": "এই topic-এ আছে Lab II (লেখা, গণিত, package) আর Lab III (কাঠামো, reference, figure, table, citation)।"
 });

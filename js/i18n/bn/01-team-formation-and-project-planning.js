@@ -3,9 +3,6 @@ I18N_BN_ADD({
 "Topic 1 of 9 · Lab I": "টপিক 9-এর 1 · Lab I",
 "Team Formation, Project Assignment &amp; Planning": "দল গঠন, Project নির্ধারণ ও পরিকল্পনা",
 "Forming a team, choosing a project, writing the proposal, and planning it: feasibility study, work plan, Gantt chart, budget, risk analysis and roles.": "দল গঠন, project বাছাই, proposal লেখা এবং পরিকল্পনা: feasibility study, কর্মপরিকল্পনা, Gantt chart, বাজেট, ঝুঁকি বিশ্লেষণ ও ভূমিকা।",
-"Most student projects do not fail because of code. They fail in week 9, when nobody knows who was writing the SRS, the diagrams contradict each other and the deadline is Thursday.": "বেশিরভাগ শিক্ষার্থী project code-এর কারণে ব্যর্থ হয় না। এগুলো ব্যর্থ হয় সপ্তাহ 9-এ, যখন কেউ জানে না SRS কে লিখছিল, diagram-গুলো পরস্পরবিরোধী এবং deadline বৃহস্পতিবার।",
-"This first lab sets up everything that prevents that: a team with clear roles, a project worth doing, and a plan that says what happens each week, what it costs and what could go wrong.": "এই প্রথম lab সেসব প্রতিরোধের সবকিছু ঠিক করে: স্পষ্ট ভূমিকাসহ একটি দল, করার মতো একটি project, এবং এমন একটি plan যা বলে প্রতি সপ্তাহে কী হবে, কত খরচ হবে আর কী ভুল হতে পারে।",
-"You will also write the first chapter of your report: the proposal.": "আপনি আপনার report-এর প্রথম chapter-ও লিখবেন: proposal।",
 "Outline · Lab I": "রূপরেখা · Lab I",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "Course roadmap": "কোর্সের রোডম্যাপ",
@@ -354,5 +351,8 @@ I18N_BN_ADD({
 "Turns the requirements into models: DFDs, UML diagrams and UI wireframes.": "Requirement-কে model-এ রূপ দেন: DFD, UML diagram ও UI wireframe।",
 "Writes the code and builds the database from the design.": "Design অনুযায়ী code লেখেন এবং database তৈরি করেন।",
 "Writes test cases from the requirements and checks that every feature meets them.": "Requirement থেকে test case লেখেন এবং যাচাই করেন যে প্রতিটি feature সেগুলো পূরণ করে।",
-"Keeps the LaTeX report complete and consistent: chapters, figures, references and formatting.": "LaTeX report সম্পূর্ণ ও সামঞ্জস্যপূর্ণ রাখেন: chapter, figure, reference ও formatting।"
+"Keeps the LaTeX report complete and consistent: chapters, figures, references and formatting.": "LaTeX report সম্পূর্ণ ও সামঞ্জস্যপূর্ণ রাখেন: chapter, figure, reference ও formatting।",
+"Week 9. The SRS is “almost done”, the diagrams disagree with each other, and three teammates each believe the fourth was writing chapter 2. The deadline is Thursday.": "সপ্তাহ 9। SRS “প্রায় শেষ”, diagram-গুলো একে অপরের সঙ্গে একমত নয়, আর তিন সদস্যের প্রত্যেকে ভাবে chapter 2 লিখছিল চতুর্থজন। deadline বৃহস্পতিবার।",
+"Most student projects fail like this, not because of code. This first lab sets up the cure: a team with clear roles, a project worth doing, and a plan that says what happens each week, what it costs and what could go wrong.": "বেশিরভাগ ছাত্র-project ব্যর্থ হয় এভাবেই, কোডের কারণে নয়। এই প্রথম ল্যাব প্রতিকারের ব্যবস্থা করে: স্পষ্ট দায়িত্বসহ একটি দল, করার মতো একটি project, আর এমন একটি পরিকল্পনা, যা বলে প্রতি সপ্তাহে কী হবে, খরচ কত আর কী ভুল হতে পারে।",
+"You will also write the first chapter of your report: the proposal.": "আপনি report-এর প্রথম chapter-ও লিখবেন: proposal।"
 });
