@@ -997,3 +997,10 @@ body.deck-page .slide :where(.yn,.g-wk,.rm-lab,.tl-err,.tex-log){font-size:var(-
 table.doc.kv td:first-child{white-space:nowrap;font-weight:650;color:var(--ink-2);overflow-wrap:normal}
 .srs-doc table.doc th{overflow-wrap:normal;white-space:nowrap}
 .srs-doc table.doc td{overflow-wrap:break-word}   /* columns size to whole words (no "Mediu m") */
+/* ===== Phones: code and its output / preview stack top-to-bottom =====
+   Applies below 900px wide, and on phones turned sideways (a touch screen no taller than 540px):
+   big phones are 850-950px wide in landscape, so a width test alone kept the panes side by side.
+   Laptops, desktops and tablets keep the side-by-side layout. */
+@media (max-width:900px),(pointer:coarse) and (max-height:540px){
+  .cols,.cols.wl,.cols.wf,.cols.fw,.codeout,.tex-split{grid-template-columns:1fr}
+}
