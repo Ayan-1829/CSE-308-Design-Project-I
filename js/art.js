@@ -39,7 +39,6 @@ const TOPIC_ART = (() => {
       <rect x="252" y="236" width="102" height="40" rx="20" class="ta-ac"/><text x="303" y="262" class="ta-s ta-on-ac">REQ-1</text>`,
     /* 4. SDLC model selection: a development cycle */
     4: `${head(4)}${bg}
-      <circle cx="200" cy="165" r="92" class="ta-ring-thin"/>
       ${[['Plan', 200, 73, 'ta-ac'], ['Design', 292, 165, 'ta-acc'], ['Build', 200, 257, 'ta-ok'], ['Test', 108, 165, 'ta-soft2']].map(([t, x, y, c]) => `<rect x="${x - 46}" y="${y - 20}" width="92" height="40" rx="20" class="${c}"/><text x="${x}" y="${y + 6}" class="ta-s ${c === 'ta-soft2' ? '' : 'ta-on-ac'}">${t}</text>`).join('')}
       <path d="M256,92 Q284,112 290,136" class="ta-line" ${arrow(4)}/>
       <path d="M284,206 Q268,238 246,248" class="ta-line" ${arrow(4)}/>
