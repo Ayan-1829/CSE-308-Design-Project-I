@@ -251,13 +251,17 @@ function seqDiagram(spec, upto, label) {
   });
   const bottom = y + 8, H = bottom + 14;
   const faint = (s) => (upto != null && s > upto ? ' dg-future' : '') + (upto != null && s === upto ? ' dg-hl' : '');
+  const fragTop = [];   /* fragment labels are drawn last, so lifelines and activations never cover them */
   frags.forEach((f) => {
     k.push(sv('g', { class: 'dg-frag' + faint(f.step) },
       sv('rect', { x: f.x1, y: f.y1, width: f.x2 - f.x1, height: f.y2 - f.y1, class: 'dg-fragbox' }),
+      f.els.map((e) => sv('path', { d: `M${f.x1} ${e.y} H${f.x2}`, class: 'dg-ln dg-dash' }))));
+    fragTop.push(sv('g', { class: 'dg-frag' + faint(f.step) },
+      sv('path', { d: `M${f.x1} ${f.y1} V${f.y1 + 20} H${f.x1 + 44} L${f.x1 + 52} ${f.y1 + 12} V${f.y1} Z`, class: 'dg-fragtab' }),
       sv('path', { d: `M${f.x1} ${f.y1 + 20} H${f.x1 + 44} L${f.x1 + 52} ${f.y1 + 12} V${f.y1}`, class: 'dg-ln' }),
       D.T(f.x1 + 22, f.y1 + 10, f.type, 'dg-t'),
       D.T(f.x1 + 60, f.y1 + 10, f.guard, 'dg-s dg-guard', 'start'),
-      f.els.map((e) => [sv('path', { d: `M${f.x1} ${e.y} H${f.x2}`, class: 'dg-ln dg-dash' }), D.T(f.x1 + 10, e.y + 11, e.guard, 'dg-s dg-guard', 'start')])));
+      f.els.map((e) => D.T(f.x1 + 10, e.y + 11, e.guard, 'dg-s dg-guard', 'start'))));
   });
   spec.parts.forEach((p) => {
     const x = p.x;
@@ -294,5 +298,6 @@ function seqDiagram(spec, upto, label) {
     if (m.type === 'destroy') g.append(D.head('x', [B.x, m.y + 16], [1, 0], ''));
     k.push(g);
   });
+  k.push(...fragTop);
   return D.svg(spec.w, spec.h || H, label || 'Sequence diagram', k, { scale: spec.scale || 1.2, min: spec.min });
 }

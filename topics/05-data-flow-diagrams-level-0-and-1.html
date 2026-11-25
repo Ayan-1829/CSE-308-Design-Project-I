@@ -64,7 +64,7 @@
 <p class="kicker">Before we start</p><h2>Why this matters</h2><div class="hook"><p class="q">A borrowed book enters the library system. Where does its record go, who changes it, and where does the late fine come from? If you can’t draw it, you can’t build it.</p><p>A data flow diagram shows what data comes in, what happens to it and where it is kept, in a picture a librarian can check. Draw it wrong and every later diagram inherits the mistake.</p><p>You will learn the four symbols, the rules that make a DFD valid, and how to grow a context diagram into Level 1.</p></div>
 </div></section>
 <section class="slide " data-title="Topics in this chapter" aria-label="Topics in this chapter" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Outline · Lab VI</p><h2>Topics in this chapter</h2><p class="muted">Select a topic to jump to the slide that explains it.</p><ol class="outline-list"><li><a href="#s=4">What a DFD is</a></li><li><a href="#s=6">Levels and balancing</a></li><li><a href="#s=7">DFD rules</a></li><li><a href="#s=9">Level 0 and Level 1 for the ATM</a></li><li><a href="#s=12">Level 2 and beyond</a></li><li><a href="#s=13">Common mistakes</a></li></ol>
+<p class="kicker">Outline · Lab VI</p><h2>Topics in this chapter</h2><p class="muted">Select a topic to jump to the slide that explains it.</p><ol class="outline-list"><li><a href="#s=4">What a DFD is</a></li><li><a href="#s=7">Levels and balancing</a></li><li><a href="#s=8">DFD rules</a></li><li><a href="#s=11">Level 0 and Level 1 for the ATM</a></li><li><a href="#s=16">The USMS example</a></li><li><a href="#s=17">Level 2 and beyond</a></li><li><a href="#s=18">Common mistakes</a></li></ol>
 </div></section>
 <section class="slide " data-title="What a data flow diagram is" aria-label="What a data flow diagram is" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Concept 1 of 12</p><h2>What a data flow diagram is</h2><div class="cols "><div><p>A <b>data flow diagram (DFD)</b> is a picture of how <b>data</b> moves through an information system: where it comes from, which processes change it, where it is stored and where it goes.</p><ul><li>It shows incoming data, outgoing data and stored data.</li><li>It does <b>not</b> show timing, order or decisions — no “if”, no loops.</li><li>Non-technical people can read it, so it is ideal for checking your understanding with users.</li></ul></div><div><div class="scrollx"><table class="doc"><thead><tr><th></th><th>DFD</th><th>Flowchart</th></tr></thead><tbody><tr><td>Shows</td><td>flow of <b>data</b></td><td>flow of <b>control</b></td></tr><tr><td>Decisions (if/else)</td><td>no</td><td>yes</td></tr><tr><td>Order of steps</td><td>not shown</td><td>shown</td></tr><tr><td>Data stores</td><td>yes</td><td>no</td></tr><tr><td>Levels</td><td>0, 1, 2 …</td><td>one diagram</td></tr></tbody></table></div></div></div>
@@ -101,6 +101,9 @@
 </div></section>
 <section class="slide " data-title="How to draw a Level 1 DFD" aria-label="How to draw a Level 1 DFD" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Level 0 and Level 1 for the ATM</p><h2>How to draw a Level 1 DFD</h2><div class="cols "><div><ol><li>Start from Level 0: copy the external entities and every flow crossing the boundary.</li><li>List the main things the system does — often one per major feature or use case. Make each a process (verb + object).</li><li>Ask what each process must remember: add data stores.</li><li>Connect the flows; every Level-0 flow must enter or leave one of the new processes.</li><li>Apply the rules: no entity–store or store–store flows, no process without input and output.</li><li>Number processes and stores; check balancing.</li></ol></div><div><div class="callout warn"><b>A common mistake.</b> Some Level 1 diagrams still draw the parent process “1 ATM Machine System” inside them. In a balanced DFD the parent is <i>replaced</i> by its children, so it should not appear. The version on the previous slide, with the customer and transaction stores, shows what a Level 1 should look like.</div></div></div>
+</div></section>
+<section class="slide " data-title="Example: the USMS Level 1 DFD" aria-label="Example: the USMS Level 1 DFD" tabindex="-1"><div class="slide-inner">
+<p class="kicker">The USMS example</p><h2>Example: the USMS Level 1 DFD</h2><figure class="fig" data-fig="usms-dfd1"><figcaption>The University Student Management System from topic 3: five processes and five data stores. Student is drawn twice (the corner mark) to avoid crossing lines.</figcaption></figure><div class="row usms-link"><a class="btn pri" href="../example-dfd.html">Open the example DFD document</a><span class="small muted">Level 0, 1 and 2, balancing, data dictionary and process specifications</span></div>
 </div></section>
 <section class="slide " data-title="Zoom through the levels" aria-label="Zoom through the levels" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Interactive</p><h2>Zoom through the levels</h2><div data-demo="dfd-levels"></div>
@@ -141,7 +144,7 @@
 </main>
 <footer class="deck-foot">
   <button type="button" class="btn" id="prev">Previous</button>
-  <span class="counter" id="counter">1 / 27</span>
+  <span class="counter" id="counter">1 / 28</span>
   <button type="button" class="btn pri" id="next">Next</button>
 </footer>
 <aside id="slide-menu" hidden aria-label="Slide list"><div class="menu-head"><h3>Slides in this topic</h3><button type="button" id="btn-menu-close" class="menu-close" aria-label="Close slide list">&#10005;</button></div></aside>

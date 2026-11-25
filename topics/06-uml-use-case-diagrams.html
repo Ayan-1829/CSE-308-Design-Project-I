@@ -64,7 +64,7 @@
 <p class="kicker">Before we start</p><h2>Why this matters</h2><div class="hook"><p class="q">Show a bank manager your class diagram and she nods politely. Show her a stick figure labelled “Customer” next to “Withdraw cash”, and she starts making corrections.</p><p>A use case diagram speaks the user’s language: what each actor can do, and where the system stops. It turns the SRS into goals people recognise and fixes the scope.</p><p>It is also the bridge to the next diagrams: every use case becomes one or more sequence diagrams.</p></div>
 </div></section>
 <section class="slide " data-title="Topics in this chapter" aria-label="Topics in this chapter" tabindex="-1"><div class="slide-inner">
-<p class="kicker">Outline · Lab VII</p><h2>Topics in this chapter</h2><p class="muted">Select a topic to jump to the slide that explains it.</p><ol class="outline-list"><li><a href="#s=4">Use cases</a></li><li><a href="#s=5">Notation</a></li><li><a href="#s=7">Relationships</a></li><li><a href="#s=9">The ATM example</a></li><li><a href="#s=12">Building your diagram</a></li><li><a href="#s=14">Common mistakes</a></li></ol>
+<p class="kicker">Outline · Lab VII</p><h2>Topics in this chapter</h2><p class="muted">Select a topic to jump to the slide that explains it.</p><ol class="outline-list"><li><a href="#s=4">Use cases</a></li><li><a href="#s=5">Notation</a></li><li><a href="#s=8">Relationships</a></li><li><a href="#s=11">The ATM example</a></li><li><a href="#s=15">The USMS example</a></li><li><a href="#s=16">Building your diagram</a></li><li><a href="#s=19">Common mistakes</a></li></ol>
 </div></section>
 <section class="slide " data-title="What a use case diagram shows" aria-label="What a use case diagram shows" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Concept 1 of 12</p><h2>What a use case diagram shows</h2><div class="cols "><div><p>A <b>use case</b> is a goal a user achieves with the system, together with the scenarios (success and failure) that happen along the way. A <b>use case diagram</b> is a UML behaviour diagram that shows the actors, their use cases and the relationships between them.</p><ul><li>It captures the <b>user’s view</b>: what the system offers, not how it works inside.</li><li>It organises the functional requirements of the SRS.</li><li>It fixes the system’s scope: what is inside the boundary and who is outside.</li><li>Each use case is later described in text and detailed in sequence diagrams (topic 7).</li></ul></div><div><div class="callout"><b>Problem statement:</b> in the old banking system customers depended on bank employees for every transaction. With an ATM the customer does the transaction in person — withdrawing money, checking the balance, getting a mini statement and transferring money after validating the PIN — which is faster and more private.</div></div></div>
@@ -98,6 +98,9 @@
 </div></section>
 <section class="slide " data-title="Walk through the scenarios" aria-label="Walk through the scenarios" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Interactive</p><h2>Walk through the scenarios</h2><div data-demo="uc-scenario"></div>
+</div></section>
+<section class="slide " data-title="Example: the USMS use case diagram" aria-label="Example: the USMS use case diagram" tabindex="-1"><div class="slide-inner">
+<p class="kicker">The USMS example</p><h2>Example: the USMS use case diagram</h2><figure class="fig" data-fig="usms-uc"><figcaption>The University Student Management System from topic 3: actor generalization, one «include» and two «extend» relationships.</figcaption></figure><div class="row usms-link"><a class="btn pri" href="../example-use-cases.html">Open the example use case model</a><span class="small muted">Actors, use case list and full descriptions of UC-03, UC-05 and UC-08</span></div>
 </div></section>
 <section class="slide " data-title="Finding actors and use cases" aria-label="Finding actors and use cases" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Concept 9 of 12</p><h2>Finding actors and use cases</h2><div class="cols "><div><p>Ask these questions of the SRS and the users:</p><ol><li>Who uses the system to get their work done? (primary actors)</li><li>Who installs, maintains or administers it?</li><li>Which other systems does it talk to? (secondary actors)</li><li>For each actor: what goals do they have? Each goal that gives them a result of value is a use case.</li><li>What must happen at a certain time? (time as an actor)</li></ol></div><div><div class="callout"><b>The “coffee-break” test:</b> a use case is a goal after which the user could happily take a break. “Withdraw cash” passes; “Enter PIN” does not — it is a step inside a use case.</div></div></div>
@@ -157,7 +160,7 @@ P ..&gt; W : &lt;&lt;extend&gt;&gt;
 </main>
 <footer class="deck-foot">
   <button type="button" class="btn" id="prev">Previous</button>
-  <span class="counter" id="counter">1 / 28</span>
+  <span class="counter" id="counter">1 / 29</span>
   <button type="button" class="btn pri" id="next">Next</button>
 </footer>
 <aside id="slide-menu" hidden aria-label="Slide list"><div class="menu-head"><h3>Slides in this topic</h3><button type="button" id="btn-menu-close" class="menu-close" aria-label="Close slide list">&#10005;</button></div></aside>

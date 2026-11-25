@@ -3,6 +3,9 @@ I18N_BN_ADD({
 "Topic 8 of 9 · Labs IX–X": "টপিক 9-এর 8 · Lab IX–X",
 "UML Class Diagrams": "UML Class Diagram",
 "Classes, attributes, operations and visibility; association, multiplicity, aggregation, composition and dependency; generalization, abstract classes, interfaces and realization, with the telephone and ATM examples.": "Class, attribute, operation ও visibility; association, multiplicity, aggregation, composition ও dependency; generalization, abstract class, interface ও realization, টেলিফোন ও ATM উদাহরণসহ।",
+"Your sequence diagrams are full of messages — <code>verifyPIN()</code>, <code>withdraw()</code>, <code>debit()</code> — like letters without addresses. Which class receives each one?": "আপনার sequence diagram বার্তায় ভরা — <code>verifyPIN()</code>, <code>withdraw()</code>, <code>debit()</code> — যেন ঠিকানাহীন চিঠি। কোনটি কোন class পায়?",
+"The class diagram is the blueprint programmers turn into code and database tables: nouns from the SRS become classes, messages from sequence diagrams become operations.": "class diagram হলো সেই নকশা, যা programmer-রা কোড আর database table-এ রূপ দেন: SRS-এর বিশেষ্য হয় class, sequence diagram-এর বার্তা হয় operation।",
+"This topic covers the basic class diagram (Lab IX) and the extended one with inheritance, abstract classes and interfaces (Lab X).": "এই topic-এ আছে মৌলিক class diagram (Lab IX) আর inheritance, abstract class ও interface সহ বর্ধিতটি (Lab X)।",
 "Outline · Labs IX–X": "রূপরেখা · Lab IX–X",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "Class diagram basics": "Class diagram-এর মূল বিষয়",
@@ -131,6 +134,10 @@ I18N_BN_ADD({
 "Select any class to highlight its relationships and read them as sentences.": "যেকোনো class select করে এর সম্পর্কগুলো হাইলাইট করুন এবং বাক্য হিসেবে পড়ুন।",
 "Click a class in the diagram.": "Diagram-এ একটি class-এ ক্লিক করুন।",
 "The two inheritance trees (accounts and transactions) and the multiplicities are the parts examiners check first.": "দুটি inheritance tree (account ও transaction) এবং multiplicity হলো পরীক্ষকরা প্রথমে যে অংশগুলো যাচাই করেন।",
+"Example: the USMS class diagram": "উদাহরণ: USMS-এর class diagram",
+"The University Student Management System from topic 3: an abstract User, Enrollment as a class of its own, a reflexive “requires” association and a composition.": "Topic 3-এর University Student Management System: একটি abstract User, নিজস্ব class হিসেবে Enrollment, একটি reflexive “requires” association এবং একটি composition।",
+"Open the example class model": "উদাহরণ class model খুলুন",
+"Noun analysis, class dictionary, relationships, design decisions and an interface": "Noun analysis, class dictionary, সম্পর্কসমূহ, design-এর সিদ্ধান্ত এবং একটি interface",
 "How to design a class diagram": "একটি class diagram কীভাবে design করবেন",
 "<b>Identify the classes.</b> Underline the nouns in the SRS and use case descriptions; keep the ones the system must remember (Account, Card), drop synonyms, attributes (balance) and actors that are outside the system.": "<b>Class চিহ্নিত করুন।</b> SRS ও use case বর্ণনার বিশেষ্যগুলোর নিচে দাগ দিন; system-কে যেগুলো মনে রাখতে হবে (Account, Card) সেগুলো রাখুন, সমার্থক শব্দ, attribute (balance) ও system-এর বাইরের actor বাদ দিন।",
 "<b>Add attributes</b> — facts about each class (name, address, dob).": "<b>Attribute যোগ করুন</b> — প্রতিটি class সম্পর্কে তথ্য (name, address, dob)।",
@@ -239,8 +246,5 @@ I18N_BN_ADD({
 "Concrete subclass: inherits name and address from Person, adds a balance and implements printInfo().": "Concrete subclass: Person থেকে name ও address inherit করে, একটি balance যোগ করে এবং printInfo() implement করে।",
 "An interface: a contract that lists operations without code. Every class that realizes it must implement pay() and refund().": "একটি interface: code ছাড়া operation-এর তালিকা দেওয়া একটি চুক্তি। যে class এটি realize করে তাকে অবশ্যই pay() ও refund() implement করতে হবে।",
 "Realizes Payable: implements pay() and refund() by charging a debit card.": "Payable realize করে: debit card থেকে টাকা কেটে pay() ও refund() implement করে।",
-"Realizes Payable: implements the same two operations through a mobile wallet.": "Payable realize করে: একই দুটি operation একটি mobile wallet-এর মাধ্যমে implement করে।",
-"Your sequence diagrams are full of messages — <code>verifyPIN()</code>, <code>withdraw()</code>, <code>debit()</code> — like letters without addresses. Which class receives each one?": "আপনার sequence diagram বার্তায় ভরা — <code>verifyPIN()</code>, <code>withdraw()</code>, <code>debit()</code> — যেন ঠিকানাহীন চিঠি। কোনটি কোন class পায়?",
-"The class diagram is the blueprint programmers turn into code and database tables: nouns from the SRS become classes, messages from sequence diagrams become operations.": "class diagram হলো সেই নকশা, যা programmer-রা কোড আর database table-এ রূপ দেন: SRS-এর বিশেষ্য হয় class, sequence diagram-এর বার্তা হয় operation।",
-"This topic covers the basic class diagram (Lab IX) and the extended one with inheritance, abstract classes and interfaces (Lab X).": "এই topic-এ আছে মৌলিক class diagram (Lab IX) আর inheritance, abstract class ও interface সহ বর্ধিতটি (Lab X)।"
+"Realizes Payable: implements the same two operations through a mobile wallet.": "Payable realize করে: একই দুটি operation একটি mobile wallet-এর মাধ্যমে implement করে।"
 });

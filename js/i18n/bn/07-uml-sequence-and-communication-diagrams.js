@@ -3,6 +3,9 @@ I18N_BN_ADD({
 "Topic 7 of 9 · Lab VIII": "টপিক 9-এর 7 · Lab VIII",
 "UML Sequence &amp; Communication Diagrams": "UML Sequence &amp; Communication Diagram",
 "Lifelines, activations and the eight message types; guards and combined fragments (alt, opt, loop); turning a use case into a sequence diagram; and the equivalent communication diagram.": "Lifeline, activation ও আট ধরনের message; guard ও combined fragment (alt, opt, loop); একটি use case-কে sequence diagram-এ রূপান্তর; এবং সমতুল্য communication diagram।",
+"“The customer withdraws cash.” Simple — until someone asks: who checks the PIN, who knows the balance, and what happens if the machine runs out of notes halfway?": "“Customer টাকা তোলেন।” সহজ — যতক্ষণ না কেউ জিজ্ঞেস করে: PIN কে যাচাই করে, balance কে জানে, আর মাঝপথে মেশিনের নোট ফুরিয়ে গেলে কী হয়?",
+"Sequence diagrams answer that one message at a time, and every message becomes an operation some class must provide. Communication diagrams tell the same story as a network of objects.": "Sequence diagram একটি একটি বার্তা ধরে এর উত্তর দেয়, আর প্রতিটি বার্তা হয়ে যায় এমন একটি operation, যা কোনো class-কে দিতে হবে। Communication diagram একই গল্প বলে object-এর একটি নেটওয়ার্ক হিসেবে।",
+"Together they connect the user’s view (use cases) with the structure of the code (class diagrams).": "একসঙ্গে তারা ব্যবহারকারীর দৃষ্টিভঙ্গি (use case) আর কোডের কাঠামোকে (class diagram) জুড়ে দেয়।",
 "Outline · Lab VIII": "রূপরেখা · Lab VIII",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "Interaction diagrams": "Interaction diagram",
@@ -10,6 +13,7 @@ I18N_BN_ADD({
 "The ATM example": "ATM উদাহরণ",
 "Building a sequence diagram": "একটি sequence diagram তৈরি",
 "Communication diagrams": "Communication diagram",
+"The USMS example": "USMS উদাহরণ",
 "Common mistakes": "প্রচলিত ভুল",
 "A use case says <i>what</i> the user achieves. An <b>interaction diagram</b> shows <i>how</i> objects cooperate, message by message, to make it happen.": "একটি use case বলে ব্যবহারকারী <i>কী</i> অর্জন করেন। একটি <b>interaction diagram</b> দেখায় object-গুলো message ধরে ধরে <i>কীভাবে</i> সহযোগিতা করে এটি ঘটায়।",
 "Emphasises": "জোর দেয়",
@@ -99,6 +103,10 @@ I18N_BN_ADD({
 "explaining a scenario step by step": "একটি scenario ধাপে ধাপে ব্যাখ্যা করা",
 "checking which classes need associations": "কোন class-গুলোর association দরকার তা যাচাই করা",
 "Both show the same information and most tools convert one into the other. Your lab asks for both: draw the sequence diagram first, then derive the communication diagram from it.": "দুটিই একই তথ্য দেখায় এবং বেশিরভাগ tool একটিকে অন্যটিতে রূপান্তর করে। আপনার lab দুটিই চায়: প্রথমে sequence diagram আঁকুন, তারপর তা থেকে communication diagram বের করুন।",
+"Example: enrolling in a USMS course": "উদাহরণ: USMS-এ একটি কোর্সে enroll করা",
+"UC-03 Enroll in a course as a sequence diagram: three checks, then an alt fragment for success or rejection.": "UC-03 Enroll in a course একটি sequence diagram হিসেবে: তিনটি যাচাই, তারপর সফলতা বা প্রত্যাখ্যানের জন্য একটি alt fragment।",
+"Open the example interaction model": "উদাহরণ interaction model খুলুন",
+"Enrollment and online payment, a communication diagram and the message-to-operation table": "Enrollment ও online payment, একটি communication diagram এবং message থেকে operation-এর table",
 "Tools": "Tool",
 "Drawing tools": "আঁকার tool",
 "In <b>Visual Paradigm</b> (online or desktop): create a Sequence Diagram, add an Actor and Lifelines from the toolbar, then drag from a lifeline’s resource icon to create a message to another lifeline. Right-click a message to change its type; select several messages and choose <i>Create combined fragment</i> for alt, opt or loop.": "<b>Visual Paradigm</b>-এ (online বা desktop): একটি Sequence Diagram তৈরি করুন, toolbar থেকে একটি Actor ও Lifeline যোগ করুন, তারপর অন্য lifeline-এ একটি message তৈরি করতে একটি lifeline-এর resource icon থেকে টানুন। ধরন বদলাতে একটি message-এ right-click করুন; কয়েকটি message select করে alt, opt বা loop-এর জন্য <i>Create combined fragment</i> বাছুন।",
@@ -193,8 +201,5 @@ I18N_BN_ADD({
 "an activation (execution) bar": "একটি activation (execution) bar",
 "a guard": "একটি guard",
 "a fragment": "একটি fragment",
-"It shows when the object is busy handling a message.": "এটি দেখায় কখন object একটি message সামলাতে ব্যস্ত।",
-"“The customer withdraws cash.” Simple — until someone asks: who checks the PIN, who knows the balance, and what happens if the machine runs out of notes halfway?": "“Customer টাকা তোলেন।” সহজ — যতক্ষণ না কেউ জিজ্ঞেস করে: PIN কে যাচাই করে, balance কে জানে, আর মাঝপথে মেশিনের নোট ফুরিয়ে গেলে কী হয়?",
-"Sequence diagrams answer that one message at a time, and every message becomes an operation some class must provide. Communication diagrams tell the same story as a network of objects.": "Sequence diagram একটি একটি বার্তা ধরে এর উত্তর দেয়, আর প্রতিটি বার্তা হয়ে যায় এমন একটি operation, যা কোনো class-কে দিতে হবে। Communication diagram একই গল্প বলে object-এর একটি নেটওয়ার্ক হিসেবে।",
-"Together they connect the user’s view (use cases) with the structure of the code (class diagrams).": "একসঙ্গে তারা ব্যবহারকারীর দৃষ্টিভঙ্গি (use case) আর কোডের কাঠামোকে (class diagram) জুড়ে দেয়।"
+"It shows when the object is busy handling a message.": "এটি দেখায় কখন object একটি message সামলাতে ব্যস্ত।"
 });

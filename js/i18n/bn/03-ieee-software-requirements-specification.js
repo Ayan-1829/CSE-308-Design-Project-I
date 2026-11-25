@@ -2,6 +2,9 @@
 I18N_BN_ADD({
 "Topic 3 of 9 · Lab IV · open-ended": "টপিক 9-এর 3 · Lab IV · open-ended",
 "Functional and non-functional requirements, what makes a requirement good, how requirements are gathered, and how to write an SRS with the IEEE template, priorities and traceability.": "Functional ও non-functional requirement, একটি requirement-কে কী ভালো করে, requirement কীভাবে সংগ্রহ করা হয়, এবং IEEE template, priority ও traceability দিয়ে কীভাবে SRS লিখতে হয়।",
+"A client asks for “a fast, user-friendly library system”. Five students build five completely different systems, and all five are sure they followed the brief.": "একজন client চান “একটি দ্রুত, ব্যবহারবান্ধব library system”। পাঁচজন ছাত্র পাঁচটি সম্পূর্ণ আলাদা system বানায়, আর পাঁচজনই নিশ্চিত যে তারা নির্দেশনা মেনেছে।",
+"Requirements turn wishes into sentences everyone reads the same way, and that a tester can check. A missing requirement found after release can cost many times more to fix than one found on paper.": "Requirement ইচ্ছাকে এমন বাক্যে বদলায়, যা সবাই একইভাবে পড়ে আর একজন tester যাচাই করতে পারে। release-এর পর ধরা পড়া একটি বাদ পড়া requirement ঠিক করতে কাগজে ধরা পড়ার চেয়ে বহুগুণ বেশি খরচ হতে পারে।",
+"In this lab you write the SRS for your own system, using the IEEE structure.": "এই ল্যাবে আপনি IEEE কাঠামো ব্যবহার করে নিজের system-এর SRS লিখবেন।",
 "Outline · Lab IV · open-ended": "রূপরেখা · Lab IV · open-ended",
 "Topics in this chapter": "এই অধ্যায়ের টপিক",
 "Requirements basics": "Requirement-এর মূল বিষয়",
@@ -123,7 +126,6 @@ I18N_BN_ADD({
 "<b>No “shall”: </b>Write each requirement as “The system shall …” so it reads as a binding statement.": "<b>“shall” নেই: </b>প্রতিটি requirement “The system shall …” হিসেবে লিখুন যাতে এটি একটি বাধ্যতামূলক বিবৃতি হিসেবে পড়া যায়।",
 "<b>Not measurable: </b>A quality requirement needs a number: a time, a percentage, a count, a size.": "<b>পরিমাপযোগ্য নয়: </b>একটি quality requirement-এর একটি সংখ্যা দরকার: একটি সময়, একটি শতাংশ, একটি গণনা, একটি আকার।",
 "<b>A better version:</b> The system shall allow a new transaction type to be added by changing configuration only, without changing source code.": "<b>একটি ভালো version:</b> System কেবল configuration বদলে, source code না বদলে, একটি নতুন লেনদেনের ধরন যোগ করতে দেবে।",
-"The examples are non-functional requirements as students often first write them. They show why vague words must be replaced by numbers.": "উদাহরণগুলো শিক্ষার্থীরা প্রথমবার যেভাবে non-functional requirement লেখে সেভাবে লেখা। এগুলো দেখায় কেন অস্পষ্ট শব্দকে সংখ্যা দিয়ে প্রতিস্থাপন করতে হবে।",
 "The requirements engineering process": "Requirements engineering প্রক্রিয়া",
 "<b>Elicitation</b>: find out what stakeholders need — interviews, questionnaires, observation, studying existing documents and forms, workshops, prototypes.": "<b>Elicitation</b>: stakeholder-দের কী দরকার তা জানা — সাক্ষাৎকার, প্রশ্নপত্র, পর্যবেক্ষণ, বিদ্যমান document ও form অধ্যয়ন, workshop, prototype।",
 "<b>Analysis</b>: remove conflicts and duplicates, find missing cases, set priorities.": "<b>Analysis</b>: বিরোধ ও পুনরাবৃত্তি দূর করা, অনুপস্থিত ক্ষেত্র খোঁজা, priority ঠিক করা।",
@@ -258,6 +260,7 @@ I18N_BN_ADD({
 "Example SRS · University Student Management System": "উদাহরণ SRS · University Student Management System",
 "Read it on screen, or use <b>Print / Save as PDF</b> on the page for a printable copy. Use it as a model for the structure and wording of your own SRS — your team’s requirements must come from your own system.": "স্ক্রিনে পড়ুন, অথবা ছাপানোর কপির জন্য পৃষ্ঠার <b>Print / Save as PDF</b> ব্যবহার করুন। আপনার নিজের SRS-এর কাঠামো ও ভাষার নমুনা হিসেবে এটি ব্যবহার করুন — আপনার দলের requirement অবশ্যই আপনার নিজের system থেকে আসতে হবে।",
 "Open the example SRS": "উদাহরণ SRS খুলুন",
+"The same system continues through the next topics: <a href=\"../example-sdlc.html\">SDLC model</a> · <a href=\"../example-dfd.html\">DFD</a> · <a href=\"../example-use-cases.html\">use cases</a> · <a href=\"../example-sequence.html\">sequence diagrams</a> · <a href=\"../example-class-diagram.html\">class diagram</a> · <a href=\"../example-wireframes.html\">wireframes</a>.": "একই system পরের topic-গুলোতেও চলতে থাকে: <a href=\"../example-sdlc.html\">SDLC model</a> · <a href=\"../example-dfd.html\">DFD</a> · <a href=\"../example-use-cases.html\">use case</a> · <a href=\"../example-sequence.html\">sequence diagram</a> · <a href=\"../example-class-diagram.html\">class diagram</a> · <a href=\"../example-wireframes.html\">wireframe</a>।",
 "Prioritising requirements": "Requirement-এর priority নির্ধারণ",
 "Not everything can be built first. Two common methods:": "সবকিছু প্রথমে তৈরি করা যায় না। দুটি প্রচলিত পদ্ধতি:",
 "<b>M</b>ust have": "<b>M</b>ust have (অবশ্যই থাকবে)",
@@ -366,9 +369,9 @@ I18N_BN_ADD({
 "The whole system as one process: everything inside the boundary is specified by this SRS.": "পুরো system একটি process হিসেবে: সীমানার ভেতরের সবকিছু এই SRS নির্দিষ্ট করে।",
 "Primary user: logs in, registers for courses, views results and pays tuition fees.": "প্রধান ব্যবহারকারী: log in করেন, কোর্সে নিবন্ধন করেন, ফলাফল দেখেন ও টিউশন ফি পরিশোধ করেন।",
 "Enters marks and grades for the sections they teach.": "নিজের পড়ানো section-গুলোর নম্বর ও grade দেন।",
-"Administrators: maintain courses, prerequisites and student records, and publish results.": "Administrator-রা: কোর্স, prerequisite ও শিক্ষার্থীর record রক্ষণাবেক্ষণ করেন এবং ফলাফল প্রকাশ করেন।",
+"Administrators: maintain courses, prerequisites, fee rates and student records, and publish results.": "Administrator-রা: কোর্স, prerequisite, ফি-র হার ও শিক্ষার্থীর রেকর্ড রক্ষণাবেক্ষণ করেন এবং ফলাফল প্রকাশ করেন।",
 "External system that charges a card or mobile wallet and confirms the payment.": "বাহ্যিক system যা card বা mobile wallet থেকে টাকা কেটে পেমেন্ট নিশ্চিত করে।",
-"External system that delivers notifications: password resets, enrollment and payment confirmations.": "বাহ্যিক system যা notification পৌঁছে দেয়: password reset, enrollment ও পেমেন্ট নিশ্চিতকরণ।",
+"External system that delivers notifications: password-reset links, payment confirmations and results notices.": "বাইরের system যা notification পৌঁছে দেয়: password reset link, payment-এর নিশ্চিতকরণ ও ফলাফলের নোটিশ।",
 "Requirements on how well the system works, or limits on it — its qualities — rather than what it does.": "System কতটা ভালোভাবে কাজ করে বা এর ওপর কী সীমাবদ্ধতা আছে — অর্থাৎ এর গুণাবলি — সেই requirement, system কী করে তা নয়।",
 "Requirements on how the delivered software behaves when it runs: ease of use, speed, memory, failures and platforms.": "চালু অবস্থায় হস্তান্তরিত software কেমন আচরণ করে তার requirement: ব্যবহারের সহজতা, গতি, memory, ব্যর্থতা ও platform।",
 "How easy the system is to learn and use. E.g. a new user withdraws cash in under 60 seconds without help.": "System শেখা ও ব্যবহার করা কতটা সহজ। যেমন একজন নতুন ব্যবহারকারী সাহায্য ছাড়াই 60 সেকেন্ডের কম সময়ে নগদ তোলেন।",
@@ -386,8 +389,5 @@ I18N_BN_ADD({
 "Keeps the system acceptable to its users and the public. E.g. customer data is never used for marketing without consent.": "System-কে ব্যবহারকারী ও জনসাধারণের কাছে গ্রহণযোগ্য রাখে। যেমন সম্মতি ছাড়া গ্রাহকের data কখনো marketing-এ ব্যবহার করা হয় না।",
 "Requirements that come from the law, so the system operates legally. They split into privacy and safety.": "আইন থেকে আসা requirement, যাতে system বৈধভাবে চলে। এগুলো privacy ও safety-তে ভাগ হয়।",
 "Personal data is protected as the law requires. E.g. a PIN is never stored or logged in clear text.": "আইন অনুযায়ী ব্যক্তিগত data সুরক্ষিত থাকে। যেমন PIN কখনো সাধারণ লেখায় সংরক্ষিত বা log হয় না।",
-"The system must not cause harm or loss. E.g. no account is debited if the cash is not dispensed.": "System কোনো ক্ষতি বা লোকসান ঘটাবে না। যেমন নগদ না দিলে কোনো account থেকে টাকা কাটা হয় না।",
-"A client asks for “a fast, user-friendly library system”. Five students build five completely different systems, and all five are sure they followed the brief.": "একজন client চান “একটি দ্রুত, ব্যবহারবান্ধব library system”। পাঁচজন ছাত্র পাঁচটি সম্পূর্ণ আলাদা system বানায়, আর পাঁচজনই নিশ্চিত যে তারা নির্দেশনা মেনেছে।",
-"Requirements turn wishes into sentences everyone reads the same way, and that a tester can check. A missing requirement found after release can cost many times more to fix than one found on paper.": "Requirement ইচ্ছাকে এমন বাক্যে বদলায়, যা সবাই একইভাবে পড়ে আর একজন tester যাচাই করতে পারে। release-এর পর ধরা পড়া একটি বাদ পড়া requirement ঠিক করতে কাগজে ধরা পড়ার চেয়ে বহুগুণ বেশি খরচ হতে পারে।",
-"In this lab you write the SRS for your own system, using the IEEE structure.": "এই ল্যাবে আপনি IEEE কাঠামো ব্যবহার করে নিজের system-এর SRS লিখবেন।"
+"The system must not cause harm or loss. E.g. no account is debited if the cash is not dispensed.": "System কোনো ক্ষতি বা লোকসান ঘটাবে না। যেমন নগদ না দিলে কোনো account থেকে টাকা কাটা হয় না।"
 });

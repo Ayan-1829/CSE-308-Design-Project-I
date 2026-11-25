@@ -522,7 +522,8 @@ svg.dg{display:block;width:100%;height:auto;margin:0 auto;overflow:visible}
 .dg-i{font-style:italic}
 .dg-u{text-decoration:underline}
 .dg-lbl{font-size:12px;fill:var(--ink-2);paint-order:stroke;stroke:var(--sheet);stroke-width:5px;stroke-linejoin:round}
-.dg-guard{font-family:var(--f-mono);fill:var(--accent-ink);font-weight:600}
+.dg-guard{font-family:var(--f-mono);fill:var(--accent-ink);font-weight:600;paint-order:stroke;stroke:var(--sheet);stroke-width:4px;stroke-linejoin:round}
+.dg-fragtab{fill:var(--sheet);stroke:none}
 .dg-acct{fill:var(--accent-ink)}
 .dg-badt{fill:var(--bad);font-weight:700}.dg-okt{fill:var(--ok);font-weight:700}
 .dg-box{fill:var(--sheet);stroke:var(--ink-3);stroke-width:1.4}
@@ -983,6 +984,20 @@ body.deck-page .slide :where(.yn,.g-wk,.rm-lab,.tl-err,.tex-log){font-size:var(-
 .doc-req-detail ol{margin:0;padding-left:20px}
 .srs-doc figure.fig{margin:14px 0}
 .doc-end{text-align:center;color:var(--ink-3);margin-top:34px}
+/* USMS example series: one document per topic, linked from every example page */
+.doc-series{max-width:980px;margin:0 auto 18px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--sheet-2)}
+.doc-series p{margin:0 0 8px;font-size:15px;color:var(--ink-2)}
+.doc-series ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.doc-series a{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border:1px solid var(--line);border-radius:999px;background:var(--sheet);font:600 14px var(--f-head);color:var(--ink);text-decoration:none}
+.doc-series a:hover{border-color:var(--ac)}
+.doc-series a[aria-current=page]{background:var(--ac);border-color:var(--ac);color:#fff}
+.doc-series .n{font:700 12px var(--f-mono);opacity:.7}
+.srs-doc table.mx td:not(:first-child),.srs-doc table.mx th:not(:first-child){text-align:center;white-space:nowrap}
+.srs-doc table.mx .tick{color:var(--ok);font-weight:700}
+.srs-doc table.mx tr.tot td{border-top:1.5px solid var(--ac);background:var(--ac-soft)}
+.srs-doc pre.pspec{font-size:14.5px;line-height:1.5;white-space:pre-wrap;padding:14px 16px}
+.srs-doc .panel{margin:12px 0}
+.usms-link{margin-top:10px}
 @media print{
   .site-header,.site-foot,.no-print,.skip{display:none!important}
   body,.page-simple{background:#fff!important;padding:0!important}

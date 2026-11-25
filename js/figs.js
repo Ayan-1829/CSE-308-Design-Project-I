@@ -104,14 +104,16 @@ FIGS['usms-context'] = () => {
   const k = [
     D.tip(C(380, 196, 82, '0\nStudent\nManagement\nSystem', { cls: 'dg-fill1' }), 'The whole system as one process: everything inside the boundary is specified by this SRS.'),
     ent(10, 171, 130, 'Student', 'Primary user: logs in, registers for courses, views results and pays tuition fees.'),
-    ent(60, 20, 140, 'Faculty member', 'Enters marks and grades for the sections they teach.'),
-    ent(560, 20, 190, 'Registrar office', 'Administrators: maintain courses, prerequisites and student records, and publish results.'),
+    ent(40, 20, 160, 'Faculty member', 'Enters marks and grades for the sections they teach.'),
+    ent(560, 20, 190, 'Registrar office', 'Administrators: maintain courses, prerequisites, fee rates and student records, and publish results.'),
     ent(560, 322, 190, 'Payment gateway', 'External system that charges a card or mobile wallet and confirms the payment.'),
-    ent(40, 322, 170, 'Email / SMS service', 'External system that delivers notifications: password resets, enrollment and payment confirmations.'),
+    ent(40, 322, 170, 'Email / SMS service', 'External system that delivers notifications: password-reset links, payment confirmations and results notices.'),
     L([[140, 186], [298, 186]], { end: 'arrow', label: 'login, course choice, payment', dy: -12 }),
     L([[298, 210], [140, 210]], { end: 'arrow', label: 'courses, results, receipts', dy: 14 }),
-    L([[200, 45], [250, 45], [326, 134]], { end: 'arrow', label: 'marks', at: .2, dy: -12 }),
-    L([[560, 45], [500, 45], [436, 134]], { end: 'arrow', label: 'courses, records, publish', at: .05, dx: -6, dy: -12, anchor: 'end' }),
+    L([[200, 40], [260, 40], [330, 132]], { end: 'arrow', label: 'login, marks', at: .08, dx: 6, dy: -12, anchor: 'start' }),
+    L([[318, 144], [240, 70], [150, 70]], { end: 'arrow', label: 'class lists', at: .62, dy: 14 }),
+    L([[560, 40], [500, 40], [430, 132]], { end: 'arrow', label: 'login, record changes, publish', at: .05, dx: -6, dy: -12, anchor: 'end' }),
+    L([[442, 144], [520, 70], [610, 70]], { end: 'arrow', label: 'records, reports', at: .62, dy: 14 }),
     L([[452, 236], [560, 336]], { end: 'arrow', label: 'payment request', dx: 6, anchor: 'start' }),
     L([[560, 360], [436, 252]], { end: 'arrow', label: 'payment status', dx: -6, anchor: 'end' }),
     L([[318, 248], [200, 322]], { end: 'arrow', label: 'notifications', dx: -6, anchor: 'end' })
@@ -614,4 +616,313 @@ FIGS['cc-wire'] = () => {
   btn(592, 294, 186, 'Add to calendar', false); btn(592, 340, 186, 'Done', true);
   k.push(L([[232, 200], [298, 200]], { end: 'arrow', cls: 'dg-acc' }), TX(265, 186, 'tap', 'dg-s dg-acct'), L([[512, 200], [578, 200]], { end: 'arrow', cls: 'dg-acc' }), TX(545, 186, 'tap', 'dg-s dg-acct'));
   return D.svg(810, 410, 'Mid-fidelity wireframes: the booking flow', k);
+};
+
+/* ---------- USMS example documents (topics 4–9): the University Student Management System of topic 3 ---------- */
+const USMS_ENT = (x, y, w, t, tip) => { const r = R(x, y, w, 50, t, { cls: 'dg-fill2', rx: 0 }); return tip ? D.tip(r, tip) : r; };
+const USMS_P = (x, y, t, tip) => { const c = C(x, y, 54, t, { cls: 'dg-fill1', tcls: 'dg-t2' }); return tip ? D.tip(c, tip) : c; };
+
+FIGS['usms-dfd1'] = () => {
+  const dup = (x, y, w, hh) => sv('path', { d: `M${x + w - 16} ${y + hh} L${x + w} ${y + hh - 16}`, class: 'dg-ln dg-strong' });
+  const k = [
+    USMS_ENT(70, 372, 130, 'Student'), USMS_ENT(900, 600, 150, 'Student'), dup(70, 372, 130, 50), dup(900, 600, 150, 50),
+    USMS_ENT(880, 30, 180, 'Registrar office'), USMS_ENT(930, 445, 160, 'Faculty member'),
+    USMS_ENT(560, 690, 180, 'Payment gateway'), R(20, 780, 880, 44, 'Email / SMS service', { cls: 'dg-fill2', rx: 0 }),
+    USMS_P(520, 110, '1.0\nAuthenticate\nuser', 'Checks IDs and passwords for every user class, locks an account after 5 failures and sends password-reset links (FR-01, FR-05–FR-07).'),
+    USMS_P(320, 400, '2.0\nManage\nenrollment', 'Lists open sections, checks prerequisites, seats, credit limit and clashes, and records enrollments and drops (FR-02, FR-03, FR-08–FR-12).'),
+    USMS_P(320, 620, '4.0\nHandle fee\npayment', 'Calculates the fee due, sends the payment request to the gateway and records confirmed payments (FR-18–FR-21).'),
+    USMS_P(820, 200, '5.0\nMaintain\nrecords', 'Registrar staff maintain student records, course offerings and fee rates; each change is logged (FR-22–FR-24, NFR-11).'),
+    USMS_P(820, 470, '3.0\nProcess\nresults', 'Faculty enter marks; grades, GPA and CGPA are calculated; results are published (FR-04, FR-13–FR-16).'),
+    D.store(460, 210, 180, 36, 'D1', 'Users'), D.store(460, 296, 180, 36, 'D2', 'Courses & sections'), D.store(460, 386, 180, 36, 'D4', 'Results'),
+    D.store(460, 470, 180, 36, 'D3', 'Enrollments'), D.store(460, 584, 180, 36, 'D5', 'Fees & payments')
+  ];
+  const f = (pts, label, o) => k.push(L(pts, Object.assign({ end: 'arrow', label }, o || {})));
+  /* 1.0 */
+  f([[130, 372], [130, 104], [466, 104]], 'login', { at: .8, dy: -11 });
+  f([[880, 45], [545, 45], [545, 59]], 'login', { at: .3, dy: -11 });
+  f([[1090, 470], [1104, 470], [1104, 12], [500, 12], [500, 58]], 'login', { at: .6, dy: -11 });
+  f([[505, 210], [505, 163]], 'password hash', { dx: -8, anchor: 'end' });
+  f([[535, 163], [535, 210]], 'lock status', { dx: 8, anchor: 'start' });
+  f([[467, 124], [40, 124], [40, 780]], 'reset link', { at: .5, dx: 8, anchor: 'start' });
+  /* 2.0 */
+  f([[200, 388], [266, 388]], 'course choice', { dy: -11, at: .5 });
+  f([[266, 412], [200, 412]], 'courses, status', { dy: 13, at: .5 });
+  f([[462, 326], [362, 366]], 'sections, seats', { at: .45, dy: -10, dx: -2, anchor: 'end' });
+  f([[460, 404], [374, 404]], 'passed courses', { dy: -10 });
+  f([[368, 425], [460, 478]], 'enrollment changes', { at: .55, dy: -8, dx: 4, anchor: 'start' });
+  f([[460, 496], [360, 437]], 'enrolled courses', { at: .4, dy: 12, dx: -4, anchor: 'end' });
+  /* 4.0 */
+  f([[100, 422], [100, 608], [266, 608]], 'payment', { at: .86, dy: -11 });
+  f([[266, 632], [150, 632], [150, 422]], 'receipt', { at: .2, dy: 13 });
+  f([[484, 506], [354, 578]], 'credits', { at: .45, dx: -4, dy: -8, anchor: 'end' });
+  f([[460, 594], [374, 610]], 'fee rates', { at: .5, dy: -11 });
+  f([[372, 634], [460, 612]], 'payment record', { at: .5, dy: 14 });
+  f([[360, 656], [560, 705]], 'payment request', { at: .55, dy: -12 });
+  f([[560, 725], [352, 666]], 'payment status', { at: .45, dy: 14 });
+  f([[320, 674], [320, 780]], 'payment confirmation', { at: .5, dx: 8, anchor: 'start' });
+  /* 5.0 */
+  f([[910, 80], [860, 162]], 'record changes', { at: .5, dx: -10, anchor: 'end' });
+  f([[874, 196], [960, 80]], 'records, reports', { at: .55, dx: 8, anchor: 'start' });
+  f([[766, 212], [640, 226]], 'student records', { at: .5, dy: -11 });
+  f([[773, 228], [640, 312]], 'offerings', { at: .5, dy: -8, dx: 4, anchor: 'start' });
+  f([[785, 242], [700, 300], [700, 602], [640, 602]], 'fee rates', { at: .8, dx: 6, anchor: 'start' });
+  /* 3.0 */
+  f([[930, 460], [874, 460]], 'marks', { dy: -11 });
+  f([[874, 482], [930, 482]], 'class lists', { dy: 13 });
+  f([[1000, 80], [1000, 380], [855, 428]], 'publish', { at: .3, dx: 8, anchor: 'start' });
+  f([[640, 488], [766, 478]], 'class list', { at: .3, dy: 13 });
+  f([[770, 450], [640, 400]], 'grades', { at: .55, dy: -9 });
+  f([[640, 414], [768, 462]], null);
+  f([[852, 514], [905, 600]], 'results, GPA', { at: .5, dx: -6, anchor: 'end' });
+  f([[820, 524], [820, 780]], 'results notice', { at: .6, dx: -8, anchor: 'end' });
+  return D.svg(1115, 830, 'Level 1 DFD of the University Student Management System', k, { scale: 1 });
+};
+
+/* Level 2: process 2.0 Manage enrollment opened up */
+FIGS['usms-dfd2'] = () => {
+  const P = (x, y, t, tip) => USMS_P(x, y, t, tip);
+  const k = [
+    USMS_ENT(20, 300, 140, 'Student'),
+    P(320, 120, '2.1\nList open\nsections', 'FR-02: shows each open section with code, title, credits, schedule and seats left.'),
+    P(320, 330, '2.2\nCheck\nprerequisites', 'FR-03 and BR-02: every prerequisite must have been passed with grade D or higher.'),
+    P(570, 330, '2.3\nCheck seats,\ncredits, clashes', 'FR-08 to FR-10 and BR-01: a free seat, at most 21 credits (15 on probation), no time clash.'),
+    P(820, 330, '2.4\nRecord or\nreject', 'Records the enrollment when every check passed (FR-12); otherwise explains which rule failed.'),
+    P(570, 560, '2.5\nDrop\ncourse', 'FR-11: drops a course before the drop deadline.'),
+    D.store(450, 196, 200, 36, 'D2', 'Courses & sections'), D.store(220, 450, 180, 36, 'D4', 'Results'), D.store(700, 450, 190, 36, 'D3', 'Enrollments')
+  ];
+  const f = (pts, label, o) => k.push(L(pts, Object.assign({ end: 'arrow', label }, o || {})));
+  f([[70, 300], [70, 110], [266, 110]], 'browse request', { at: .7, dy: -11 });
+  f([[266, 134], [110, 134], [110, 300]], 'course list', { at: .3, dy: 13 });
+  f([[460, 196], [365, 150]], 'open sections', { at: .45, dx: 8, dy: -8, anchor: 'start' });
+  f([[160, 330], [266, 330]], 'section choice', { dy: -11 });
+  f([[470, 232], [360, 292]], 'prerequisites', { at: .55, dx: -6, dy: 4, anchor: 'end' });
+  f([[310, 450], [310, 384]], 'passed courses', { dx: -8, anchor: 'end' });
+  f([[374, 330], [516, 330]], 'checked request', { dy: -11 });
+  f([[570, 232], [570, 276]], 'seats, schedule', { dx: 8, anchor: 'start' });
+  f([[720, 450], [604, 372]], 'enrolled courses', { at: .4, dx: -8, anchor: 'end' });
+  f([[624, 330], [766, 330]], 'check results', { dy: -11 });
+  f([[820, 384], [820, 450]], 'new enrollment', { dx: 8, anchor: 'start' });
+  f([[820, 276], [820, 40], [40, 40], [40, 300]], 'enrollment status', { at: .45, dy: -11 });
+  f([[90, 350], [90, 548], [516, 548]], 'drop request', { at: .8, dy: -11 });
+  f([[518, 574], [130, 574], [130, 350]], 'drop status', { at: .3, dy: 13 });
+  f([[740, 486], [616, 532]], 'enrolled courses', { at: .6, dx: -10, dy: 14, anchor: 'end' });
+  f([[624, 570], [780, 570], [780, 486]], 'dropped enrollment', { at: .4, dy: 13 });
+  return D.svg(920, 620, 'Level 2 DFD of process 2.0 Manage enrollment', k, { scale: 1.05 });
+};
+
+/* use case diagram */
+FIGS['usms-uc'] = () => {
+  const k = [R(250, 10, 500, 600, null, { cls: 'dg-fill3', rx: 2 }), TX(500, 30, 'University Student Management System', 'dg-t')];
+  k.push(D.actor(170, 120, 'Student'), D.actor(170, 330, 'Faculty\nmember'), D.actor(170, 450, 'Administrator'), D.actor(60, 520, 'User'));
+  k.push(D.actor(850, 220, 'Payment\ngateway'), D.actor(850, 420, 'Email / SMS\nservice'));
+  const uc = (x, y, t, o) => k.push(D.ellipse(x, y, (o && o.rx) || 88, (o && o.ry) || 25, t, Object.assign({ tcls: 'dg-t2' }, o || {})));
+  const A = 380;
+  [[70, 'UC-02 Browse\ncourses'], [135, 'UC-03 Enroll\nin a course'], [200, 'UC-04 Drop\na course'], [265, 'UC-07 View\nresults'], [330, 'UC-08 Pay\ntuition']].forEach(([y, t]) => { uc(A, y, t); k.push(L([[186, 160], [A - 88, y]])); });
+  uc(A, 405, 'UC-05 Enter\nmarks'); k.push(L([[186, 370], [A - 88, 405]]));
+  uc(A, 475, 'UC-06 Publish\nresults'); uc(A, 545, 'UC-09 Maintain\nrecords'); k.push(L([[186, 490], [A - 88, 475]]), L([[186, 490], [A - 88, 545]]));
+  uc(620, 70, 'Join waiting list', { rx: 82, ry: 22, cls: 'dg-fill2' });
+  uc(620, 160, 'Check\nprerequisites', { rx: 76, ry: 25, cls: 'dg-fill2' });
+  uc(620, 245, 'Download grade\nreport', { rx: 80, ry: 25, cls: 'dg-fill2' });
+  uc(610, 575, 'UC-01 Log in', { rx: 70, ry: 22 });
+  k.push(L([[538, 76], [462, 124]], { end: 'open', dash: true, label: '«extend»', at: .45, dx: 6, dy: -10, anchor: 'start', lcls: 'dg-s' }));
+  k.push(L([[468, 142], [544, 156]], { end: 'open', dash: true, label: '«include»', at: .5, dy: 14, lcls: 'dg-s' }));
+  k.push(L([[540, 250], [468, 262]], { end: 'open', dash: true, label: '«extend»', at: .5, dy: 14, lcls: 'dg-s' }));
+  k.push(L([[834, 262], [468, 328]]));
+  k.push(L([[834, 462], [468, 478]]), L([[834, 462], [468, 330]], { cls: 'dg-thin' }), L([[834, 462], [676, 566]]));
+  /* generalization: Student, Faculty member, Administrator are kinds of User */
+  [147, 357, 477].forEach((y) => k.push(L([[152, y], [100, y]])));
+  k.push(L([[100, 147], [100, 488], [72, 520]], { end: 'tri' }));
+  k.push(L([[76, 566], [540, 576]]));
+  return D.svg(940, 620, 'Use case diagram of the University Student Management System', k, { scale: 1.05 });
+};
+
+/* sequence: UC-03 Enroll in a course */
+const SEQ_USMS_ENROLL = {
+  w: 960, firstGap: 44, parts: [{ id: 'u', label: 'Student', actor: true, x: 50 }, { id: 's', label: ':EnrollmentScreen', x: 200, w: 150 }, { id: 'c', label: ':EnrollmentController', x: 395, w: 185 },
+    { id: 'st', label: 'st:Student', x: 590, w: 110 }, { id: 'sec', label: ':Section', x: 730, w: 100 }, { id: 'e', label: ':Enrollment', x: 880, w: 120 }],
+  items: [
+    { m: ['u', 's', 'select(sectionId)'] }, { m: ['s', 'c', 'enroll(sectionId)'] },
+    { m: ['c', 'sec', 'prerequisites()'] }, { m: ['sec', 'c', 'prereqs', 'reply'] },
+    { m: ['c', 'st', 'missing(prereqs)'] }, { m: ['st', 'c', 'missing', 'reply'] },
+    { m: ['c', 'sec', 'hasSeat()'] }, { m: ['sec', 'c', 'seatFree', 'reply'] },
+    { m: ['c', 'st', 'canTake(section)'] }, { m: ['st', 'c', 'ok', 'reply'] },
+    { frag: 'alt', guard: '[all checks pass]', x1: 20, x2: 950 },
+    { m: ['c', 'e', 'create(st, section)', 'create'] }, { m: ['c', 's', 'enrolled(totalCredits)', 'reply'] }, { m: ['s', 'u', 'showEnrolled(totalCredits)'] },
+    { els: '[a check failed]' }, { gap: 12 },
+    { m: ['c', 's', 'rejected(reasons)', 'reply'] }, { m: ['s', 'u', 'showError(reasons)'] },
+    { end: true }]
+};
+FIGS['usms-seq-enroll'] = () => seqDiagram(SEQ_USMS_ENROLL, null, 'Sequence diagram: enroll in a course');
+
+/* sequence: UC-08 Pay tuition */
+const SEQ_USMS_PAY = {
+  w: 1060, firstGap: 44, parts: [{ id: 'u', label: 'Student', actor: true, x: 50 }, { id: 's', label: ':FeeScreen', x: 185, w: 115 }, { id: 'c', label: ':PaymentController', x: 360, w: 170 },
+    { id: 'i', label: ':FeeInvoice', x: 530, w: 120 }, { id: 'p', label: ':Payment', x: 660, w: 105 }, { id: 'g', label: ':PaymentGateway', x: 830, w: 160 }, { id: 'n', label: ':Notifier', x: 990, w: 100 }],
+  items: [
+    { m: ['u', 's', 'pay()'] }, { m: ['s', 'c', 'startPayment(invoiceNo)'] },
+    { m: ['c', 'i', 'amountDue()'] }, { m: ['i', 'c', 'amount', 'reply'] },
+    { m: ['c', 'g', 'requestPayment(invoiceNo, amount)'] }, { m: ['g', 'c', 'paymentUrl', 'reply'] },
+    { m: ['c', 's', 'paymentUrl', 'reply'] }, { m: ['s', 'u', 'redirect(paymentUrl)'] },
+    { note: [560, 'The student pays on the gateway’s own page.', 330] },
+    { m: ['g', 'c', 'paymentStatus(invoiceNo, status)', 'async'] }, { m: ['c', 'c', 'verifySignature()', 'self'] },
+    { frag: 'alt', guard: '[status = success]', x1: 20, x2: 1050 },
+    { m: ['c', 'p', 'create(receiptNo, amount)', 'create'] }, { m: ['c', 'i', 'markPaid(receiptNo)'] }, { m: ['c', 'n', 'sendReceipt(student, receiptNo)', 'async'] }, { m: ['c', 's', 'showReceipt(receiptNo)'] },
+    { els: '[failed, or no status within 60 s]' }, { gap: 12 },
+    { m: ['c', 's', 'showRetry()'] },
+    { end: true }]
+};
+FIGS['usms-seq-pay'] = () => seqDiagram(SEQ_USMS_PAY, null, 'Sequence diagram: pay tuition online');
+
+/* communication diagram of the enrollment scenario (numbers match the sequence diagram) */
+FIGS['usms-comm'] = () => {
+  const k = [];
+  const node = (x, y, t, w) => k.push(R(x - w / 2, y - 20, w, 40, t, { cls: 'dg-fill1', rx: 3, tcls: 'dg-t dg-u' }));
+  k.push(D.actor(60, 120, 'Student'));
+  node(280, 160, ':EnrollmentScreen', 160); node(560, 160, ':EnrollmentController', 190); node(840, 60, 'st:Student', 120); node(840, 260, ':Section', 110); node(560, 330, ':Enrollment', 130);
+  k.push(L([[80, 160], [200, 160]]), L([[360, 160], [465, 160]]), L([[655, 148], [780, 72]]), L([[655, 172], [785, 248]]), L([[560, 180], [560, 310]]));
+  k.push(L([[110, 146], [165, 146]], { end: 'arrow' }), TX(84, 112, '1: select(sectionId)', 'dg-m', 'start'));
+  k.push(L([[165, 176], [110, 176]], { end: 'arrow' }), TX(120, 236, '13: showEnrolled(totalCredits)\n15: showError(reasons)', 'dg-m', 'start'));
+  k.push(L([[385, 146], [440, 146]], { end: 'arrow' }), TX(412, 126, '2: enroll(sectionId)', 'dg-m'));
+  k.push(L([[672, 112], [716, 86]], { end: 'arrow' }), TX(690, 50, '5: missing(prereqs)\n9: canTake(section)', 'dg-m', 'end'));
+  k.push(L([[672, 208], [716, 234]], { end: 'arrow' }), TX(690, 270, '3: prerequisites()\n7: hasSeat()', 'dg-m'));
+  k.push(L([[546, 220], [546, 270]], { end: 'arrow' }), TX(536, 245, '11: «create»', 'dg-m', 'end'));
+  return D.svg(920, 360, 'Communication diagram: enroll in a course', k);
+};
+
+/* class diagram (domain model) */
+FIGS['usms-class'] = () => {
+  const st = D.umlClass(40, 10, 220, { name: 'EnrollmentStatus', stereo: 'enumeration', attrs: ['ENROLLED', 'WAITLISTED', 'DROPPED', 'COMPLETED'], ops: [] });
+  const user = D.umlClass(330, 10, 330, { name: 'User', abstract: true, attrs: ['- userId : String', '- name : String', '- email : String', '- passwordHash : String', '- failedLogins : int'], ops: ['+ logIn(password : String) : boolean', '+ resetPassword() : void'] });
+  const log = D.umlClass(720, 10, 270, { name: 'AuditLogEntry', attrs: ['- time : DateTime', '- field : String', '- oldValue : String', '- newValue : String'], ops: [] });
+  const stu = D.umlClass(40, 250, 300, { name: 'Student', attrs: ['- program : String', '- onProbation : boolean'], ops: ['+ missing(prereqs : List) : List', '+ canTake(s : Section) : boolean', '+ creditsThisSemester() : int', '+ cgpa() : double'] });
+  const fac = D.umlClass(380, 250, 270, { name: 'FacultyMember', attrs: ['- department : String'], ops: ['+ enterMarks(s : Section) : void'] });
+  const adm = D.umlClass(690, 250, 300, { name: 'Administrator', attrs: ['- office : String'], ops: ['+ publishResults(t : Semester) : void', '+ updateRecord(s : Student) : void'] });
+  const enr = D.umlClass(40, 480, 280, { name: 'Enrollment', attrs: ['- status : EnrollmentStatus', '- marks : double [0..1]', '- grade : String [0..1]'], ops: ['+ assignGrade(marks : double) : void', '+ gradePoint() : double'] });
+  const sec = D.umlClass(400, 480, 265, { name: 'Section', attrs: ['- sectionNo : String', '- capacity : int', '- schedule : String'], ops: ['+ prerequisites() : List', '+ seatsLeft() : int', '+ hasSeat() : boolean', '+ clashesWith(o : Section) : boolean'] });
+  const crs = D.umlClass(735, 480, 235, { name: 'Course', attrs: ['- code : String', '- title : String', '- credits : int'], ops: ['+ prerequisites() : List'] });
+  const inv = D.umlClass(40, 720, 280, { name: 'FeeInvoice', attrs: ['- invoiceNo : String', '- amount : double', '- paid : boolean'], ops: ['+ amountDue() : double', '+ markPaid(receiptNo : String) : void'] });
+  const pay = D.umlClass(400, 720, 240, { name: 'Payment', attrs: ['- receiptNo : String', '- amount : double', '- method : String', '- paidAt : DateTime'], ops: [] });
+  const sem = D.umlClass(700, 720, 280, { name: 'Semester', attrs: ['- name : String', '- regOpens : Date', '- regCloses : Date', '- dropDeadline : Date'], ops: ['+ isRegistrationOpen() : boolean'] });
+  const m = (t, x, y, a) => TX(x, y, t, 'dg-m', a || 'start');
+  const k = [st, user, log, stu, fac, adm, enr, sec, crs, inv, pay, sem].map((c) => c.el);
+  const gy = 225;
+  k.push(L([[495, gy], user.bottom()], { end: 'tri' }), L([stu.top(), [190, gy], [840, gy], adm.top()]), L([fac.top(), [515, gy]]));
+  k.push(L([adm.top(.9), [adm.x + adm.w * .9, log.y + log.h]], { label: 'makes', dx: 8, anchor: 'start' }), m('1', 967, adm.y - 10), m('0..*', 967, log.y + log.h + 14));
+  k.push(L([stu.bottom(), enr.top()], { label: 'has', dx: 8, anchor: 'start' }), m('1', 196, stu.y + stu.h + 14), m('0..*', 196, enr.y - 10));
+  k.push(L([[320, 530], [400, 530]], { label: 'for', dy: -12 }), m('0..*', 324, 546), m('1', 396, 546, 'end'));
+  k.push(L([fac.bottom(), sec.top(.5)], { label: 'teaches', dx: 8, anchor: 'start' }), m('1', 521, fac.y + fac.h + 14), m('0..*', 521, sec.y - 10));
+  k.push(L([[665, 530], [735, 530]], { label: 'of', dy: -12 }), m('0..*', 669, 546), m('1', 731, 546, 'end'));
+  const cy1 = crs.y + 40, cy2 = crs.y + 90, cx = crs.x + crs.w;
+  k.push(L([[cx, cy1], [cx + 34, cy1], [cx + 34, cy2], [cx, cy2]], { label: 'requires', at: .5, dx: 6, anchor: 'start' }), m('0..*', cx + 4, cy1 - 8), m('0..*', cx + 4, cy2 + 16));
+  k.push(L([sec.bottom(.5), [520, 690], [840, 690], sem.top(.5)], { label: 'offered in', at: .55, dy: -11 }), m('0..*', 526, sec.y + sec.h + 14), m('1', 846, sem.y - 10));
+  k.push(L([stu.left(.8), [16, stu.y + stu.h * .8], [16, inv.y - 26], [110, inv.y - 26], [110, inv.y]], { label: 'billed', at: .84, dy: -11 }), m('1', 20, stu.y + stu.h * .8 - 8), m('0..*', 116, inv.y - 8));
+  k.push(L([[320, 770], [400, 770]], { start: 'dia' }), m('1', 324, 762), m('0..1', 396, 762, 'end'));
+  k.push(L([inv.bottom(.5), [190, 900], [840, 900], sem.bottom(.5)], { label: 'for', at: .5, dy: -11 }), m('0..*', 196, inv.y + inv.h + 14), m('1', 846, sem.y + sem.h + 14));
+  return D.svg(1070, 915, 'Class diagram of the University Student Management System', k, { scale: 1 });
+};
+
+/* design classes for online payment */
+FIGS['usms-class-pay'] = () => {
+  const ctl = D.umlClass(20, 30, 420, { name: 'PaymentController', attrs: ['- gateway : PaymentGateway'], ops: ['+ startPayment(invoiceNo : String) : String', '+ onStatus(invoiceNo : String, status : String) : void'] });
+  const pg = D.umlClass(540, 30, 440, { name: 'PaymentGateway', stereo: 'interface', attrs: [], ops: ['+ requestPayment(invoiceNo : String, amount : double) : String', '+ verify(signature : String) : boolean'] });
+  const ga = D.umlClass(540, 250, 440, { name: 'GatewayAdapter', attrs: ['- merchantId : String', '- apiKey : String'], ops: ['+ requestPayment(invoiceNo : String, amount : double) : String', '+ verify(signature : String) : boolean'] });
+  const inv = D.umlClass(20, 260, 300, { name: 'FeeInvoice', attrs: ['- invoiceNo : String', '- amount : double'], ops: ['+ amountDue() : double', '+ markPaid(receiptNo : String) : void'] });
+  const pay = D.umlClass(345, 260, 175, { name: 'Payment', attrs: ['- receiptNo : String', '- amount : double'], ops: [] });
+  const k = [ctl, pg, ga, inv, pay].map((c) => c.el);
+  k.push(L([ctl.right(.45), pg.left(.45)], { end: 'open', dash: true, label: '«use»', dy: -11 }));
+  k.push(L([ga.top(.5), pg.bottom(.5)], { end: 'tri', dash: true, label: 'realizes', dx: 8, anchor: 'start' }));
+  k.push(L([[170, ctl.y + ctl.h], [170, inv.y]], { end: 'open', label: 'pays', dx: 8, anchor: 'start' }));
+  k.push(L([[420, ctl.y + ctl.h], [432, pay.y]], { end: 'open', dash: true, label: '«create»', dx: 8, anchor: 'start' }));
+  return D.svg(1000, 400, 'Design classes for online payment', k, { scale: 1.05 });
+};
+
+/* SDLC: the incremental plan over the 11-week project */
+FIGS['usms-increments'] = () => {
+  const x0 = 200, wk = 64, X = (w) => x0 + (w - 1) * wk, k = [];
+  for (let w = 1; w <= 11; w++) { k.push(TX(X(w) + wk / 2, 22, 'W' + w, 'dg-s')); k.push(sv('path', { d: `M${X(w)} 34 V300`, class: 'dg-ln dg-thin dg-dash' })); }
+  k.push(sv('path', { d: `M${X(12)} 34 V300`, class: 'dg-ln dg-thin dg-dash' }));
+  const row = (y, label, sub) => k.push(TX(10, y, label, 'dg-t', 'start'), sub ? TX(10, y + 17, sub, 'dg-s', 'start') : null);
+  const bar = (w1, w2, y, t, cls) => k.push(R(X(w1) + 3, y - 15, (w2 - w1 + 1) * wk - 6, 30, t, { cls: cls || 'dg-fill1', rx: 6, tcls: 'dg-t2' }));
+  const seg = (w, y, parts) => parts.forEach((p, i) => k.push(R(X(w) + 3 + i * (2 * wk - 6) / parts.length, y - 15, (2 * wk - 6) / parts.length - 2, 30, p, { cls: i === parts.length - 1 ? 'dg-fill2' : 'dg-fill1', rx: 5, tcls: 'dg-s' })));
+  row(60, 'Planning & SRS', 'Labs I–IV'); bar(1, 5, 62, 'proposal · plan · SRS v1.0', 'dg-fill3');
+  row(110, 'Risk spike', 'payment gateway'); bar(6, 6, 112, 'sandbox', 'dg-fill2');
+  row(160, 'Increment 1', 'log in, enrollment'); seg(6, 162, ['design', 'build', 'test']);
+  row(210, 'Increment 2', 'marks, results, GPA'); seg(8, 212, ['design', 'build', 'test']);
+  row(260, 'Increment 3', 'fees, records'); seg(10, 262, ['design', 'build', 'test']);
+  const mile = (w, t) => { const x = X(w + 1), y = 300; k.push(sv('polygon', { points: `${x},${y - 9} ${x + 9},${y} ${x},${y + 9} ${x - 9},${y}`, class: 'dg-mk' }), TX(x, y + 22, t, 'dg-s')); };
+  mile(5, 'SRS baseline'); mile(7, 'Demo 1'); mile(9, 'Demo 2'); mile(11, 'Acceptance');
+  return D.svg(960, 340, 'Incremental plan for the USMS over 11 weeks', k, { scale: 1.05 });
+};
+
+/* wireframes */
+const USMS_WF = () => {
+  const k = [];
+  const ph = (x, title, dashed) => { k.push(sv('rect', { x, y: 40, width: 210, height: 390, rx: 22, class: 'dg-box' + (dashed ? ' dg-dash' : '') }), sv('rect', { x: x + 12, y: 54, width: 186, height: 14, rx: 3, class: 'dg-wf2' }), TX(x + 18, 90, title, 'dg-t', 'start')); };
+  const btn = (x, y, w, t, pri, hh) => k.push(sv('rect', { x, y, width: w, height: hh || 36, rx: 8, class: pri ? 'dg-mk' : 'dg-wf' }), TX(x + w / 2, y + (hh || 36) / 2, t, 'dg-t2' + (pri ? ' dg-onfill' : '')));
+  const txt = (x, y, t, c, a) => k.push(TX(x, y, t, c || 'dg-s', a || 'start'));
+  const box = (x, y, w, hh, cls) => k.push(sv('rect', { x, y, width: w, height: hh, rx: 8, class: cls || 'dg-wf' }));
+  return { k, ph, btn, txt, box };
+};
+FIGS['usms-wire-enroll'] = () => {
+  const { k, ph, btn, txt, box } = USMS_WF();
+  ph(20, 'Register'); txt(32, 112, 'Spring 2026 · 12 of 21 credits');
+  [['CSE 202 OOP Lab', 'Sec 3 · Sun 10:00', '4 seats left', 'Enroll', true], ['CSE 308 Design Proj. I', 'Sec 1 · Mon 14:00', 'Full', 'Wait list', false], ['CSE 309 Operating Sys.', 'Sec 2 · Tue 09:00', '12 seats left', 'Enroll', true]]
+    .forEach(([a, b, c, t, pri], i) => { const y = 126 + i * 84; box(32, y, 186, 74); txt(42, y + 17, a, 'dg-t2'); txt(42, y + 37, b); txt(42, y + 57, c); btn(146, y + 44, 64, t, pri, 24); });
+  ph(280, 'Confirm'); box(292, 110, 186, 120);
+  txt(304, 132, 'CSE 309', 'dg-t2'); txt(304, 152, 'Operating Systems', 'dg-t2'); txt(304, 176, 'Section 2 · Tue & Thu 09:00'); txt(304, 196, '3 credits · Room 412'); txt(304, 218, 'Credits after: 15 of 21', 'dg-t2');
+  btn(292, 334, 186, 'Confirm enrollment', true); btn(292, 380, 186, 'Cancel', false);
+  ph(540, 'Enrolled');
+  k.push(sv('circle', { cx: 645, cy: 160, r: 30, class: 'dg-mk' }), TX(645, 160, '✓', 'dg-t dg-onfill'));
+  txt(645, 214, 'CSE 309, Section 2', 'dg-t', 'middle'); txt(645, 238, 'Total: 15 of 21 credits', 'dg-s', 'middle'); txt(645, 260, 'Confirmation in “My courses”', 'dg-s', 'middle');
+  btn(552, 334, 186, 'View my courses', false); btn(552, 380, 186, 'Register another', true);
+  ph(800, 'Cannot enroll'); box(812, 110, 186, 128, 'dg-fill2');
+  k.push(sv('circle', { cx: 834, cy: 134, r: 11, class: 'dg-box' }), TX(834, 134, '!', 'dg-t'));
+  txt(852, 134, 'Prerequisite missing', 'dg-t2'); txt(824, 168, 'CSE 201 must be passed'); txt(824, 188, 'before CSE 202.'); txt(824, 216, 'Your record: CSE 201 not taken');
+  btn(812, 334, 186, 'Back to courses', true); btn(812, 380, 186, 'Ask the registrar', false);
+  k.push(L([[232, 232], [278, 232]], { end: 'arrow', cls: 'dg-acc' }), TX(255, 218, 'tap', 'dg-s dg-acct'));
+  k.push(L([[492, 352], [538, 352]], { end: 'arrow', cls: 'dg-acc' }), TX(515, 338, 'confirm', 'dg-s dg-acct'));
+  k.push(L([[385, 40], [385, 16], [905, 16], [905, 38]], { end: 'arrow', dash: true, cls: 'dg-acc', label: 'a check fails (here: CSE 202 without CSE 201)', at: .5, dy: -1, lcls: 'dg-acct' }));
+  return D.svg(1030, 440, 'Wireframes: enroll in a course', k, { scale: 1 });
+};
+FIGS['usms-wire-pay'] = () => {
+  const { k, ph, btn, txt, box } = USMS_WF();
+  ph(20, 'Fees · Spring 2026');
+  txt(32, 122, 'Tuition (15 credits)'); txt(218, 122, 'Tk 37,500', 'dg-s', 'end'); txt(32, 140, 'Tk 2,500 per credit', 'dg-s');
+  txt(32, 168, 'Semester fee'); txt(218, 168, 'Tk 6,000', 'dg-s', 'end');
+  k.push(sv('path', { d: 'M32 188 H218', class: 'dg-ln dg-thin' })); txt(32, 208, 'Total due', 'dg-t2'); txt(218, 208, 'Tk 43,500', 'dg-t2', 'end');
+  txt(32, 240, 'Due 31 Jan 2026'); btn(32, 334, 186, 'Pay Tk 43,500', true); btn(32, 380, 186, 'Download invoice', false);
+  ph(300, 'Payment gateway', true); txt(312, 112, 'Outside the USMS: the');
+  txt(312, 130, 'gateway’s own secure page');
+  box(312, 150, 186, 44); txt(324, 172, '○  Card', 'dg-t2'); box(312, 202, 186, 44); txt(324, 224, '●  Mobile banking', 'dg-t2');
+  txt(312, 270, 'Amount: Tk 43,500'); btn(312, 334, 186, 'Pay now', true); btn(312, 380, 186, 'Cancel', false);
+  ph(580, 'Receipt');
+  k.push(sv('circle', { cx: 685, cy: 150, r: 30, class: 'dg-mk' }), TX(685, 150, '✓', 'dg-t dg-onfill'));
+  txt(685, 204, 'Payment received', 'dg-t', 'middle'); txt(685, 228, 'Receipt USMS-R-26-01842', 'dg-s', 'middle'); txt(685, 250, 'Tk 43,500 · 14 Jan 2026', 'dg-s', 'middle'); txt(685, 272, 'A copy was emailed to you', 'dg-s', 'middle');
+  btn(592, 334, 186, 'Download receipt (PDF)', false); btn(592, 380, 186, 'Done', true);
+  k.push(L([[232, 352], [298, 352]], { end: 'arrow', cls: 'dg-acc' }), TX(265, 338, 'tap Pay', 'dg-s dg-acct'));
+  k.push(L([[512, 352], [578, 352]], { end: 'arrow', cls: 'dg-acc' }), TX(545, 330, 'gateway\nconfirms', 'dg-s dg-acct'));
+  return D.svg(810, 440, 'Wireframes: pay tuition online', k);
+};
+FIGS['usms-wire-marks'] = () => {
+  const k = [];
+  const txt = (x, y, t, c, a) => k.push(TX(x, y, t, c || 'dg-s', a || 'start'));
+  k.push(sv('rect', { x: 10, y: 10, width: 880, height: 440, rx: 10, class: 'dg-box' }), sv('rect', { x: 10, y: 10, width: 880, height: 34, rx: 10, class: 'dg-wf2' }));
+  [24, 42, 60].forEach((x) => k.push(sv('circle', { cx: x + 6, cy: 27, r: 5, class: 'dg-wf' })));
+  txt(90, 27, 'USMS · Faculty', 'dg-t2'); txt(870, 27, 'Dr. S. Karim  ·  Log out', 'dg-s', 'end');
+  txt(34, 76, 'Enter marks · CSE 202 Section 3 · Spring 2026', 'dg-t'); txt(34, 100, '38 students · submit by 20 Jun 2026 · grades follow the university scale (BR-05)');
+  const cols = [[34, 'Student ID'], [200, 'Name'], [470, 'Marks (0–100)'], [720, 'Grade']];
+  k.push(sv('rect', { x: 30, y: 116, width: 840, height: 30, class: 'dg-wf2' })); cols.forEach(([x, t]) => txt(x + 6, 131, t, 'dg-t2'));
+  const rows = [['0222310001', 'Nusrat Jahan', '78', 'A'], ['0222310002', 'Tanvir Ahmed', '64', 'B'], ['0222310003', 'Mim Akter', '105', '—'], ['0222310004', 'Rafiq Islam', '', '—'], ['0222310005', 'Sadia Hossain', '81', 'A+']];
+  rows.forEach(([id, n, mk, g], i) => {
+    const y = 150 + i * 44;
+    k.push(sv('path', { d: `M30 ${y + 40} H870`, class: 'dg-ln dg-thin' }));
+    txt(40, y + 20, id, 'dg-m'); txt(206, y + 20, n);
+    k.push(sv('rect', { x: 476, y: y + 6, width: 110, height: 28, rx: 5, class: mk === '105' ? 'dg-box dg-bad' : 'dg-wf' })); txt(486, y + 20, mk || 'empty', mk ? 'dg-t2' : 'dg-s');
+    txt(726, y + 20, g, 'dg-t2');
+    if (mk === '105') txt(596, y + 20, '0–100 only', 'dg-badt');
+  });
+  txt(34, 392, '1 error · 1 empty · saved 2 min ago', 'dg-s');
+  k.push(sv('rect', { x: 560, y: 378, width: 140, height: 36, rx: 8, class: 'dg-wf' }), TX(630, 396, 'Save draft', 'dg-t2'));
+  k.push(sv('rect', { x: 716, y: 378, width: 154, height: 36, rx: 8, class: 'dg-mk' }), TX(793, 396, 'Submit marks', 'dg-t2 dg-onfill'));
+  return D.svg(900, 460, 'Wireframe: faculty mark entry (desktop)', k, { scale: 1 });
 };
