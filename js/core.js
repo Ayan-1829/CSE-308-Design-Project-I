@@ -201,3 +201,124 @@ function consoleEl(label) {
   document.addEventListener('click', restore, false);
 })();
 /* steady:end */
+
+/* zoom:begin -- a zoom button on every figure and diagram image, opening it full screen */
+(function FIGZOOM() {
+  var SEL = 'figure.fig, .uml-out';
+  var ICON = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></svg>';
+  function media(box) { return box.querySelector('svg.dg') || box.querySelector('img'); }
+  function addButtons(root) {
+    (root || document).querySelectorAll(SEL).forEach(function (box) {
+      if (box.querySelector(':scope > .fz-btn') || !media(box) || box.closest('.fz-ov')) return;
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'fz-btn no-print'; b.innerHTML = ICON;
+      b.setAttribute('aria-label', 'Zoom in on this figure'); b.title = 'Zoom';
+      b.addEventListener('click', function (e) { e.stopPropagation(); open(box, b); });
+      box.classList.add('fz-has'); box.insertBefore(b, box.firstChild);
+    });
+  }
+  var ov, stage, inner, pct, item, natW, natH, fit, k, opener, pointers = {}, pinch = null, drag = null;
+  function build() {
+    ov = document.createElement('div'); ov.className = 'fz-ov'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true');
+    ov.innerHTML = '<div class="fz-bar"><span class="fz-cap"></span><span class="fz-tools">' +
+      '<button type="button" class="fz-t" data-z="out" aria-label="Zoom out">−</button><span class="fz-pct" aria-live="polite"></span>' +
+      '<button type="button" class="fz-t" data-z="in" aria-label="Zoom in">+</button><button type="button" class="fz-t fz-w" data-z="fit">Fit</button>' +
+      '<button type="button" class="fz-t" data-z="close" aria-label="Close">✕</button></span></div><div class="fz-stage"><div class="fz-inner"></div></div>';
+    document.body.appendChild(ov);
+    stage = ov.querySelector('.fz-stage'); inner = ov.querySelector('.fz-inner'); pct = ov.querySelector('.fz-pct');
+    ov.querySelector('.fz-tools').addEventListener('click', function (e) {
+      var z = e.target.closest('[data-z]'); if (!z) return; z = z.getAttribute('data-z');
+      if (z === 'close') close(); else if (z === 'fit') setK(fit); else zoomAt(z === 'in' ? 1.25 : 0.8);
+    });
+    stage.addEventListener('wheel', function (e) { if (!(e.ctrlKey || e.metaKey)) return; e.preventDefault(); zoomAt(e.deltaY < 0 ? 1.12 : 1 / 1.12, e.clientX, e.clientY); }, { passive: false });
+    stage.addEventListener('dblclick', function (e) { e.preventDefault(); if (k > fit * 1.05) setK(fit); else zoomAt(2, e.clientX, e.clientY); });
+    stage.addEventListener('pointerdown', function (e) {
+      pointers[e.pointerId] = { x: e.clientX, y: e.clientY };
+      var ids = Object.keys(pointers);
+      if (ids.length === 2) { var a = pointers[ids[0]], c = pointers[ids[1]]; pinch = { d: Math.hypot(a.x - c.x, a.y - c.y), k: k }; drag = null; }
+      else if (ids.length === 1) drag = { x: e.clientX, y: e.clientY, l: stage.scrollLeft, t: stage.scrollTop, moved: false, onBg: e.target === stage || e.target === inner };
+      try { stage.setPointerCapture(e.pointerId); } catch (x) { /* ignore */ }
+    });
+    stage.addEventListener('pointermove', function (e) {
+      if (!pointers[e.pointerId]) return;
+      pointers[e.pointerId] = { x: e.clientX, y: e.clientY };
+      var ids = Object.keys(pointers);
+      if (pinch && ids.length === 2) {
+        var a = pointers[ids[0]], c = pointers[ids[1]];
+        setK(pinch.k * Math.hypot(a.x - c.x, a.y - c.y) / (pinch.d || 1), (a.x + c.x) / 2, (a.y + c.y) / 2);
+      } else if (drag) {
+        var dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+        if (Math.abs(dx) + Math.abs(dy) > 4) { drag.moved = true; stage.classList.add('fz-drag'); }
+        stage.scrollLeft = drag.l - dx; stage.scrollTop = drag.t - dy;
+      }
+    });
+    function up(e) {
+      delete pointers[e.pointerId];
+      if (Object.keys(pointers).length < 2) pinch = null;
+      if (drag && !drag.moved && drag.onBg && e.type === 'pointerup') close();   /* a click on the dark area closes */
+      drag = null; stage.classList.remove('fz-drag');
+    }
+    stage.addEventListener('pointerup', up); stage.addEventListener('pointercancel', up);
+    window.addEventListener('keydown', function (e) {
+      if (!ov.classList.contains('on')) return;
+      var key = e.key;
+      if (key === 'Escape') close();
+      else if (key === '+' || key === '=') zoomAt(1.25);
+      else if (key === '-' || key === '_') zoomAt(0.8);
+      else if (key === '0') setK(fit);
+      else if (key === 'Tab') { var f = ov.querySelectorAll('button'); if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); } else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); } return; }
+      else if (key.indexOf('Arrow') === 0 || key === ' ' || key === 'PageUp' || key === 'PageDown' || key === 'Home' || key === 'End') { /* scroll the figure, not the slides */ }
+      else return;
+      e.stopPropagation(); if (key !== 'Tab' && key.indexOf('Arrow') !== 0) e.preventDefault();
+    }, true);
+    window.addEventListener('resize', function () { if (ov.classList.contains('on')) { var was = k / fit; measureFit(); setK(fit * was); } });
+  }
+  function measureFit() {
+    var w = stage.clientWidth - 82, hh = stage.clientHeight - 82;
+    fit = Math.min(w / natW, hh / natH);
+  }
+  function setK(nk, cx, cy) {
+    nk = Math.max(fit * 0.5, Math.min(nk, Math.max(fit * 8, 4)));
+    var r = stage.getBoundingClientRect();
+    var px = cx == null ? r.width / 2 : cx - r.left, py = cy == null ? r.height / 2 : cy - r.top;
+    var oldW = inner.offsetWidth || 1, oldH = inner.offsetHeight || 1;
+    var fx = (stage.scrollLeft + px - inner.offsetLeft) / oldW, fy = (stage.scrollTop + py - inner.offsetTop) / oldH;
+    k = nk;
+    item.style.width = Math.round(natW * k) + 'px'; item.style.height = Math.round(natH * k) + 'px';
+    stage.scrollLeft = inner.offsetLeft + fx * inner.offsetWidth - px; stage.scrollTop = inner.offsetTop + fy * inner.offsetHeight - py;
+    pct.textContent = Math.round(k / fit * 100) + '%';
+  }
+  function zoomAt(f, cx, cy) { setK(k * f, cx, cy); }
+  function open(box, btn) {
+    if (!ov) build();
+    var src = media(box); opener = btn;
+    if (src.tagName.toLowerCase() === 'svg') {
+      var vb = (src.getAttribute('viewBox') || '').split(/[\s,]+/).map(Number);
+      natW = vb[2] || src.getBoundingClientRect().width; natH = vb[3] || src.getBoundingClientRect().height;
+      item = src.cloneNode(true); item.removeAttribute('style'); item.classList.add('fz-item');
+    } else {
+      var r = src.getBoundingClientRect();
+      natW = src.naturalWidth || r.width; natH = src.naturalHeight || r.height;
+      if (natW < r.width * 1.5) { natH = natH * (r.width * 1.5 / natW); natW = r.width * 1.5; }   /* vector images: allow a bigger start */
+      item = src.cloneNode(true); item.removeAttribute('loading'); item.className = 'fz-item'; item.removeAttribute('style');
+    }
+    inner.replaceChildren(item);
+    inner.classList.toggle('fz-white', !!box.closest('.uml-out') || box.classList.contains('uml-out'));
+    var cap = box.querySelector('figcaption'), label = cap ? cap.textContent.trim() : (src.getAttribute('aria-label') || src.getAttribute('alt') || 'Figure');
+    ov.querySelector('.fz-cap').textContent = label; ov.setAttribute('aria-label', 'Zoomed figure: ' + label);
+    document.documentElement.classList.add('fz-lock');
+    ov.classList.add('on');
+    measureFit(); k = fit; setK(fit);
+    ov.querySelector('[data-z="close"]').focus();
+  }
+  function close() {
+    ov.classList.remove('on'); document.documentElement.classList.remove('fz-lock'); inner.replaceChildren();
+    pointers = {}; pinch = drag = null;
+    if (opener && opener.isConnected) opener.focus({ preventScroll: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { addButtons(); });
+  else addButtons();
+  window.addEventListener('load', function () { addButtons(); });
+  window.FIGZOOM = { add: addButtons };
+})();
+/* zoom:end */

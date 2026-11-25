@@ -1019,3 +1019,25 @@ table.doc.kv td:first-child{white-space:nowrap;font-weight:650;color:var(--ink-2
 @media (max-width:900px),(pointer:coarse) and (max-height:540px){
   .cols,.cols.wl,.cols.wf,.cols.fw,.codeout,.tex-split{grid-template-columns:1fr}
 }
+/* ---- zoom: a button on every figure opens it full screen (js/core.js, FIGZOOM) ---- */
+.fz-has{position:relative}
+.fz-btn{position:absolute;top:8px;right:8px;z-index:3;width:36px;height:36px;display:grid;place-items:center;padding:0;border-radius:10px;border:1px solid var(--line);background:var(--sheet);color:var(--ink-2);cursor:zoom-in;box-shadow:0 1px 4px rgba(0,0,0,.12);opacity:.85;transition:opacity .15s,border-color .15s}
+.fz-btn:hover,.fz-btn:focus-visible{opacity:1;border-color:var(--ac);color:var(--ink)}
+.fz-ov{position:fixed;inset:0;z-index:1000;display:none;flex-direction:column;background:rgba(10,20,16,.94)}
+.fz-ov.on{display:flex}
+html.fz-lock,html.fz-lock body{overflow:hidden}
+.fz-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--sheet);border-bottom:1px solid var(--line)}
+.fz-cap{flex:1;min-width:0;font:500 14px var(--f-head);color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fz-tools{display:flex;align-items:center;gap:6px;flex:none}
+.fz-t{min-width:38px;height:38px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--sheet-2);color:var(--ink);font:700 18px var(--f-head);cursor:pointer}
+.fz-t.fz-w{font-size:14px}
+.fz-t:hover,.fz-t:focus-visible{border-color:var(--ac)}
+.fz-pct{min-width:52px;text-align:center;font:600 13px var(--f-mono);color:var(--ink-2)}
+.fz-stage{flex:1;min-height:0;overflow:auto;display:flex;padding:24px;touch-action:none;cursor:grab}
+.fz-stage.fz-drag{cursor:grabbing}
+.fz-inner{margin:auto;background:var(--sheet);border-radius:10px;padding:16px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.fz-inner.fz-white{background:#fff}
+.fz-item{display:block;max-width:none!important;min-width:0!important;max-height:none!important;user-select:none;-webkit-user-drag:none}
+.dg-tipbox{z-index:1100}
+@media (max-width:640px){.fz-cap{display:none}.fz-bar{justify-content:flex-end;padding:8px}.fz-stage{padding:12px}.fz-btn{width:32px;height:32px}}
+@media print{.fz-btn,.fz-ov{display:none!important}}
