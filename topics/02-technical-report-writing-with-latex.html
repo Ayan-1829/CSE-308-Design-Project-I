@@ -81,7 +81,7 @@ Hello World! % your content goes here...
 Hello World! % your content goes here...
 \end{document}"></div><p class="co-note">The comment after <code>%</code> is not printed.</p></div></div><div class="cols "><div><ul><li>Commands start with a <b>backslash</b> <code>\</code>.</li><li>Every document starts with <code>\documentclass</code>; the <b>argument</b> in <code>{ }</code> says what kind: <code>article</code>, <code>report</code>, <code>book</code>, <code>beamer</code> (slides).</li><li><b>Optional arguments</b> go in <code>[ ]</code>: <code>\documentclass[12pt,twocolumn]{article}</code>.</li><li>A <code>%</code> starts a comment: LaTeX ignores the rest of the line.</li></ul></div><div><p>Everything before <code>\begin{document}</code> is the <b>preamble</b> (settings and packages). Everything between <code>\begin{document}</code> and <code>\end{document}</code> is the <b>body</b> that gets printed.</p><div class="scrollx"><table class="doc"><thead><tr><th>Class</th><th>Use it for</th></tr></thead><tbody><tr><td>article</td><td>lab reports, papers, short reports</td></tr><tr><td>report</td><td>long reports and theses with chapters</td></tr><tr><td>book</td><td>books</td></tr><tr><td>beamer</td><td>presentation slides</td></tr></tbody></table></div></div></div>
 </div></section>
-<section class="slide " data-title="Try it: typesetting text" aria-label="Try it: typesetting text" tabindex="-1"><div style="zoom:0.98;" class="slide-inner">
+<section class="slide " data-title="Try it: typesetting text" aria-label="Try it: typesetting text" tabindex="-1"><div style="zoom:0.96;" class="slide-inner">
 <p class="kicker">Interactive</p><h2>Try it: typesetting text</h2><div data-demo="tex-play" data-sample="hello"></div><p class="small muted">Words are separated by one or more spaces; paragraphs by one or more blank lines. Extra spaces in the source are collapsed in the output.</p>
 </div></section>
 <section class="slide " data-title="Special characters" aria-label="Special characters" tabindex="-1"><div class="slide-inner">
@@ -184,7 +184,7 @@ where $a$, $b$ and $c$ are \ldots
 <section class="slide " data-title="amsmath: operators and aligned equations (cont.)" aria-label="amsmath: operators and aligned equations (cont.)" tabindex="-1"><div class="slide-inner">
 <p class="kicker">Mathematics</p><h2>amsmath: operators and aligned equations (cont.)</h2><ul><li>LaTeX reads adjacent letters as variables multiplied together, so <code>min</code> would print in italics. amsmath defines upright operators such as <code>\min</code>, <code>\max</code>, <code>\log</code>.</li><li><code>\operatorname{Cov}</code> makes your own operator.</li><li>In <code>align*</code>, <code>&amp;</code> marks the alignment point (before the =) and <code>\\</code> starts a new line.</li><li><code>align</code> without the star numbers every line; add <code>\nonumber</code> to skip one.</li></ul>
 </div></section>
-<section class="slide " data-title="Try it: maths" aria-label="Try it: maths" tabindex="-1"><div style="zoom:0.97;" class="slide-inner">
+<section class="slide " data-title="Try it: maths" aria-label="Try it: maths" tabindex="-1"><div style="zoom:0.95;" class="slide-inner">
 <p class="kicker">Interactive</p><h2>Try it: maths</h2><div data-demo="tex-play" data-sample="math"></div><p class="small muted">Change a formula and watch the page. Try deleting a <code>$</code> or the <code>\usepackage{amsmath}</code> line to see the errors LaTeX gives.</p>
 </div></section>
 <section class="slide " data-title="Exercise 2: typeset the central limit theorem" aria-label="Exercise 2: typeset the central limit theorem" tabindex="-1"><div class="slide-inner">
@@ -567,7 +567,7 @@ def incmatrix(genl1, genl2):
 \end{lstlisting}
 \end{document}"></div><p class="co-note">The code is printed exactly as typed, in a typewriter font (Overleaf also colours the Python keywords).</p></div></div>
 </div></section>
-<section class="slide " data-title="Try it: figures, tables and algorithms" aria-label="Try it: figures, tables and algorithms" tabindex="-1"><div style="zoom:0.91;" class="slide-inner">
+<section class="slide " data-title="Try it: figures, tables and algorithms" aria-label="Try it: figures, tables and algorithms" tabindex="-1"><div style="zoom:0.90;" class="slide-inner">
 <p class="kicker">Interactive</p><h2>Try it: figures, tables and algorithms</h2><div data-demo="tex-play" data-sample="figtab" data-list="figtab,algo"></div><p class="small muted">Swap the two subfigures, add a row to the table or a <code>\State</code> to the algorithm, and watch the numbers and layout follow.</p>
 </div></section>
 <section class="slide " data-title="Citations with BibTeX and biblatex" aria-label="Citations with BibTeX and biblatex" tabindex="-1"><div class="slide-inner">
@@ -728,6 +728,6 @@ S_n = \frac{1}{n}\sum_{i=1}^{n} X_i
         data-endpoint="https://analytics-proxy.ayansarkar1829.workers.dev"
         data-project="CSE-308 Design Project"></script>
 <script src="../js/course-events.js"></script>
-<!-- help --><script src="../js/help-data.js"></script><script src="../js/help.js"></script><!-- /help -->
+<!-- help --><script src="../js/help-data.js"></script><script src="../js/help.js"></script><script src="../js/feedback.js"></script><script src="../js/progress.js"></script><!-- /help -->
 </body>
 </html>
